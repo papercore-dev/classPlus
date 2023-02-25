@@ -6,6 +6,6 @@ if (checkVariable($_GET["mode"])){
     header("Location: /static/landing?mode=".$_GET["mode"]);
 }
 else{
-    header("Location: /static/landing");
+    header("Location: /landing.php");
 }
 ?>
