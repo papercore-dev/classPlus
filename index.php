@@ -3,18 +3,17 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include 'ui/common/header.html.php';?>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap"
-    rel="stylesheet" />
-
 <style>
-    section {
-        font-family: "Poppins", sans-serif;
-    }
+    @font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+}
 </style>
-
 <!-- Page Main -->
 <main class="flex flex-col items-center justify-center mt-32">
     <header class="container">
@@ -26,12 +25,9 @@ include 'ui/common/header.html.php';?>
             <div class="flex items-center">
                 <!-- Logo -->
                 <a class="cursor-pointer" href="/">
-                    <h3 class="text-2xl font-medium text-blue-500">
-                        <img
-                            class="h-10 w-10"
-                            src="/resources/images/classplus_logo_site_landing.png"
-                            alt="Class+" />
-                    </h3>
+                <h3 class="text-2xl font-medium text-gray-500 justify-center my-auto font-bold flex ml-4">
+<img class="w-10 " src="/resources/images/classplus_logo_site_landing.png" alt="Class+">
+<span class="py-auto my-auto h-full hidden md:block">Class+</span></h3>
                 </a>
             </div>
 
@@ -174,17 +170,13 @@ _INTERVAL_VAL = setInterval(Type, 100);
                 </p>
             </div>
 
-            <div class="text-center lg:text-left">
-                <a
-                    class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-blue-500 rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
-                    >Key Features</a
-                >
+            <div class="text-center lg:text-left flex">
+<a class="block visible py-4 px-8 mb-4 text-xs font-semibold text-lg leading-none text-white bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">웹으로 시작하기</a><a class="visible py-4 px-4 mb-4 text-xs font-semibold text-lg leading-none text-black bg-white border-gray-200 border rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-gray-400 hover:shadow-lg">
+<img src="https://cdn.iconscout.com/icon/free/png-256/google-play-11-722703.png?f=webp&amp;w=512" class="h-4 inline-block" alt="google play"></a>
 
-                <a
-                    class="block visible py-4 px-8 text-xs font-semibold leading-none bg-white rounded border border-solid cursor-pointer sm:inline-block border-slate-200 text-slate-500"
-                    >How We Work?</a
-                >
-            </div>
+<a class="visible py-4 px-4 mb-4 text-xs font-semibold text-lg leading-none text-black bg-white border-gray-200 border rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-gray-400 hover:shadow-lg">
+<img src="https://cdn.iconscout.com/icon/free/png-256/app-store-2844886-2365235.png?f=webp&amp;w=512" class="h-4 inline-block" alt="App Store"></a>
+</div>
         </div>
 
         <!-- Column-2 -->
@@ -338,126 +330,19 @@ _INTERVAL_VAL = setInterval(Type, 100);
             </div>
         </div>
     </section>
-
-    <!-- Parallax Background -->
-    <section
-        class="flex flex-col w-full h-[500px] bg-cover bg-fixed bg-center flex justify-center items-center"
-        style="
-            background-image: url(https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?auto=format&fit=crop&w=880&q=80);
+    <section class="flex flex-col w-full h-[500px] bg-cover bg-fixed bg-center flex justify-center items-center" style="
+            background-image: url(https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?auto=format&amp;fit=crop&amp;w=880&amp;q=80);
         ">
-        <h1 class="text-white text-5xl font-semibold mt-20 mb-10">
-            This is Parallax Effect
-        </h1>
+<h1 class="text-white text-center text-5xl font-semibold mt-10 mb-10">반 소식부터 친구 소식까지.<br>
+우리 학교 소식부터 전국 학교 소식까지.<br>
+Class+를 이용해 알아보세요.</h1>
 
-        <span class="text-center font-bold my-20 text-white/90">
-            <a
-                href="https://egoistdeveloper.github.io/twcss-to-sass-playground/"
-                target="_blank"
-                class="text-white/90 hover:text-white">
-                Convetert to SASS
-            </a>
-
-            <hr class="my-4" />
-
-            <a
-                href="https://unsplash.com/photos/8Pm_A-OHJGg"
-                target="_blank"
-                class="text-white/90 hover:text-white">
-                Image Source
-            </a>
-
-            <hr class="my-4" />
-
-            <p>
-                <a
-                    href="https://github.com/EgoistDeveloper/my-tailwind-components/blob/main/src/templates/parallax-landing-page.html"
-                    target="_blank"
-                    class="text-white/90 hover:text-white">
-                    Source Code
-                </a>
-                |
-                <a
-                    href="https://egoistdeveloper.github.io/my-tailwind-components/./src/templates/parallax-landing-page.html"
-                    target="_blank"
-                    class="text-white/90 hover:text-white">
-                    Full Preview
-                </a>
-            </p>
-        </span>
-    </section>
-
+</section>
     <!-- Content -->
     <section class="p-20 space-y-8">
-        <h1 class="text-4xl text-center my-20">Tempor sit labore nostrud</h1>
+        <h1 class="text-4xl text-center my-20"></h1>
 
         <p>
-            Exercitation non Lorem exercitation tempor amet ad esse velit. Anim
-            deserunt id nulla quis ex magna culpa exercitation. Mollit consequat
-            enim eiusmod cupidatat commodo eiusmod nulla. Id quis amet incididunt
-            cillum dolore consectetur nulla incididunt laborum excepteur
-            consectetur consectetur sunt tempor. Minim fugiat sint sunt ad elit
-            laboris est sit est laboris labore do velit. Cillum aliquip pariatur
-            deserunt eiusmod. Consequat irure nulla adipisicing deserunt culpa.
-            Veniam enim deserunt sint consequat labore. Enim ullamco ea aute duis
-            et nostrud voluptate fugiat consectetur et velit cillum anim dolore.
-            In exercitation proident proident nostrud voluptate. Fugiat elit esse
-            labore pariatur ex. Ex labore esse voluptate nisi in. Ad anim deserunt
-            reprehenderit est. Aliquip pariatur nulla dolor amet quis aliqua sit
-            nisi officia enim velit. Ad enim eu dolor quis ipsum. Nulla amet
-            consectetur adipisicing ullamco qui tempor dolor excepteur dolore anim
-            pariatur quis laboris consequat. Consectetur ullamco consectetur minim
-            eiusmod quis veniam esse consectetur anim nostrud est pariatur
-            laborum. Mollit tempor minim amet esse. Lorem officia consequat
-            eiusmod sunt. Proident occaecat velit et consequat irure est cupidatat
-            tempor ullamco. Aliquip est pariatur ea ut qui ad sit dolor laboris
-            adipisicing officia eiusmod sit. Proident Lorem ex cillum sint
-            cupidatat amet nulla veniam laborum velit pariatur. Fugiat excepteur
-            culpa sunt est anim sunt. Ea voluptate non do proident sunt ad cillum
-            enim esse.
-        </p>
-
-        <p>
-            Incididunt eu pariatur laborum reprehenderit duis ex cillum fugiat.
-            Occaecat tempor commodo officia esse reprehenderit commodo. Irure nisi
-            culpa anim velit esse do esse veniam dolore fugiat. Non anim elit ad
-            ad esse veniam dolore labore consectetur nulla dolor occaecat quis
-            tempor. Ad do exercitation cillum duis consequat. Ea anim aute elit
-            velit duis quis. Anim sint ut occaecat officia id exercitation ea
-            incididunt exercitation sint ex. Reprehenderit ut qui eiusmod
-            cupidatat incididunt ad reprehenderit culpa tempor quis. Elit eu dolor
-            anim tempor eu fugiat voluptate dolor aliqua sint ex proident ullamco.
-            Labore deserunt velit quis cupidatat aliquip elit do labore ut.
-            Laborum dolore incididunt officia esse reprehenderit pariatur ullamco
-            consectetur tempor officia. Dolor culpa irure enim aute ex non veniam
-            eiusmod ipsum elit est sit mollit dolor. Est ad anim pariatur
-            consequat ad sit nisi.
-        </p>
-
-        <p>
-            Ipsum ea ad fugiat incididunt ea sit laborum cupidatat in ullamco
-            ullamco fugiat et id. Sit commodo enim enim veniam do. Ad id ad tempor
-            deserunt cupidatat reprehenderit ullamco officia excepteur culpa.
-            Officia amet in do voluptate exercitation pariatur officia et sit.
-            Adipisicing deserunt do aliquip ad id elit sint voluptate sit anim
-            nulla pariatur dolore. Lorem do commodo aute veniam deserunt magna
-            commodo cillum magna veniam. Ea amet nostrud commodo nisi adipisicing
-            cillum commodo. Nostrud aliquip cupidatat veniam culpa aute officia
-            commodo velit. Laborum quis aute nulla amet officia esse proident sunt
-            irure dolor fugiat incididunt occaecat. Commodo esse eiusmod fugiat eu
-            enim nisi sit id ut adipisicing. Enim nisi mollit ea aliqua nisi qui
-            ullamco eu velit et ullamco. Magna eiusmod eiusmod culpa proident
-            minim laboris fugiat enim laborum quis mollit minim do nisi. Elit
-            irure incididunt duis ullamco exercitation nulla fugiat. Eu ullamco
-            aliquip aute consectetur excepteur consequat. Non nostrud officia sint
-            enim et ad sunt amet pariatur deserunt enim reprehenderit. Aute Lorem
-            adipisicing laborum labore labore tempor officia officia reprehenderit
-            incididunt enim officia laborum. Proident eu irure occaecat ipsum elit
-            elit anim eu aute commodo ullamco reprehenderit incididunt elit.
-            Mollit voluptate eiusmod ullamco fugiat ex enim in fugiat et
-            consectetur duis do. Et aliqua ad labore labore ea ipsum nostrud
-            veniam et reprehenderit. Sint ad sit voluptate consequat cillum do
-            fugiat Lorem. Pariatur ad ad reprehenderit cupidatat nulla ipsum
-            voluptate. Dolore pariatur ea laboris est excepteur.
         </p>
     </section>
 </main>
@@ -469,164 +354,34 @@ _INTERVAL_VAL = setInterval(Type, 100);
         <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
             <!-- Col Title -->
             <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Getting Started
+                각종 법령 사항들
             </div>
 
             <!-- Links -->
             <a
                 href="#"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Installation
+                이용 약관
             </a>
             <a
                 href="#"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Release Notes
+                개인정보처리방침
             </a>
             <a
                 href="#"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Upgrade Guide
+                청소년 보호정책
             </a>
             <a
                 href="#"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Using with Preprocessors
+                기본 커뮤니티 운영방침
             </a>
             <a
                 href="#"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Optimizing for Production
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Browser Support
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                IntelliSense
-            </a>
-        </div>
-
-        <!-- Col-2 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Core Concepts
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Utility-First
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Responsive Design
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Hover, Focus, & Other States
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Dark Mode
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Adding Base Styles
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Extracting Components
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Adding New Utilities
-            </a>
-        </div>
-
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Customization
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuration
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Theme Configuration
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Breakpoints
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Colors
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Spacing
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuring Variants
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Plugins
-            </a>
-        </div>
-
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Community
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                GitHub
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Discord
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Twitter
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                YouTube
+                사업자 정보
             </a>
         </div>
     </div>
@@ -635,26 +390,7 @@ _INTERVAL_VAL = setInterval(Type, 100);
     <div class="pt-2">
         <div
             class="flex pb-5 px-3 m-auto pt-5 border-t border-gray-500 text-gray-400 text-sm flex-col md:flex-row max-w-6xl">
-            <div class="mt-2">© Copyright 1998-year. All Rights Reserved.</div>
-
-            <!-- Required Unicons (if you want) -->
-            <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-facebook-f"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-twitter-alt"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-youtube"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-linkedin"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-instagram"></i>
-                </a>
-            </div>
+            <div class="mt-2">© 클래스+</div>
         </div>
     </div>
 </footer>

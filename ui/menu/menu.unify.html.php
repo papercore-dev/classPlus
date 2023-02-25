@@ -42,3 +42,13 @@ include '../../security.php';?>
     }
   }
 </script>
+<style>
+
+*{
+  font-family: 'Pretendard-Regular', sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+.font-semibold .font-bold .font-black{
+font-family: 'Pretendard-Bold', sans-serif;
+}
+</style>

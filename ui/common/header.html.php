@@ -53,13 +53,6 @@ include './../../database/adapter_db.php';
   font-family: Tossface;
 }
 
-*{
-  font-family: 'Pretendard-Regular', sans-serif;
--webkit-font-smoothing: antialiased;
-}
-.font-semibold .font-bold .font-black{
-font-family: 'Pretendard-Bold', sans-serif!important;
-}
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
