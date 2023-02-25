@@ -4,4 +4,5 @@ if (isset($load)!==true){
 }
 else{
 }
+define("ROOT", __DIR__ ."/");
 ?>
