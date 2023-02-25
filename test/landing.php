@@ -101,7 +101,8 @@ _INTERVAL_VAL = setInterval(Type, 100);
             </div>
 
             <div class="text-center lg:text-left flex">
-<a class="block visible py-4 px-8 mb-4 text-xs font-semibold text-lg leading-none text-white bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">웹으로 시작하기</a><a class="visible py-4 px-4 mb-4 text-xs font-semibold text-lg leading-none text-black bg-white border-gray-200 border rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-gray-400 hover:shadow-lg">
+<a href="/app.php" class="block visible py-4 px-8 mb-4 text-xs font-semibold text-lg leading-none text-white bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">웹으로 시작하기</a>
+<a class="visible py-4 px-4 mb-4 text-xs font-semibold text-lg leading-none text-black bg-white border-gray-200 border rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-gray-400 hover:shadow-lg">
 <img src="https://cdn.iconscout.com/icon/free/png-256/google-play-11-722703.png?f=webp&amp;w=512" class="h-4 inline-block" alt="google play"></a>
 
 <a class="visible py-4 px-4 mb-4 text-xs font-semibold text-lg leading-none text-black bg-white border-gray-200 border rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-gray-400 hover:shadow-lg">

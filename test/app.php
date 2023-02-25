@@ -2,34 +2,27 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include 'ui/common/header.html.php';?>
-<?php
+include 'ui/common/header.html.php';
+
+include 'functions/checkAccount.php';
+requireSignin("/app.php");
+
 include 'ui/menu/menu.nt.html.php';
 ?>
 <div class="swiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-        <div class="h-1/3 m-4 p-4 bg-white border rounded-xl">
-            <span class="tossface text-2xl">💺</span><br>
-            <h2 class="font-bold text-2xl">테스트테스트테스트테스트</h2>
-            <p class="text-gray-700">테스트중입니다</p>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-2">자세히 알아보기</button>
+    <div class="h-48 m-4 p-4 bg-cover border rounded-xl" style=" background-image: url(https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?auto=format&amp;fit=crop&amp;w=880&amp;q=80); ">
 </div>
     </div>
     <div class="swiper-slide">
-        <div class="h-1/3 m-4 p-4 bg-white border rounded-xl">
+        <div class="h-48 m-4 p-4 bg-white border rounded-xl">
             <span class="tossface text-2xl">💺</span><br>
             <h2 class="font-bold text-2xl">테스트테스트테스트테스트</h2>
             <p class="text-gray-700">테스트중입니다</p>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-2">자세히 알아보기</button>
-</div>
-    </div>
-    <div class="swiper-slide">
-        <div class="h-1/3 m-4 p-4 bg-white border rounded-xl">
-            <span class="tossface text-2xl">💺</span><br>
-            <h2 class="font-bold text-2xl">테스트테스트테스트테스트</h2>
-            <p class="text-gray-700">테스트중입니다</p>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mt-2">자세히 알아보기</button>
+            <a class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
+              웹으로 시작하기
+            </a>
 </div>
     </div>
   </div>
