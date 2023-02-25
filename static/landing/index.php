@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+chdir(dirname(__FILE__));
 include '../../ui/common/header.html.php';
 include '../../ui/menu/menu.static.html.php';
 ?>
