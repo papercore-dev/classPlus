@@ -20,107 +20,66 @@ include 'ui/common/header.html.php';?>
     <header class="container">
         <!-- Navbar -->
         <nav
-            class="flex justify-between md:justify-around py-4 bg-white/80 backdrop-blur-md shadow-md w-full px-10 fixed top-0 left-0 right-0 z-10 px-8 md:px-3">
+            class="flex justify-between md:justify-around py-4 bg-white shadow-md w-full px-10 fixed top-0 left-0 right-0 z-10 px-8 md:px-3"
+            >
             <!-- Logo Container -->
             <div class="flex items-center">
                 <!-- Logo -->
-                <a class="cursor-pointer">
+                <a class="cursor-pointer" href="/">
                     <h3 class="text-2xl font-medium text-blue-500">
                         <img
                             class="h-10"
-                            src="https://stackoverflow.design/assets/img/logos/so/logo-stackoverflow.svg"
-                            alt="Store Logo" />
+                            src="/resources/images/classplus_logo_site_landing.png"
+                            alt="Class+" />
                     </h3>
                 </a>
             </div>
 
             <!-- Links Section -->
             <div
-                class="items-center md:space-x-8 justify-center justify-items-start md:justify-items-center md:flex md:pt-2 w-full left-0 top-16 px-5 md:px-10 py-3 md:py-0 border-t md:border-t-0">
+                class="hidden md:block items-center md:space-x-8 justify-center justify-items-start md:justify-items-center md:flex md:pt-2 w-full left-0 top-16 px-5 md:px-10 py-3 md:py-0 border-t md:border-t-0">
                 <a
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Home
-                </a>
-
-                <a
-                    class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
-                    Themes
+                    소개
                 </a>
 
                 <a
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Developers
+                    요금 안내
                 </a>
 
                 <a
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Pricing
+                    공지사항
                 </a>
 
-                <a
-                    class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Blog
-                </a>
-
-                <a
-                    class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    About Us
-                </a>
             </div>
 
             <!-- Auth Links -->
-            <div class="flex items-center space-x-5 hidden md:flex">
+            <div class="flex items-center space-x-5">
                 <!-- Register -->
                 <a
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    <svg
-                        class="fill-current h-5 w-5 mr-2 mt-0.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        version="1.1"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M12 0L11.34 .03L15.15 3.84L16.5 2.5C19.75 4.07 22.09 7.24 22.45 11H23.95C23.44 4.84 18.29 0 12 0M12 4C10.07 4 8.5 5.57 8.5 7.5C8.5 9.43 10.07 11 12 11C13.93 11 15.5 9.43 15.5 7.5C15.5 5.57 13.93 4 12 4M12 6C12.83 6 13.5 6.67 13.5 7.5C13.5 8.33 12.83 9 12 9C11.17 9 10.5 8.33 10.5 7.5C10.5 6.67 11.17 6 12 6M.05 13C.56 19.16 5.71 24 12 24L12.66 23.97L8.85 20.16L7.5 21.5C4.25 19.94 1.91 16.76 1.55 13H.05M12 13C8.13 13 5 14.57 5 16.5V18H19V16.5C19 14.57 15.87 13 12 13M12 15C14.11 15 15.61 15.53 16.39 16H7.61C8.39 15.53 9.89 15 12 15Z" />
-                    </svg>
 
-                    Register
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="fill-current h-5 w-5 mr-2 mt-0.5">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+</svg>
+
+                    콘솔
                 </a>
 
                 <!-- Login -->
                 <a
                     class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
-                    <svg
-                        class="fill-current h-5 w-5 mr-2 mt-0.5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        version="1.1"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="fill-current h-5 w-5 mr-2 mt-0.5">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+</svg>
 
-                    Login
+                    로그인
                 </a>
             </div>
-
-            <!-- Hamberger Menu -->
-            <button
-                class="w-10 h-10 md:hidden justify-self-end rounded-full hover:bg-gray-100">
-                <svg
-                    class="mx-auto"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    version="1.1"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24">
-                    <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
-                </svg>
-            </button>
         </nav>
     </header>
 
@@ -132,18 +91,90 @@ include 'ui/common/header.html.php';?>
             <div
                 class="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
                 <h2 class="mb-4 text-3xl font-bold text-left lg:text-5xl">
-                    Exclusive Agency For
+                    학급 생활에
 
-                    <span class="text-5xl text-blue-500 leading-relaxeds"
-                        >Technology
-                    </span>
-
-                    Provide Solution
+                    <div id="container" class="text-5xl text-blue-500 leading-relaxeds">
+	                <div id="text" class="inline-block"></div><div id="cursor" class="inline-block animate-pulse"></div>
+                    </div>
                 </h2>
+                <script>
+                    // List of sentences
+var _CONTENT = [ 
+	"재미를 플러스",
+    "자율성을 플러스",
+    "친구를 플러스",
+    "편리함을 플러스",
+    "즐거움을 플러스"
+];
+
+// Current sentence being processed
+var _PART = 0;
+
+// Character number of the current sentence being processed 
+var _PART_INDEX = 0;
+
+// Holds the handle returned from setInterval
+var _INTERVAL_VAL;
+
+// Element that holds the text
+var _ELEMENT = document.querySelector("#text");
+
+// Cursor element 
+var _CURSOR = document.querySelector("#cursor");
+
+// Implements typing effect
+function Type() { 
+	// Get substring with 1 characater added
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX++;
+
+	// If full sentence has been displayed then start to delete the sentence after some time
+	if(text === _CONTENT[_PART]) {
+		// Hide the cursor
+		_CURSOR.style.display = 'none';
+
+		clearInterval(_INTERVAL_VAL);
+		setTimeout(function() {
+			_INTERVAL_VAL = setInterval(Delete, 50);
+		}, 1000);
+	}
+}
+
+// Implements deleting effect
+function Delete() {
+	// Get substring with 1 characater deleted
+	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+	_ELEMENT.innerHTML = text;
+	_PART_INDEX--;
+
+	// If sentence has been deleted then start to display the next sentence
+	if(text === '') {
+		clearInterval(_INTERVAL_VAL);
+
+		// If current sentence was last then display the first one, else move to the next
+		if(_PART == (_CONTENT.length - 1))
+			_PART = 0;
+		else
+			_PART++;
+		
+		_PART_INDEX = 0;
+
+		// Start to display the next sentence after some time
+		setTimeout(function() {
+			_CURSOR.style.display = 'inline-block';
+			_INTERVAL_VAL = setInterval(Type, 100);
+		}, 200);
+	}
+}
+
+// Start the typing effect on load
+_INTERVAL_VAL = setInterval(Type, 100);
+</script>
 
                 <p
-                    class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-slate-400">
-                    Helping you maximize operations management with digitization
+                    class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
+                   학교와 학급회장이 함께 운영하는 커뮤니티를 넘어, 학교생활에 유용한 정보를 제공하는 클래스+입니다.
                 </p>
             </div>
 
