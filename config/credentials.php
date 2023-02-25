@@ -3,9 +3,9 @@ chdir(dirname(__FILE__));
 include '../security.php';
 
 $DB_host = "127.0.0.1";
-$DB_user = "root";
-$DB_pass = "leegyubin!Lee06";
-$DB_name = "InjeonDB";
+$DB_user = "classplus";
+$DB_pass = "DCB[O]z/lNmjFq**";
+$DB_name = "classplus";
 
 #oAuth 어댑터
 $oAuth_client_discord = "1028652743440736317";
