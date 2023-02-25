@@ -28,7 +28,7 @@ include 'ui/common/header.html.php';?>
                 <a class="cursor-pointer" href="/">
                     <h3 class="text-2xl font-medium text-blue-500">
                         <img
-                            class="h-10"
+                            class="h-10 w-10"
                             src="/resources/images/classplus_logo_site_landing.png"
                             alt="Class+" />
                     </h3>
@@ -62,22 +62,18 @@ include 'ui/common/header.html.php';?>
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="fill-current h-5 w-5 mr-2 mt-0.5">
+                    class="h-5 w-5 mr-2 mt-0.5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
 </svg>
-
-                    콘솔
                 </a>
 
                 <!-- Login -->
                 <a
                     class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="fill-current h-5 w-5 mr-2 mt-0.5">
+                    class="h-5 w-5 mr-2 mt-0.5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
 </svg>
-
-                    로그인
                 </a>
             </div>
         </nav>
@@ -94,7 +90,7 @@ include 'ui/common/header.html.php';?>
                     학급 생활에
 
                     <div id="container" class="text-5xl text-blue-500 leading-relaxeds">
-	                <div id="text" class="inline-block"></div><div id="cursor" class="inline-block animate-pulse"></div>
+	                <div id="text" class="inline-block"></div><div id="cursor" class="inline-block animate-pulse">|</div>
                     </div>
                 </h2>
                 <script>
