@@ -2,17 +2,6 @@
 chdir(dirname(__FILE__));
 include '../../security.php';
 chdir(dirname(__FILE__));?>
-<style>
-    @font-face {
-    font-family: 'NEXON Lv2 Gothic';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-*{
-    font-family: 'NEXON Lv2 Gothic', sans-serif;
-}
-</style>
 <!-- Page Main -->
 <main class="flex flex-col items-center justify-center mt-32">
     <header class="container">

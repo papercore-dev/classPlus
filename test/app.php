@@ -21,7 +21,7 @@ chdir(dirname(__FILE__));
     <div class="swiper-slide">
         <div class="h-48 m-4 p-4 bg-white border rounded-xl">
             <span class="tossface text-2xl">💺</span><br>
-            <h2 class="font-bold text-2xl">테스트테스트테스트테스트</h2>
+            <h2 class="font-bold text-2xl"><?php echo getData('schoolName');?>에서만 볼 수 있는<br>이 광고 배너!</h2>
             <p class="text-gray-700">테스트중입니다</p>
             <a class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
               웹으로 시작하기

@@ -7,7 +7,9 @@ chdir(dirname(__FILE__));?>
   <a href="javascript:Turbo.visit(`/index.php`)">
 <h1 class="text-2xl font-bold text-black">
   <img src="/resources/images/logo_gray.png" class="h-4 opacity-75">
-  초당중 1학년 10반
+  <?php
+  echo getData('schoolName').' '.getData('schoolGrade').'학년 '.getData('schoolClass').'반';
+  ?>
   
 </h1>
 </a>
@@ -43,13 +45,3 @@ chdir(dirname(__FILE__));?>
     }
   }
 </script>
-<style>
-
-*{
-  font-family: 'Pretendard-Regular', sans-serif;
--webkit-font-smoothing: antialiased;
-}
-.font-semibold .font-bold .font-black{
-font-family: 'Pretendard-Bold', sans-serif;
-}
-</style>
