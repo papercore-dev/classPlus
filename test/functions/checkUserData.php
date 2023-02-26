@@ -2,6 +2,8 @@
 chdir(dirname(__FILE__));
 include '../security.php';
 chdir(dirname(__FILE__));
+include '../database/adapter_db_ext.php';
+chdir(dirname(__FILE__));
 
 function getData($target){
     if ($target == "schoolName"){
