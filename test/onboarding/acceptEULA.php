@@ -18,9 +18,9 @@ $findPrevRecord_Result = $db->query($findPrevRecord);
 if ($findPrevRecord_Result->rowCount() > 0){
     while($row = $findPrevRecord_Result->fetch()){
         if ($row['eulaAccepted'] !== null){
-            $redirectAfterOnboarding = "/app.php";
+            $redirectAfterOnboarding = "/onboarding/kyc.php";
             if ($row['eulaAccepted'] > 1614396800){
-                echo "<script>window.location.href = '/app.php';</script>";
+                echo "<script>window.location.href = '/onboarding/kyc.php';</script>";
                 die;
                 }
         }
