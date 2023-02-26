@@ -56,7 +56,7 @@ else{
                 name="" id="" required maxlength="1">
               </div>
                                           <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
+                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
                 name="" id="" required maxlength="1">
               </div>
                                           <div class="w-12 h-16">
@@ -84,28 +84,14 @@ else{
 <button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
-    //when max length is reached, focus on next input
-    var inputs = document.querySelectorAll("input");
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener('keyup', function() {
-            if (this.value.length == this.maxLength) {
-                var next = this.nextElementSibling;
-                if (next == null) {
-                    return;
-                }
-                next.focus();
-            }
-        });
-    }
-    
     var btn = document.querySelector("button");
 
-    var cb1 = document.querySelector("input")[0];
-    var cb2 = document.querySelector("input")[1];
-    var cb3 = document.querySelector("input")[2];
-    var cb4 = document.querySelector("input")[3];
-    var cb5 = document.querySelector("input")[4];
-    var cb6 = document.querySelector("input")[5];
+    var cb1 = document.querySelectorAll("input")[0];
+    var cb2 = document.querySelectorAll("input")[1];
+    var cb3 = document.querySelectorAll("input")[2];
+    var cb4 = document.querySelectorAll("input")[3];
+    var cb5 = document.querySelectorAll("input")[4];
+    var cb6 = document.querySelectorAll("input")[5];
 
     function check() {
         if (cb1.value.length == 1 && cb2.value.length == 1 && cb3.value.length == 1 && cb4.value.length == 1 && cb5.value.length == 1 && cb6.value.length == 1) {
@@ -122,6 +108,36 @@ else{
             btn.setAttribute("onClick", "console.log('Not checked');");
         }
     }
+
+    function handOffFocus(cb){
+        if(cb.value.length == 1){
+            cb.nextElementSibling.focus();
+        }
+    }
+
+    //on key down, check if all inputs are filled
+    cb1.addEventListener("keydown", check);
+    cb2.addEventListener("keydown", check);
+    cb3.addEventListener("keydown", check);
+    cb4.addEventListener("keydown", check);
+    cb5.addEventListener("keydown", check);
+    cb6.addEventListener("keydown", check);
+
+    //on key up, check if all inputs are filled
+    cb1.addEventListener("keyup", check);
+    cb2.addEventListener("keyup", check);
+    cb3.addEventListener("keyup", check);
+    cb4.addEventListener("keyup", check);
+    cb5.addEventListener("keyup", check);
+    cb6.addEventListener("keyup", check);
+
+    //on key down, run handOffFocus
+    cb1.addEventListener("keydown", function(){handOffFocus(cb1)});
+    cb2.addEventListener("keydown", function(){handOffFocus(cb2)});
+    cb3.addEventListener("keydown", function(){handOffFocus(cb3)});
+    cb4.addEventListener("keydown", function(){handOffFocus(cb4)});
+    cb5.addEventListener("keydown", function(){handOffFocus(cb5)});
+    cb6.addEventListener("keydown", function(){handOffFocus(cb6)});
 
     function continueOnboard() {
         //ask user to confirm applying for class
