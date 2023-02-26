@@ -39,7 +39,7 @@ if (!isset($data["code"])){
 
 $purifiedCode = $data["code"];
 if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
-    $findPrevInviteRecord = "SELECT * FROM `account_invites` WHERE `inviteCode` = '".$purifiedCode."' AND `used` = 0";
+    $findPrevInviteRecord = "SELECT * FROM `account_invite` WHERE `inviteCode` = '".$purifiedCode."' AND `used` = 0";
     $findPrevInviteRecord_Result = $db->query($findPrevInviteRecord);
     
     if ($findPrevInviteRecord_Result->rowCount() > 0){
@@ -50,7 +50,7 @@ if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
             $TBA_schoolNo = $row["schoolNo"];
             $TBA_userName = $row["userName"];
 
-            $updateInviteCode = "UPDATE `account_invites` SET `used` = 1 WHERE `inviteCode` = '".$purifiedCode."'";
+            $updateInviteCode = "UPDATE `account_invite` SET `used` = 1 WHERE `inviteCode` = '".$purifiedCode."'";
             $updateInviteCode_Result = $db->query($updateInviteCode);
 
             $updateUserData = "UPDATE `account_users` SET (`schoolClass`, `schoolGrade`, `schoolSID`, `schoolNo`, `userName`) = ('".$TBA_schoolClass."', '".$TBA_schoolGrade."', '".$TBA_schoolSID."', '".$TBA_schoolNo."', '".$TBA_userName."') WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";
