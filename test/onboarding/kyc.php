@@ -10,7 +10,7 @@ chdir(dirname(__FILE__));
 requireSignin("/onboarding");
 
 if (isset($_SESSION["schoolSID"])){
-    if ($_SESSION["schoolSID"] == null){
+    if ($_SESSION["schoolSID"] == null or $_SESSION["schoolSID"] == ""){
     echo "<script>window.location.href = '/onboarding';</script>";
     die;
     }
