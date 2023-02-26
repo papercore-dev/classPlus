@@ -11,6 +11,8 @@ requireSignin("/onboarding");
 
 if (isset($_SESSION["schoolSID"])){
     if ($_SESSION["schoolSID"] == null){
+    echo "<script>window.location.href = '/onboarding';</script>";
+    die;
     }
     else{
     echo "<script>window.location.href = '/app.php';</script>";
