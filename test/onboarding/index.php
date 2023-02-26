@@ -159,7 +159,7 @@ _INTERVAL_VAL = setInterval(Type, 100);
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
+<button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
     var cb1 = document.getElementById("cb1");
@@ -181,7 +181,7 @@ _INTERVAL_VAL = setInterval(Type, 100);
     });
 
     function continueOnboard() {
-        turbo.visit('acceptEULA.php');
+        Turbo.visit('acceptEULA.php');
     }
 </script>
 </div>
