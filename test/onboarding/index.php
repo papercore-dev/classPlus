@@ -170,13 +170,13 @@ _INTERVAL_VAL = setInterval(Type, 100);
             btn.classList.remove("hover:bg-gray-400");
             btn.classList.add("bg-blue-500");
             btn.classList.add("hover:bg-blue-700");
-            btn.onclick = "continueOnboard();";
+            btn.setAttribute( "onClick", "continueOnboard();");
         } else {
             btn.classList.remove("bg-blue-500");
             btn.classList.remove("hover:bg-blue-700");
             btn.classList.add("bg-gray-400");
             btn.classList.add("hover:bg-gray-400");
-            btn.onclick = "console.log('Not checked');";
+            btn.setAttribute("onClick", "console.log('Not checked');");
         }
     });
 
