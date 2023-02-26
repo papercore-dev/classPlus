@@ -53,7 +53,7 @@ if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
             $updateInviteCode = "UPDATE `account_invite` SET `used` = 1 WHERE `inviteCode` = '".$purifiedCode."'";
             $updateInviteCode_Result = $db->query($updateInviteCode);
 
-            $updateUserData = "UPDATE `account_users` SET (`schoolClass`, `schoolGrade`, `schoolSID`, `schoolNo`, `userName`) = ('".$TBA_schoolClass."', '".$TBA_schoolGrade."', '".$TBA_schoolSID."', '".$TBA_schoolNo."', '".$TBA_userName."') WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";
+            $updateUserData = "UPDATE `account_users` SET `schoolClass` = '".$TBA_schoolClass."', `schoolGrade` = '".$TBA_schoolGrade."', `schoolSID` = '".$TBA_schoolSID."', `schoolNo` = '".$TBA_schoolNo."', `userName` = '".$TBA_userName."' WHERE `userID` = '".$_SESSION["userID"]."'";
             $updateUserData_Result = $db->query($updateUserData);
 
             $_SESSION["schoolClass"] = $TBA_schoolClass;
@@ -71,7 +71,7 @@ if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
     }
 }
 else{
-    echo "{\"error\": \"".$purifiedCode." / 코드를 다시 한번 확인해보세요.\"}";
+    echo "{\"error\": \"코드를 다시 한번 확인해보세요.\"}";
     die;
 }
 ?>

@@ -43,33 +43,34 @@ else{
 학생 인증
 </h2>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-
+전달 받은 인증번호 6자리를 입력해주세요.<br>
+학생 인증을 완료하면 인증번호는 만료돼요.
 </p>
 </div>
             <div class="inviteContainer flex flex-row items-center justify-between mx-auto w-full max-w-xs">
               <div class="w-12 h-16">
                 <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" id="" required maxlength="1">
+                name="" type="number" id="" required maxlength="1">
               </div>
                             <div class="w-12 h-16">
                 <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" id="" required maxlength="1">
+                name="" type="number" id="" required maxlength="1">
               </div>
                                           <div class="w-12 h-16">
                 <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" id="" required maxlength="1">
+                name="" type="number" id="" required maxlength="1">
               </div>
                                           <div class="w-12 h-16">
                 <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" id="" required maxlength="1">
+                name="" type="number" id="" required maxlength="1">
               </div>
                                           <div class="w-12 h-16">
                 <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" id="" required maxlength="1">
+                name="" type="number" id="" required maxlength="1">
               </div>
                                           <div class="w-12 h-16">
                 <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" id="" required maxlength="1">
+                name="" type="number" id="" required maxlength="1">
               </div>
             </div>
 </div>
