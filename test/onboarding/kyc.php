@@ -20,6 +20,8 @@ if (isset($_SESSION["schoolSID"])){
     }
 }
 else{
+    echo "<script>window.location.href = '/onboarding';</script>";
+    die;
 }
 ?>
 
