@@ -3,6 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include '../ui/common/header.html.php';
+
+if (isset($_GET["redirect"])){
+    $_SESSION["redirectURL"] = $_GET["redirect"];
+}
 ?>
 <div class="mx-auto">
 <div class="h-full bg-white">

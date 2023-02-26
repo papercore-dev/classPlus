@@ -4,9 +4,7 @@ include '../security.php';
 
 function checkAccount(){
     if (isset($_SESSION['userID'])){
-        if ($_SESSION['userID']){
             return true;
-        }
     }
     return false;
 }
