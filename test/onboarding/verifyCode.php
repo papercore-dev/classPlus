@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE){
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-include 'checkVariable.php';
+include '../functions/checkVariable.php';
 chdir(dirname(__FILE__));
 include '../database/adapter_db.php';
 chdir(dirname(__FILE__));
