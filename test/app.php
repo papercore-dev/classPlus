@@ -29,7 +29,7 @@ chdir(dirname(__FILE__));
 <div class="swiper">
   <div class="swiper-wrapper">
     <?php
-    $getBannerData = "SELECT * FROM `banner` WHERE *";
+    $getBannerData = "SELECT * FROM `banner` ORDER BY `banner`.`eventStart` DESC";
     $getBannerData_Result = $db->query($getBannerData);
     if ($getBannerData_Result->rowCount() > 0){
     while($row = $getBannerData_Result->fetch()){
