@@ -51,7 +51,7 @@ class="inline-block"></lottie-player>
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<a href="#">
+<a href="/oauth/provider/kakao.php?action=login">
 <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl">카카오톡으로 시작하기</button>
 </a>
 </div>

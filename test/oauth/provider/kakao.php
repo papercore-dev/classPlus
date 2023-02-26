@@ -1,6 +1,8 @@
 <?php
 $load = true;
 
+include '../../config/credentials.php';
+
 define('OAUTH2_CLIENT_ID', $oAuth_client_kakao);
 define('OAUTH2_CLIENT_SECRET', $oAuth_secret_kakao);
 
