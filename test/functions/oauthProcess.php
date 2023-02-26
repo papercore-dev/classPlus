@@ -81,7 +81,7 @@ if(get('code')) {
         $_SESSION['schoolSID'] = $row['schoolSID'];
         $_SESSION['schoolGrade'] = $row['schoolGrade'];
         $_SESSION['schoolClass'] = $row['schoolClass'];
-        $_SESSION['schoolNumber'] = $row['schoolNumber'];
+        $_SESSION['schoolNo'] = $row['schoolNo'];
         $_SESSION['userName'] = $row['userName'];
     }
   }
