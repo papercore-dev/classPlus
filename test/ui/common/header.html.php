@@ -71,7 +71,7 @@ chdir(dirname(__FILE__));
 }
 
 body {
-    font-family: 'LINESeedKR-Rg';
+    font-family: 'LINESeedKR-Rg'!important;
 }
 .font-bold, .font-semibold, strong, .font-heavy, .font-black, em{
     font-family: 'LINESeedKR-Bd'!important;
