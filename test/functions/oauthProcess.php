@@ -57,7 +57,7 @@ if(get('code')) {
   $findBanRecord = "SELECT * FROM `account_ban` WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."'";
   $findBanRecord_Result = $db->query($findBanRecord);
   if ($findBanRecord_Result->rowCount() > 0){
-    while($row = $findBanRecord_Result->fetch_assoc() ){
+    while($row = $findBanRecord_Result->fetch()){
         if ($row['banRelease'] < date("Y-m-d")){
             $deleteBanRecord = "DELETE FROM `account_ban` WHERE `account_ban`.`userID` = '".$_SESSION['userID']."' AND `account_ban`.`signMethod` = '".$_SESSION['signMethod']."'";
             $deleteBanRecord_Result = $db->query($deleteBanRecord);
@@ -75,7 +75,7 @@ if(get('code')) {
   if ($findPrevRecord_Result->rowCount() > 0){
     $updatePrevRecord = "UPDATE `account_users` SET `userNick` = '".$_SESSION['userNick']."', `userAvatar` = '".$_SESSION['userAvatar']."' WHERE `account_users`.`userID` = '".$_SESSION['userID']."' AND `account_users`.`signMethod` = '".$_SESSION['signMethod']."';";
     $updatePrevRecord_Result = $db->query($updatePrevRecord);
-    while($row = $findPrevRecord_Result->fetch_assoc() ){
+    while($row = $findPrevRecord_Result->fetch()){
         $_SESSION['accessLevel'] = $row['accessLevel'];
         $_SESSION['accType'] = $row['accType'];
         $_SESSION['schoolSID'] = $row['schoolSID'];

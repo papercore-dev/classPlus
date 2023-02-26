@@ -19,7 +19,7 @@ function requireSignin($target){
 
 function requireStdVerification(){
     if (!isset($_SESSION['schoolSID'])){
-        echo "<script>alert('학생 인증이 필요해요.');window.location.href = '/onboarding';</script>";
+        echo "<script>alert('학생 인증이 필요해요.');window.location.href = '/onboarding/kyc.php';</script>";
         die;
     }
 }

@@ -8,7 +8,7 @@ chdir(dirname(__FILE__));
 include 'functions/checkAccount.php';
 chdir(dirname(__FILE__));
 requireSignin("/app.php");
-
+requireStdVerification();
 include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
