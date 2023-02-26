@@ -31,7 +31,7 @@ if ($findPrevRecord_Result->rowCount() > 0){
 }
 ?>
 <script>
-    turbo.visit("<?php echo $redirectAfterOnboarding; ?>");
+    Turbo.visit("<?php echo $redirectAfterOnboarding; ?>");
 </script>
 </body>
 </html>
