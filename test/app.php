@@ -28,20 +28,56 @@ chdir(dirname(__FILE__));
 ?>
 <div class="swiper">
   <div class="swiper-wrapper">
-    <div class="swiper-slide">
-    <div class="h-48 m-4 p-4 bg-cover border rounded-xl" style=" background-image: url(https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?auto=format&amp;fit=crop&amp;w=880&amp;q=80); ">
-</div>
+    <?php
+    $getBannerData = "SELECT * FROM `banner` WHERE *";
+    $getBannerData_Result = $db->query($getBannerData);
+    if ($getBannerData_Result->rowCount() > 0){
+    while($row = $getBannerData_Result->fetch()){
+    $isBannerHidden = false;
+    if ($row["publicLevel"] == 0){}
+    else if ($row["publicLevel"] == 1){if($row["schoolSID"] === getData("schoolSID")){}else{$isBannerHidden = true;}}
+    else if ($row["publicLevel"] == 2){if($row["schoolSID"] === getData("schoolSID") and $row["schoolGrade"] === getData("schoolGrade")){if($row["schoolClass"] === getData("schoolClass")){}else{$isBannerHidden = true;}}else{$isBannerHidden = true;}}
+
+    if ($row["eventStart"] > date("Y-m-d H:i:s")){$isBannerHidden = true;}
+    if ($row["eventEnd"] < date("Y-m-d H:i:s")){$isBannerHidden = true;}
+
+    if (!$isBannerHidden){
+      if ($row['eventType'] == "image"){
+        echo '<div class="swiper-slide">
+        <div class="h-48 m-4 p-4 bg-cover border rounded-xl" style=" background-image: url('.$row['bannerImage'].'); ">
     </div>
-    <div class="swiper-slide">
+        </div>';
+      }
+      else{
+        echo '<div class="swiper-slide">
         <div class="h-48 m-4 p-4 bg-white border rounded-xl">
-            <span class="tossface text-2xl">💺</span><br>
-            <h2 class="font-bold text-2xl"><?php echo getData('schoolName');?>에서만 볼 수 있는<br>이 광고 배너!</h2>
-            <p class="text-gray-700">테스트중입니다</p>
-            <a class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
-              웹으로 시작하기
-            </a>
-</div>
-    </div>
+            <span class="tossface text-2xl">'.$row['eventEmoji'].'</span><br>
+            <h2 class="font-bold text-2xl">'.$row['eventName'].'</h2>
+            <p class="text-gray-700"></p>
+            <a href="'.$row['eventLink'].'" class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
+            '.$row['eventButton'].'
+                </a>
+        </div>
+        </div>';
+      }
+    
+    }
+  }
+    }
+    else{
+      echo '<div class="swiper-slide">
+      <div class="h-48 m-4 p-4 bg-white border rounded-xl">
+          <span class="tossface text-2xl"></span><br>
+          <h2 class="font-bold text-2xl">아직 등록된 배너가 없습니다!</h2>
+          <p class="text-gray-700"></p>
+          <a href="/landing.php" class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
+            클래스+ 알아보기
+          </a>
+      </div>
+      </div>';
+    }
+    ?>
+
   </div>
 </div>
 <script>
