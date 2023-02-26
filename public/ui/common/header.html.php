@@ -2,6 +2,7 @@
 $load = true;
 chdir(dirname(__FILE__));
 include './../../security.php';
+chdir(dirname(__FILE__));
 
 if (session_status() === PHP_SESSION_NONE){
     session_start();
@@ -15,6 +16,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include './../../database/adapter_db.php';
+chdir(dirname(__FILE__));
 ?>
 <!DOCTYPE html>
 

@@ -1,6 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
 include '../security.php';
+chdir(dirname(__FILE__));
 
 $DB_host = "127.0.0.1";
 $DB_user = "classplus";

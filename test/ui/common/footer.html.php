@@ -1,6 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
-include '../../security.php';?>
+include '../../security.php';
+chdir(dirname(__FILE__));?>
 <div class="pb-32"></div>
 <nav class="rounded-t-xl  shadow-lg max-w-md visible fixed bottom-0 w-full border bg-white flex overflow-x-auto">
 

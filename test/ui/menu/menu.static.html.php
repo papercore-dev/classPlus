@@ -1,6 +1,7 @@
 <?php 
 chdir(dirname(__FILE__));
-include '../../security.php';?>
+include '../../security.php';
+chdir(dirname(__FILE__));?>
 <style>
     @font-face {
     font-family: 'NEXON Lv2 Gothic';

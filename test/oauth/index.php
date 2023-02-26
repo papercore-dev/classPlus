@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include '../ui/common/header.html.php';
+chdir(dirname(__FILE__));
 
 if (isset($_GET["redirect"])){
     $_SESSION["redirectURL"] = $_GET["redirect"];

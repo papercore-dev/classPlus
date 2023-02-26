@@ -1,6 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
-include '../../security.php';?>
+include '../../security.php';
+chdir(dirname(__FILE__));?>
 
 <!-- Footer -->
 <footer class="bg-gray-800 pt-10 sm:mt-10 pt-10 w-full">

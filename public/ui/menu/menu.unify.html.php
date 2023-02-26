@@ -1,6 +1,7 @@
 <?php 
 chdir(dirname(__FILE__));
-include '../../security.php';?>
+include '../../security.php';
+chdir(dirname(__FILE__));?>
 <div class="max-w-md flex items-center justify-between">
 <div class="p-3 text-gray-500 ">
   <a href="javascript:Turbo.visit(`/index.php`)">

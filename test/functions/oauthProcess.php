@@ -1,6 +1,7 @@
 <?php
 chdir(dirname(__FILE__));
 include '../security.php';
+chdir(dirname(__FILE__));
 
 if (session_status() === PHP_SESSION_NONE){
     ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30);
@@ -11,7 +12,9 @@ if (session_status() === PHP_SESSION_NONE){
 
 $load = true;
 include 'checkVariable.php';
+chdir(dirname(__FILE__));
 include '../database/adapter_db.php';
+chdir(dirname(__FILE__));
 
 
 if(get('action') == 'login') {

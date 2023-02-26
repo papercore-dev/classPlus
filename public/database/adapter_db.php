@@ -1,7 +1,9 @@
 <?php
 chdir(dirname(__FILE__));
 include '../security.php';
+chdir(dirname(__FILE__));
 include '../config/credentials.php';
+chdir(dirname(__FILE__));
 
 define('DBHOST', $DB_host);
 define('DBUSER', $DB_user);

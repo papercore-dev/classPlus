@@ -2,9 +2,11 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include 'ui/common/header.html.php';?>
+include 'ui/common/header.html.php';
+chdir(dirname(__FILE__));?>
 <?php
 include 'ui/menu/menu.nt.html.php';
+chdir(dirname(__FILE__));
 ?>
 <script>
     //jQuery
@@ -34,4 +36,5 @@ var QRCode;!function(){function a(a){this.mode=c.MODE_8BIT_BYTE,this.data=a,this
 </section>
 <?php
 include 'ui/common/footer.html.php';
+chdir(dirname(__FILE__));
 ?>
