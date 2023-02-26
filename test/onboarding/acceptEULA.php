@@ -33,7 +33,7 @@ if ($findPrevRecord_Result->rowCount() > 0){
 }
 ?>
 <script>
-    Turbo.visit("<?php echo $redirectAfterOnboarding; ?>");
+   location.href = "<?php echo $redirectAfterOnboarding; ?>";
 </script>
 </body>
 </html>

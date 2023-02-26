@@ -70,6 +70,50 @@ chdir(dirname(__FILE__));
     font-style: normal;
 }
 </style>
+<style>
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  text-align: center;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  background-color: rgba(0,0,0,.8);
+  color:#fff;
+  border-radius: 999px;
+  backdrop-filter: blur(2px);
+}
+
+#toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.35s, fadeout 0.5s 2.5s;
+  animation: fadein 0.35s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
 
 <script type="module">
   import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo@7.1.0';
@@ -79,3 +123,16 @@ chdir(dirname(__FILE__));
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 <body>
+<div id="toast"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 inline-block text-yellow-500">
+  <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+</svg>
+ <span id="toastTxt"></span></div>
+ <script>
+function toastShow(text) {
+  var x = document.getElementById("toast");
+  var y = document.getElementById("toastTxt");
+  y.innerHTML = text;
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>

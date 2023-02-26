@@ -20,12 +20,12 @@ function requireSignin($target){
 function requireStdVerification(){
     if (isset($_SESSION['schoolSID'])){
         if ($_SESSION['schoolSID'] == null){
-        echo "<script>alert('학생 인증이 필요해요.');window.location.href = '/onboarding/kyc.php';</script>";
+        echo "<script>window.location.href = '/onboarding/kyc.php';</script>";
         die;
         }
     }
     else{
-        echo "<script>alert('학생 인증이 필요해요.');window.location.href = '/onboarding/kyc.php';</script>";
+        echo "<script>window.location.href = '/onboarding/kyc.php';</script>";
         die;
     }
 }

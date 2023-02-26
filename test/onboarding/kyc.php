@@ -84,6 +84,8 @@ else{
 <button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
+    toastShow("학생 인증이 필요해요.");
+
     var btn = document.querySelector("button");
 
     var cb1 = document.querySelectorAll("input")[0];
@@ -156,10 +158,10 @@ else{
                     //show alert when response is in form of {"error": "오류"}, when {"success": "성공"}, redirect to /app.php
                     var response = JSON.parse(xhr.responseText);
                     if (response.error) {
-                        alert(response.error);
+                        toastShow(response.error);
                     } else if (response.success) {
-                        alert(response.success);
-                        window.location.href = "/app.php";
+                        toastShow(response.success);
+                        Turbo.visit("/app.php");
                     }
                 } else {
                     alert("오류가 발생했어요. 다시 시도해주세요.");

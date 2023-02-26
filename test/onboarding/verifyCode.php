@@ -25,7 +25,7 @@ if (isset($_SESSION["schoolSID"])){
     if ($_SESSION["schoolSID"] == null){
     }
     else{
-    echo "{'error': '이미 학생 인증이 완료되었습니다.'}";
+    echo "{\"error\": \"이미 학생 인증이 완료되었어요.\"}";
     die;
     }
 }
@@ -33,7 +33,7 @@ else{
 }
 
 if (!isset($data["code"])){
-    echo "{'error': '인증 코드가 없습니다.'}";
+    echo "{\"error\": \"인증 코드가 없어요.\"}";
     die;
 }
 
@@ -62,16 +62,16 @@ if (preg_match("/[^0-9a-zA-Z]/", $purifiedCode) and strlen($purifiedCode) == 6){
             $_SESSION["schoolNo"] = $TBA_schoolNo;
             $_SESSION["userName"] = $TBA_userName;
 
-            echo "{'success': '인증이 완료되었습니다.'}";
+            echo "{\"success\": \"인증이 완료되었어요.\"}";
         }
     }
     else{
-        echo "{'error': '옳지 않은 인증 코드입니다.'}";
+        echo "{\"error\": \"옳지 않은 인증 코드에요.\"}";
         die;
     }
 }
 else{
-    echo "{'error': '옳지 않은 값이 입력되었습니다.'}";
+    echo "{\"error\": \"코드를 다시 한번 확인해보세요.\"}";
     die;
 }
 ?>
