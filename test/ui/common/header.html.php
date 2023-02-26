@@ -78,7 +78,7 @@ chdir(dirname(__FILE__));
   text-align: center;
   padding: 16px;
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   left: 50%;
   bottom: 30px;
   font-size: 17px;

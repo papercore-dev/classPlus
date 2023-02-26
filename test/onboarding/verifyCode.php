@@ -38,7 +38,7 @@ if (!isset($data["code"])){
 }
 
 $purifiedCode = $data["code"];
-if (preg_match("/[^0-9a-zA-Z]/", $purifiedCode) and strlen($purifiedCode) == 6){
+if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
     $findPrevInviteRecord = "SELECT * FROM `account_invites` WHERE `inviteCode` = '".$purifiedCode."' AND `used` = 0";
     $findPrevInviteRecord_Result = $db->query($findPrevInviteRecord);
     
@@ -71,7 +71,7 @@ if (preg_match("/[^0-9a-zA-Z]/", $purifiedCode) and strlen($purifiedCode) == 6){
     }
 }
 else{
-    echo "{\"error\": \"코드를 다시 한번 확인해보세요.\"}";
+    echo "{\"error\": \"".$purifiedCode." / 코드를 다시 한번 확인해보세요.\"}";
     die;
 }
 ?>

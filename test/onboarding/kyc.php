@@ -43,7 +43,7 @@ else{
 학생 인증
 </h2>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-학교와 학급회장이 함께 운영하는 커뮤니티를 넘어,<br>학교생활에 유용한 정보를 제공하는 여기는 클래스+에요.
+
 </p>
 </div>
             <div class="inviteContainer flex flex-row items-center justify-between mx-auto w-full max-w-xs">
@@ -143,7 +143,7 @@ else{
 
     function continueOnboard() {
         //ask user to confirm applying for class
-        var r = confirm("정말로 학생 인증을 할까요?");
+        var r = confirm("정말로 학생 인증을 할까요? 학생 인증을 하면 학생 인증을 취소할 수 없어요.");
         if (r == true) {
             //if user confirms, send data to server
             var code = cb1.value + cb2.value + cb3.value + cb4.value + cb5.value + cb6.value;
