@@ -2,10 +2,10 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include 'ui/common/header.html.php';
+include '../ui/common/header.html.php';
 chdir(dirname(__FILE__));
 
-include 'functions/checkAccount.php';
+include '../functions/checkAccount.php';
 chdir(dirname(__FILE__));
 requireSignin("/onboarding");
 
@@ -16,7 +16,7 @@ requireSignin("/onboarding");
 $findPrevRecord = "SELECT * FROM `account_users` WHERE `signMethod` = '".$_SESSION['signMethod']."' AND `userID` = '".$_SESSION['userID']."'";
 $findPrevRecord_Result = $db->query($findPrevRecord);  
 if ($findPrevRecord_Result->rowCount() > 0){
-    while($row = $findPrevRecord_Result->fetch_assoc() ){
+    while($row = $findPrevRecord_Result->fetch()){
         if ($row['eulaAccepted'] !== null){
             $redirectAfterOnboarding = "/app.php";
             if ($row['eulaAccepted'] > 1614396800){

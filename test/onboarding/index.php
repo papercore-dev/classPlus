@@ -16,10 +16,10 @@ requireSignin("/onboarding");
 $findPrevRecord = "SELECT * FROM `account_users` WHERE `signMethod` = '".$_SESSION['signMethod']."' AND `userID` = '".$_SESSION['userID']."'";
 $findPrevRecord_Result = $db->query($findPrevRecord);  
 if ($findPrevRecord_Result->rowCount() > 0){
-    while($row = $findPrevRecord_Result->fetch_assoc() ){
+    while($row = $findPrevRecord_Result->fetch()){
         if ($row['eulaAccepted'] !== null){
+            $redirectAfterOnboarding = "/app.php";
             if ($row['eulaAccepted'] > 1614396800){
-                $redirectAfterOnboarding = "/app.php";
                 echo "<script>window.location.href = '/app.php';</script>";
                 die;
                 }
