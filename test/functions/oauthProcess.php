@@ -75,6 +75,15 @@ if(get('code')) {
   if ($findPrevRecord_Result->rowCount() > 0){
     $updatePrevRecord = "UPDATE `account_users` SET `userNick` = '".$_SESSION['userNick']."', `userAvatar` = '".$_SESSION['userAvatar']."' WHERE `account_users`.`userID` = '".$_SESSION['userID']."' AND `account_users`.`signMethod` = '".$_SESSION['signMethod']."';";
     $updatePrevRecord_Result = $db->query($updatePrevRecord);
+    while($row = $findPrevRecord_Result->fetch_assoc() ){
+        $_SESSION['accessLevel'] = $row['accessLevel'];
+        $_SESSION['accType'] = $row['accType'];
+        $_SESSION['schoolSID'] = $row['schoolSID'];
+        $_SESSION['schoolGrade'] = $row['schoolGrade'];
+        $_SESSION['schoolClass'] = $row['schoolClass'];
+        $_SESSION['schoolNumber'] = $row['schoolNumber'];
+        $_SESSION['userName'] = $row['userName'];
+    }
   }
   else{
     $insertNewRecord = "INSERT INTO `account_users` (`userID`, `userNick`, `userAvatar`, `signMethod`, `accessLevel`, `accType`) VALUES ('".$_SESSION['userID']."', '".$_SESSION['userNick']."', '".$_SESSION['userAvatar']."', '".$_SESSION['signMethod']."', 2, 'student');";

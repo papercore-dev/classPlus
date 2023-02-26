@@ -16,4 +16,11 @@ function requireSignin($target){
         die;
     }
 }
+
+function requireStdVerification(){
+    if (!isset($_SESSION['schoolSID'])){
+        echo "<script>alert('학생 인증이 필요해요.');window.location.href = '/onboarding';</script>";
+        die;
+    }
+}
 ?>
