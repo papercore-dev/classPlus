@@ -25,6 +25,8 @@ if ($findPrevRecord_Result->rowCount() > 0){
                 }
         }
         else{
+            $updateUserData = "UPDATE `account_users` SET `eulaAccepted` = current_timestamp() WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";
+            $updateUserData_Result = $db->query($updateUserData);
             $redirectAfterOnboarding = "/onboarding/kyc.php";
         }
     }

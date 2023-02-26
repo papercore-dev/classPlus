@@ -84,15 +84,20 @@ else{
 <button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
-                    var inputs = document.querySelectorAll('input');
-                for (var i = 0; i < inputs.length; i++) {
-                    inputs[i].addEventListener('input', function(e) {
-                        if (e.target.value.length >= e.target.maxLength) {
-                            e.target.nextElementSibling.focus();
-                        }
-                    });
+    //when max length is reached, focus on next input
+    var inputs = document.querySelectorAll("input");
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('keyup', function() {
+            if (this.value.length == this.maxLength) {
+                var next = this.nextElementSibling;
+                if (next == null) {
+                    return;
                 }
-                
+                next.focus();
+            }
+        });
+    }
+    
     var btn = document.querySelector("button");
 
     var cb1 = document.querySelector("input")[0];
