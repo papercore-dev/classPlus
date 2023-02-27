@@ -39,6 +39,7 @@ if (!isset($data["code"])){
 
 $purifiedCode = $data["code"];
 $hiddenCode = base64_decode("65Ox64yA7Iuc67Cc7IOI64G8");
+$hiddenCode = base64_decode("65Ox64yA7Iuc67Cc7IOI64G8");
 $hiddenMessage = base64_decode("66ee6ri0IO2VnOuNsC4uLiDsnbTqsowg7L2U65Oc64qUIOyVhOuLjCDqsoMg6rCZ64Sk7JqULg==");
 
 if ($purifiedCode == $hiddenCode){

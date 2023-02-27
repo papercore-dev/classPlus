@@ -17,3 +17,4 @@ $oAuth_client_kakao = "84806d5c24b3bbaada1f7aaf4959959b";
 $oAuth_secret_kakao = "RfdAQuAfPZhXnez6SP7wEinIN9a6YyQe";
 
 $API_youtube = "AIzaSyBADKT0xhzPL4lKypeC8xO6VwgP7NSVg4s";
+$API_googleAnalytics = 'G-GBFKBH0HW5';
