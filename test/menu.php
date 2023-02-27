@@ -7,12 +7,10 @@ chdir(dirname(__FILE__));
 
 include 'functions/checkAccount.php';
 chdir(dirname(__FILE__));
-requireSignin("/app.php");
+requireSignin("/menu.php");
 requireStdVerification();
 
 include 'functions/checkUserData.php';
-chdir(dirname(__FILE__));
-include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
 <section class="p-5">
@@ -65,7 +63,7 @@ chdir(dirname(__FILE__));
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                        '.$row['serviceName'].'
+                        '.$row['serviceNick'].'
                         </p>
                     </div>
                 </div>
