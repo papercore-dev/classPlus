@@ -2,7 +2,9 @@
 chdir(dirname(__FILE__));
 include '../../security.php';
 chdir(dirname(__FILE__));?>
-<div class="bg-gray-100 py-2 rounded-b-xl text-white">
+<div class="mx-auto max-w-md">
+<div class="h-full bg-gray-50">
+<div class="bg-gray-100 rounded-b-xl py-2  text-white">
 
 <div class="max-w-md flex items-center justify-between"><a class="rounded-full text-gray-900 p-1 ml-2 hover:bg-gray-200"
 href="javascript:history.back()">
@@ -26,3 +28,4 @@ href="javascript:history.back()">
 
 </div>
 </div>
+        </div>
