@@ -16,6 +16,8 @@ chdir(dirname(__FILE__));
 $serviceName = "calendar";
 include 'functions/analyzeLogs.php';
 chdir(dirname(__FILE__));
+include 'ui/menu/menu.tl.html.php';
+chdir(dirname(__FILE__));
 ?>
 <?php
 //show this month's calendar
