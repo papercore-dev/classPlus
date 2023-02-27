@@ -32,7 +32,7 @@ function showCalendar($month, $year){
     $today = date('Y-m-d');
     $calendar = "<table class='table-auto w-full'>
     <tr>
-    <th colspan='7' class='text-center text-xl font-bold text-gray-900 dark:text-white'>$year년 $title월</th>
+    <th colspan='7' class='text-center text-xl font-bold text-gray-900 dark:text-white'>$year 년 $title 월</th>
     </tr>
     <tr>
     <td class='w-1/7 text-center text-lg  text-gray-900 dark:text-white'>일</td>
@@ -48,7 +48,7 @@ function showCalendar($month, $year){
     while($dayCount <= $daysInMonth){
         $calendar .= "<td class='text-center text-lg  text-gray-900 dark:text-white'>";
         if($dayCount == date('d') && $month == date('m') && $year == date('Y')){
-            $calendar .= "<div class='bg-blue-500 rounded-full w-8 h-8 flex items-center justify-center text-white'>$dayCount</div>";
+            $calendar .= "<div class='bg-blue-500 rounded-full w-8 h-8 flex items-center mx-auto justify-center text-white'>$dayCount</div>";
         } else {
             $calendar .= $dayCount;
         }
