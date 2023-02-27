@@ -19,7 +19,8 @@ chdir(dirname(__FILE__));
 include 'ui/menu/menu.tl.html.php';
 chdir(dirname(__FILE__));
 ?>
-<div class="my-4 p-5">
+<div class="p-5">
+    <div class="my-4">
 <?php
 //show this month's calendar
 function showCalendar($month, $year){
@@ -64,6 +65,42 @@ function showCalendar($month, $year){
 
 //use showCalendar function to show this month's calendar
 showCalendar(date('m'), date('Y'));
+?>
+</div>
+
+<div class='mb-5 flex items-center justify-between'>
+<h4 class='text-2xl font-bold text-slate-500'>일정</h4>
+</div>
+<?php
+$getCalendarData = "SELECT * FROM `calendar` ORDER BY `calendar`.`eventStart` DESC";
+$getCalendarData_Result = $db->query($getCalendarData);
+if ($getCalendarData_Result->rowCount() > 0){
+while($row = $getCalendarData_Result->fetch()){
+    $isBannerHidden = false;
+    if ($row["publicLevel"] == 0){}
+    else if ($row["publicLevel"] == 1){if($row["schoolSID"] === getData("schoolSID")){}else{$isBannerHidden = true;}}
+    else if ($row["publicLevel"] == 2){if($row["schoolSID"] === getData("schoolSID") and $row["schoolGrade"] === getData("schoolGrade")){if($row["schoolClass"] === getData("schoolClass")){}else{$isBannerHidden = true;}}else{$isBannerHidden = true;}}
+
+    if ($row["eventEnd"] < date("Y-m-d H:i:s")){$isBannerHidden = true;}
+    if (!$isBannerHidden){
+    $eventStart = date("Y-m-d H:i:s", strtotime($row["eventStart"]));
+    $eventEnd = date("Y-m-d H:i:s", strtotime($row["eventEnd"]));
+    $eventStart = date("Y년 m월 d일 H시 i분", strtotime($eventStart));
+    $eventEnd = date("Y년 m월 d일 H시 i분", strtotime($eventEnd));
+    $eventName = $row["eventName"];
+
+    echo "<div class='bg-white dark:bg-gray-800 shadow rounded-lg p-4 mb-4'>
+    <div class='flex items-center justify-between'>
+    <div class='flex items-center'>
+    <div class='text-xl font-bold text-gray-900 dark:text-white'>$eventName</div>
+    </div>
+    </div>
+    <div class='mt-4'>
+    <div class='text-gray-600 dark:text-gray-400'>$eventStart ~ $eventEnd</div>
+    </div>
+    </div>";
+    }
+}}
 ?>
 </div>
 <?php
