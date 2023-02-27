@@ -38,6 +38,13 @@ if (!isset($data["code"])){
 }
 
 $purifiedCode = $data["code"];
+$hiddenCode = base64_decode("65Ox64yA7Iuc67Cc7IOI64G8");
+$hiddenMessage = base64_decode("66ee6ri0IO2VnOuNsC4uLiDsnbTqsowg7L2U65Oc64qUIOyVhOuLjCDqsoMg6rCZ64Sk7JqULg==");
+
+if ($purifiedCode == $hiddenCode){
+    echo "{\"error\": \"".$hiddenMessage."\"}";
+    die;
+}
 if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
     $findPrevInviteRecord = "SELECT * FROM `account_invite` WHERE `inviteCode` = '".$purifiedCode."' AND `used` = 0";
     $findPrevInviteRecord_Result = $db->query($findPrevInviteRecord);
