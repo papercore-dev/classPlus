@@ -131,6 +131,10 @@ body {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
 </style>
 
 <script type="module">

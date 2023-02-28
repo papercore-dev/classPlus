@@ -12,6 +12,9 @@ requireStdVerification();
 
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
+
+include 'ui/menu/menu.nt.html.php';
+chdir(dirname(__FILE__));
 ?>
 <section class="p-5">
 <div class="mb-5 flex items-center justify-between">

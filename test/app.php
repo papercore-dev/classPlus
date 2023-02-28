@@ -21,6 +21,18 @@ else{
   $_SESSION['schoolName'] = null;
 }
 
+//check if user accepted EULA
+$getEULAData = "SELECT * FROM `account_users` WHERE userID = '".$_SESSION['userID']."' AND signMethod = '".$_SESSION['signMethod']."'";
+$getEULAData_Result = $db->query($getEULAData);
+if ($getEULAData_Result->rowCount() > 0){
+while($row = $getEULAData_Result->fetch()){
+    //if eulaAccepted is null or before 2023-02-28, redirect to eula page
+    if ($row['eulaAccepted'] == null or $row['eulaAccepted'] < "2023-02-28"){
+        header("Location: /onboarding");
+    }
+}
+}
+
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
 include 'ui/menu/menu.nt.html.php';
