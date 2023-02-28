@@ -95,7 +95,7 @@ else{
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
 
    <div class="text-black dark:text-gray-50 block w-full">';
-            $getPostList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." AND `postNotice` = '0' ORDER BY `visitCount` DESC";
+            $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `visitCount` DESC";
             include 'functions/listPost.php';
             chdir(dirname(__FILE__));
     echo'

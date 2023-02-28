@@ -12,7 +12,7 @@ if(!$isBannerHidden){
     <a href="javascript:Turbo.visit(`/view.php?id='.$row['postID'].'`)">
     <div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
     <strong>'.$row["postTitle"].'</strong>
-    <p class="text-gray-500"></p>
+    <p class="text-gray-500">조회 '.$row["visitCount"].'</p>
     </div>
 </a>';
 }
