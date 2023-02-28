@@ -13,11 +13,37 @@ requireStdVerification();
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
 
-include 'ui/menu/menu.nt.html.php';
-chdir(dirname(__FILE__));
+//ID 검증
+if (!isset($_GET["id"])){
+    echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
+    die;
+}
+if (!is_numeric($_GET["id"])){
+    echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
+    die;
+} 
 
-$serviceName = "boardexplore";
-include 'functions/analyzeLogs.php';
+$serviceName = $_GET["id"];
+
+$getServiceData = "SELECT * FROM `posts_board` WHERE boardID = '".$serviceName."' AND boardHidden = '0' AND view_accessLevel <= '".$_SESSION['userAccessLevel']."'";
+$getServiceData_Result = $db->query($getServiceData);
+if ($getServiceData_Result->rowCount() == 0){
+    echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
+    die;
+}
+else{
+    while($row = $getServiceData_Result->fetch()){
+        include 'functions/specificFunction.php';
+        if ($isBannerHidden){
+            echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
+            die;
+        }
+    }
+}
+
+include 'functions/analyzeBoards.php';
+chdir(dirname(__FILE__));
+include 'ui/menu/menu.bd.html.php';
 chdir(dirname(__FILE__));
 ?>
 <?php
@@ -38,7 +64,6 @@ else{
 <h4 class="text-2xl font-bold text-slate-500">
     <?php
     if ($search == ""){
-        echo "탐색";
     }
     else{
         echo $search." 검색 결과";

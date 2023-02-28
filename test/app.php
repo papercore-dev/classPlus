@@ -45,11 +45,7 @@ chdir(dirname(__FILE__));
     $getBannerData_Result = $db->query($getBannerData);
     if ($getBannerData_Result->rowCount() > 0){
     while($row = $getBannerData_Result->fetch()){
-    $isBannerHidden = false;
-    if ($row["publicLevel"] == 0){}
-    else if ($row["publicLevel"] == 1){if($row["schoolSID"] === getData("schoolSID")){}else{$isBannerHidden = true;}}
-    else if ($row["publicLevel"] == 2){if($row["schoolSID"] === getData("schoolSID") and $row["schoolGrade"] === getData("schoolGrade")){if($row["schoolClass"] === getData("schoolClass")){}else{$isBannerHidden = true;}}else{$isBannerHidden = true;}}
-
+    include 'functions/specificFunction.php';
     if ($row["eventStart"] > date("Y-m-d H:i:s")){$isBannerHidden = true;}
     if ($row["eventEnd"] < date("Y-m-d H:i:s")){$isBannerHidden = true;}
 

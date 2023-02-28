@@ -166,4 +166,9 @@ function toastShow(text) {
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+
+<?php if (isset($_GET["error"])){
+  echo "toastShow('".$_GET["error"]."');";
+}
+?>
 </script>
