@@ -25,7 +25,7 @@ if (!is_numeric($_GET["id"])){
 
 $serviceName = $_GET["id"];
 
-$getServiceData = "SELECT * FROM `posts_board` WHERE boardID = '".$serviceName."' AND boardHidden = '0' AND view_accessLevel <= '".$_SESSION['userAccessLevel']."'";
+$getServiceData = "SELECT * FROM `posts_board` WHERE boardID = '".$serviceName."' AND boardHidden = '0' AND view_accessLevel <= '".$_SESSION['accessLevel']."'";
 $getServiceData_Result = $db->query($getServiceData);
 if ($getServiceData_Result->rowCount() == 0){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
