@@ -4,7 +4,7 @@ include '../security.php';
 chdir(dirname(__FILE__));
 
 if (isset($serviceName)){
-    $checkPreviousVisit = "SELECT * FROM `account_boardAnalytics` WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."' AND `serviceName` = '".$serviceName."'";
+    $checkPreviousVisit = "SELECT * FROM `account_boardAnalytics` WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."' AND `boardID` = '".$serviceName."'";
     $checkPreviousVisit_Result = $db->query($checkPreviousVisit);
 
     if ($checkPreviousVisit_Result->rowCount() > 0){
