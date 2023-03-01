@@ -83,6 +83,11 @@ if(get('code')) {
         $_SESSION['schoolClass'] = $row['schoolClass'];
         $_SESSION['schoolNo'] = $row['schoolNo'];
         $_SESSION['userName'] = $row['userName'];
+        $findSchoolSCD = "SELECT * FROM `school_whitelisted` WHERE `schoolSID` = '".$_SESSION['schoolSID']."'";
+        $findSchoolSCD_Result = $db->query($findSchoolSCD);
+        while($row = $findSchoolSCD_Result->fetch()){
+            $_SESSION['schoolSCD'] = $row['schoolSCD'];
+        }
     }
   }
   else{

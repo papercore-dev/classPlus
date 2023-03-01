@@ -69,6 +69,12 @@ if (strlen($purifiedCode) == 6 && is_numeric($purifiedCode)){
             $_SESSION["schoolSID"] = $TBA_schoolSID;
             $_SESSION["schoolNo"] = $TBA_schoolNo;
             $_SESSION["userName"] = $TBA_userName;
+            
+            $findSchoolSCD = "SELECT * FROM `school_whitelisted` WHERE `schoolSID` = '".$_SESSION['schoolSID']."'";
+            $findSchoolSCD_Result = $db->query($findSchoolSCD);
+            while($row = $findSchoolSCD_Result->fetch()){
+                $_SESSION['schoolSCD'] = $row['schoolSCD'];
+            }
 
             echo "{\"success\": \"인증이 완료되었어요.\"}";
         }

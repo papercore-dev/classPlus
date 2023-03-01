@@ -96,6 +96,42 @@ chdir(dirname(__FILE__));
 </script>
 
 <section class="p-5">
+<div class="mb-2 flex items-center justify-between">
+<h4 class="text-2xl font-bold text-slate-500">자주 사용</h4>
+</div>
+<div class="overflow-x-scroll flex">
+  <?php
+  $getQuickLinkData = "SELECT * FROM `account_serviceAnalytics` WHERE userID = '".$_SESSION['userID']."' AND signMethod = '".$_SESSION['signMethod']."' ORDER BY `account_serviceAnalytics`.`visitCount` DESC";
+  $getQuickLinkData_Result = $db->query($getQuickLinkData);
+  if ($getQuickLinkData_Result->rowCount() > 0){
+  while($row = $getQuickLinkData_Result->fetch()){
+  $getQuickLinkName = "SELECT * FROM `services` WHERE serviceName = '".$row['serviceName']."'";
+  $getQuickLinkName_Result = $db->query($getQuickLinkName);
+  if ($getQuickLinkName_Result->rowCount() > 0){
+  while($row2 = $getQuickLinkName_Result->fetch()){
+    echo '<a href="'.$row2['serviceLink'].'" class="flex-none py-3 px-6">
+      <div class="flex flex-col items-center justify-center gap-3">
+        <p class="text-4xl tossface">'.$row2['serviceEmoji'].'</p>
+        <span class="text-slate-900 dark:text-slate-200">'.$row2['serviceNick'].'</span>
+      </div>
+    </a>';
+  }
+}
+  }
+}
+else{
+  echo '<div class="py-9 border rounded-lg bg-white text-center text-gray-500 ">서비스를 사용하면 여기에 나타나요</div>';
+}
+  ?>
+      <div class="flex-none py-3 px-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <p class="text-4xl tossface">📆</p>
+          <span class="text-slate-900 dark:text-slate-200">캘린더</span>
+        </div>
+      </div>
+      
+    </div>
+  
 <div class="mb-5 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500">자주 보는 게시판</h4>
 </div>
