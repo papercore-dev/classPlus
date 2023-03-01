@@ -52,8 +52,10 @@ chdir(dirname(__FILE__));
     if (!$isBannerHidden){
       if ($row['eventType'] == "image"){
         echo '<div class="swiper-slide">
+        <a href="'.$row['eventLink'].'">
         <div class="h-48 m-4 p-4 bg-cover border rounded-xl" style=" background-image: url('.$row['bannerImage'].'); ">
     </div>
+    </a>
         </div>';
       }
       else{
@@ -76,7 +78,7 @@ chdir(dirname(__FILE__));
       echo '<div class="swiper-slide">
       <div class="h-48 m-4 p-4 bg-white border rounded-xl">
           <span class="tossface text-2xl"></span><br>
-          <h2 class="font-bold text-2xl">아직 등록된 배너가 없습니다!</h2>
+          <h2 class="font-bold text-2xl">아직 등록된 배너가 없어요</h2>
           <p class="text-gray-700"></p>
           <a href="/landing.php" class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
             클래스+ 알아보기
@@ -99,7 +101,7 @@ chdir(dirname(__FILE__));
 <div class="mb-2 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500">자주 사용</h4>
 </div>
-<div class="overflow-x-scroll flex">
+<div class="overflow-x-scroll flex mb-5">
   <?php
   $getQuickLinkData = "SELECT * FROM `account_serviceAnalytics` WHERE userID = '".$_SESSION['userID']."' AND signMethod = '".$_SESSION['signMethod']."' ORDER BY `account_serviceAnalytics`.`visitCount` DESC";
   $getQuickLinkData_Result = $db->query($getQuickLinkData);
@@ -124,12 +126,6 @@ else{
   echo '<div class="py-9 border rounded-lg bg-white text-center text-gray-500 ">서비스를 사용하면 여기에 나타나요</div>';
 }
   ?>
-      <div class="flex-none py-3 px-6">
-        <div class="flex flex-col items-center justify-center gap-3">
-          <p class="text-4xl tossface">📆</p>
-          <span class="text-slate-900 dark:text-slate-200">캘린더</span>
-        </div>
-      </div>
       
     </div>
   
