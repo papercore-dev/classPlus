@@ -115,6 +115,7 @@ chdir(dirname(__FILE__));
         <span class="text-slate-900 dark:text-slate-200">'.$row2['serviceNick'].'</span>
       </div>
     </a>';
+    break;
   }
 }
   }
