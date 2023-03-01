@@ -128,7 +128,7 @@ while($row = $getCalendarData_Result->fetch()){
 
     echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border-l-8 border border-'.$eventColor.'">
     <strong>'.$row["eventName"].'</strong>
-    <p class="text-gray-500 text-xs">$eventStart ~ $eventEnd</p>
+    <p class="text-gray-500 text-xs">'.$eventStart.' ~ '.$eventEnd.'</p>
     </div>';
     }
 }}
