@@ -6,7 +6,7 @@ chdir(dirname(__FILE__));?>
 <div class="p-2 text-gray-500 ">
  <a href="javascript:Turbo.visit(`/index.php`)">
  <h1 class="text-lg text-gray-500">
- <img src="/resources/images/logo_gray.png" class="h-6 inline-block opacity-75"> | <?php echo getData('schoolName'); ?></h1>
+ <?php echo getData('schoolName'); ?><img src="/resources/images/logo_gray.png" class="ml-2 h-6 inline-block opacity-75"></h1>
  </a>
  </div>
 <div class="flex">

@@ -28,18 +28,15 @@ chdir(dirname(__FILE__));
    </div>
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-            <a href="#">
+            <a href="javascript:Turbo.visit(`/profile.php`)">
             <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
                         <img class="w-8 h-8 rounded-full" src="<?php echo getData('userAvatar'); ?>" alt="avatar" onerror="if (this.src != '/resources/images/fallback_profile.jpg') this.src = '/resources/images/fallback_profile.jpg';">
                     </div>
-                    <div class="flex-1 min-w-0"><p class="text-lg font-bold text-gray-900 truncate dark:text-white">
-                    <?php echo getData('userNick'); ?> (<?php echo getData('userName'); ?>)
-                    </p>
-                        
+                    <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                        <?php echo getData('schoolGrade'); ?>학년 <?php echo getData('schoolClass'); ?>반 <?php echo getData('schoolNo'); ?>번 | <?php echo getData('userID'); ?>
+                        내 정보
                         </p>
                     </div>
                 </div>
@@ -53,7 +50,7 @@ chdir(dirname(__FILE__));
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
             <?php
-            $getCommunityList = "SELECT * FROM `services`";
+            $getCommunityList = "SELECT * FROM `services` WHERE `servicePublic`= 1";
             $getCommunityList_Result = $db->query($getCommunityList);
 
             while($row = $getCommunityList_Result->fetch()){

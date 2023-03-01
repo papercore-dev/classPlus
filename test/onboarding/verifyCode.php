@@ -20,7 +20,7 @@ chdir(dirname(__FILE__));
 include '../functions/checkAccount.php';
 chdir(dirname(__FILE__));
 requireSignin("/onboarding");
-
+/*
 if (isset($_SESSION["schoolSID"])){
     if ($_SESSION["schoolSID"] == null){
     }
@@ -30,7 +30,7 @@ if (isset($_SESSION["schoolSID"])){
     }
 }
 else{
-}
+}*/
 
 if (!isset($data["code"])){
     echo "{\"error\": \"인증 코드가 없어요.\"}";
