@@ -39,9 +39,7 @@ chdir(dirname(__FILE__));?>
 <a href="javascript:Turbo.visit(`/explore.php`, { action: 'replace' })" class="pt-2 pb-2 flex flex-col flex-grow items-center justify-center
 		overflow-hidden whitespace-no-wrap text-sm transition-colors duration-100
 		ease-in-out hover:bg-gray-200 focus:text-orange-500">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-</svg>
+    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px">    <path d="M 12 2 C 6.477 2 2 6.477 2 12 C 2 17.523 6.477 22 12 22 C 17.523 22 22 17.523 22 12 C 22 6.477 17.523 2 12 2 z M 12 4 C 16.418 4 20 7.582 20 12 C 20 16.418 16.418 20 12 20 C 7.582 20 4 16.418 4 12 C 4 7.582 7.582 4 12 4 z M 17 7 L 10.175781 10.175781 L 7 17 L 13.824219 13.824219 L 17 7 z M 12 10.900391 C 12.61 10.900391 13.099609 11.39 13.099609 12 C 13.099609 12.61 12.61 13.099609 12 13.099609 C 11.39 13.099609 10.900391 12.61 10.900391 12 C 10.900391 11.39 11.39 10.900391 12 10.900391 z"/></svg>
 
 
 <span class="text-sm capitalize">탐색</span>
