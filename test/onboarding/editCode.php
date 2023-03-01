@@ -22,16 +22,18 @@ else{
 ?>
 
 <div class="mx-auto">
-<div class="h-full bg-white">
 <div class="bg-white rounded-b-xl p-5  text-white">
 <div class="flex items-center justify-between">
-<div class="text-gray-100 ">
+<div class="text-gray-100 "><a href="javascript:history:back"><div class="rounded-full text-gray-500 p-1 mr-2 hover:bg-gray-200">
+<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
 </div>
-<div class="flex">
+</a>
+
+</div>
+
 </div>
 </div>
-</div>
-<section class="p-5">
+<section class="px-5 py-2">
 <div class="space-y-2">
 
 </div>
@@ -43,8 +45,8 @@ else{
 정보 수정하기
 </h2>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-<strong>프로필 사진, 닉네임은 로그인 한 SNS와 연동되기 때문에 SNS에서 변경 후 로그아웃 하면 수정할 수 있어요.</strong>
-전달 받은 인증번호 6자리를 입력해주세요.<br>
+<strong>프로필 사진, 닉네임은 로그인한 SNS에서 변경 후 로그아웃 하면 수정할 수 있어요.</strong><br>
+새 인증번호를 요청 한 다음 전달 받은 인증번호 6자리를 입력해주세요.<br>
 학생 인증을 완료하면 인증번호는 만료돼요.
 </p>
 </div>
@@ -86,7 +88,7 @@ else{
 <button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
-    toastShow("학생 인증이 필요해요.");
+    toastShow("새 인증 번호를 입력해주세요.");
 
     var btn = document.querySelector("button");
 
