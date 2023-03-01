@@ -39,7 +39,7 @@ chdir(dirname(__FILE__));
 </div>
 <div class="flow-root">
 <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-<a href="javascript:Turbo.visit(`/editCode.php`)">
+<a href="javascript:Turbo.visit(`/onboarding/editCode.php`)">
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
 <div class="flex-shrink-0 text-3xl tossface">🏫</div>

@@ -11,10 +11,10 @@ requireSignin("/onboarding");
 
 if (isset($_SESSION["schoolSID"])){
     if ($_SESSION["schoolSID"] == null or $_SESSION["schoolSID"] == ""){
+    echo "<script>window.location.href = '/kyc.php';</script>";
+    die;
     }
     else{
-    echo "<script>window.location.href = '/app.php';</script>";
-    die;
     }
 }
 else{
