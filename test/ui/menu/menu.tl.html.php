@@ -3,9 +3,7 @@ chdir(dirname(__FILE__));
 include '../../security.php';
 chdir(dirname(__FILE__));?>
 <style>
-    .bottomNav{
-        display: none;
-    }
+.bottomNav{display: none!important;}
 </style>
 <div class="mx-auto max-w-md">
 <div class="h-full bg-gray-50">
