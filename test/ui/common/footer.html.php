@@ -3,7 +3,7 @@ chdir(dirname(__FILE__));
 include '../../security.php';
 chdir(dirname(__FILE__));?>
 <div class="pb-32"></div>
-<nav class="rounded-t-xl  shadow-lg max-w-md visible fixed bottom-0 w-full border bg-white flex overflow-x-auto">
+<nav id="bottomNav" class="rounded-t-xl  shadow-lg max-w-md visible fixed bottom-0 w-full border bg-white flex overflow-x-auto">
 
 <a href="#" class="pt-2 pb-2 flex flex-col flex-grow items-center justify-center
 		overflow-hidden whitespace-no-wrap text-sm transition-colors duration-100

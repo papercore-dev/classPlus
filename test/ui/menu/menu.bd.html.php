@@ -2,6 +2,11 @@
 chdir(dirname(__FILE__));
 include '../../security.php';
 chdir(dirname(__FILE__));?>
+<script>
+    .bottomNav{
+        display: none;
+    }
+</script>
 <div class="mx-auto max-w-md">
 <div class="h-full bg-gray-50">
 <div class="bg-gray-100 rounded-b-xl py-2  text-white">
