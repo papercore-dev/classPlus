@@ -12,7 +12,8 @@ chdir(dirname(__FILE__));?>
 <div class="flex">
 
 <button @click="open = !open" class="rounded-full text-gray-500 mr-2 mt-2 hover:bg-gray-100">
-<img class="w-8 h-8 rounded-full object-cover" src="<?php echo getData('userAvatar'); ?>" alt="avatar">
+<img class="w-8 h-8 rounded-full object-cover" src="<?php echo getData('userAvatar'); ?>" alt="avatar"
+onerror="if (this.src != '/resources/images/fallback_profile.jpg') this.src = '/resources/images/fallback_profile.jpg';">
 </button>
 
 </div>

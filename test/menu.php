@@ -32,7 +32,7 @@ chdir(dirname(__FILE__));
             <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="<?php echo getData('userAvatar'); ?>" alt="avatar">
+                        <img class="w-8 h-8 rounded-full" src="<?php echo getData('userAvatar'); ?>" alt="avatar" onerror="if (this.src != '/resources/images/fallback_profile.jpg') this.src = '/resources/images/fallback_profile.jpg';">
                     </div>
                     <div class="flex-1 min-w-0"><p class="text-lg font-bold text-gray-900 truncate dark:text-white">
                     <?php echo getData('userNick'); ?> (<?php echo getData('userName'); ?>)

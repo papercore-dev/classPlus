@@ -11,6 +11,9 @@ while($row = $getCommunityList_Result->fetch()){
 include 'specificFunction.php';
 if(!$isBannerHidden){
 $getCommunityRank++;
+if ($getCommunityRank == 6) {
+    break;
+}
     echo '
     <a href="javascript:Turbo.visit(`/list.php?id='.$row['boardID'].'`)">
     <li class="rounded-lg hover:bg-gray-200 my-1 py-2">

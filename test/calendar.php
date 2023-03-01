@@ -20,6 +20,28 @@ include 'ui/menu/menu.tl.html.php';
 chdir(dirname(__FILE__));
 ?>
 <div class="p-5">
+<div class="overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-1">
+    <ul class="flex items-center gap-2 text-sm font-medium">
+      <li class="flex-1">
+        <a
+          href="#"
+          class="text-gra relative flex items-center justify-center gap-2 rounded-lg bg-white px-3 py-2 shadow hover:bg-white hover:text-gray-700"
+        >
+          캘린더</a
+        >
+      </li>
+      <li class="flex-1">
+        <a
+          href="#"
+          class="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
+        >
+          시간표</a
+        >
+      </li>
+    </ul>
+  </div>
+
+
     <div class="my-4">
 <?php
 //show this month's calendar
@@ -68,8 +90,12 @@ showCalendar(date('m'), date('Y'));
 ?>
 </div>
 
-<div class='mb-5 flex items-center justify-between'>
-<h4 class='text-2xl font-bold text-slate-500'>일정</h4>
+<div class="mb-5 flex items-center justify-between">
+<h4 class="text-2xl font-bold text-slate-500">일정</h4><p class="text-gray-500"><span class="w-2 h-2 my-1 inline-block rounded-full bg-blue-500 mx-2"></span>기념일
+<span class="w-2 h-2 my-1 inline-block rounded-full bg-green-500 mx-2"></span>학교
+<span class="w-2 h-2 my-1 inline-block rounded-full bg-yellow-500 mx-2"></span>학급
+<span class="w-2 h-2 my-1 inline-block rounded-full bg-red-500 mx-2"></span>개인</p>
+
 </div>
 <?php
 $getCalendarData = "SELECT * FROM `calendar` ORDER BY `calendar`.`eventStart` DESC";
@@ -82,20 +108,28 @@ while($row = $getCalendarData_Result->fetch()){
     if (!$isBannerHidden){
     $eventStart = date("Y-m-d H:i:s", strtotime($row["eventStart"]));
     $eventEnd = date("Y-m-d H:i:s", strtotime($row["eventEnd"]));
-    $eventStart = date("Y년 m월 d일 H시 i분", strtotime($eventStart));
-    $eventEnd = date("Y년 m월 d일 H시 i분", strtotime($eventEnd));
+    $eventStart = date("Y년 m월 d일 H:i", strtotime($eventStart));
+    $eventEnd = date("Y년 m월 d일 H:i", strtotime($eventEnd));
     $eventName = $row["eventName"];
+    $eventColor = "blue-500";
+    
+    if ($row["publicLevel"] == 1){
+    $eventColor = "green-500";
+    }
+    else if ($row["publicLevel"] == 2){
+    $eventColor = "yellow-500";
+    }
+    else if ($row["publicLevel"] == 3){
+    $eventColor = "red-500";
+    }
+    else{
+    $eventColor = "blue-500";
+    }
 
-    echo "<div class='bg-white dark:bg-gray-800 shadow rounded-lg p-4 mb-4'>
-    <div class='flex items-center justify-between'>
-    <div class='flex items-center'>
-    <div class='text-xl font-bold text-gray-900 dark:text-white'>$eventName</div>
-    </div>
-    </div>
-    <div class='mt-4'>
-    <div class='text-gray-600 dark:text-gray-400'>$eventStart ~ $eventEnd</div>
-    </div>
-    </div>";
+    echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border-l-8 border border-'.$eventColor.'">
+    <strong>'.$row["eventName"].'</strong>
+    <p class="text-gray-500 text-xs">$eventStart ~ $eventEnd</p>
+    </div>';
     }
 }}
 ?>
