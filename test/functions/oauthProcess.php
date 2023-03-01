@@ -101,7 +101,7 @@ if(get('code')) {
       exit;
     }
     else{
-      echo "<script>location.href='/';</script>";
+      echo "<script>location.href='/app.php';</script>";
     exit;
     }
 }
