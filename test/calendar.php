@@ -134,8 +134,13 @@ while($row = $getCalendarData_Result->fetch()){
 }}
 ?>
 </div>
-<button onclick="buttonHandler()" title="Contact Sale"
-        class="fixed z-90 bottom-10 right-8 bg-blue-600 w-20 h-20 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-blue-700 hover:drop-shadow-2xl hover:animate-bounce duration-300">&#9993;</button>
+<button onclick="buttonHandler()"
+        class="fixed z-90 bottom-8 right-8 bg-blue-500 w-16 h-16 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-blue-600 hover:shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+</svg>
+  
+      </button>
 
     <!-- Javascript code -->
     <script>
