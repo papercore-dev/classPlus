@@ -31,14 +31,14 @@ if ($findMatrixCreationLog_Result->rowCount() > 0){
 }
 else{
     //set current timestamp to matrixID
-    $matrixID = time();
+    $matrixID = 'cp'.time();
     //generate random 16 digit password
     $matrixPass = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 16);
     //insert matrixID and matrixPass to matrix_conn
     $insertMatrixCreationLog = "INSERT INTO matrix_conn (userID, signMethod, matrixID, matrixPass) VALUES ('".$_SESSION["userID"]."', '".$_SESSION["signMethod"]."', '".$matrixID."', '".$matrixPass."')";
     $insertMatrixCreationLog_Result = $db->query($insertMatrixCreationLog);
     //create new synapse user with python script
-    exec("python3 ../scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k \"".$API_matrix."\" https://chat-backend.pcor.me", $output);
+    exec("sudo -u ubuntu python3 ../scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k \"".$API_matrix."\" https://chat-backend.pcor.me", $output);
     //show result
     echo "<pre>";
     print_r($output);
