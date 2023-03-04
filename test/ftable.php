@@ -103,7 +103,7 @@ chdir(dirname(__FILE__));
         }
         
         echo '<div class="my-5 flex items-center justify-between">
-        <h4 class="text-2xl font-bold text-slate-500">'.$beautifiedDate.' '.$dayOfWeek.'</h4><p class="text-gray-500">'.$day["CAL_INFO"].'</p>
+        <h4 class="text-2xl text-slate-500"><span class="font-bold">'.$beautifiedDate.' '.$dayOfWeek.'</span> '.$mealType.'</h4><p class="text-gray-500">'.$day["CAL_INFO"].'</p>
         </div>';
         //if DDISH_NM includes word in array, make it bold
         $tastyFood = array("스테이크", "고기", "빵", "요거트", "요구르트", "돈가스", "돈까스", "튀김", "볶음", "짜장", "짬뽕", "우동", "주스", "쥬스", "스무디", "라떼", "아이스크림", "떡볶이", "김밥", "케이크");
@@ -113,7 +113,7 @@ chdir(dirname(__FILE__));
             $dishToday = str_replace($food, "<b>".$food."</b>", $day["DDISH_NM"]);
           }
         }
-        echo $mealType.'<br><br>'.$dishToday;
+        echo $dishToday;
         if ($dayOfWeek == "금요일"){
           echo '<div class="mt-4 flex items-center justify-between">
           <span class="border-b w-1/5 lg:w-1/4"></span>
