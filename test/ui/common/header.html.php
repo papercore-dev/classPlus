@@ -152,6 +152,25 @@ a {
 
   gtag('config', '<?php echo $API_googleAnalytics;?>');
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
+    authDomain: "classplus-6299c.firebaseapp.com",
+    projectId: "classplus-6299c",
+    storageBucket: "classplus-6299c.appspot.com",
+    messagingSenderId: "132817983245",
+    appId: "1:132817983245:web:c731204b44b8b6ebb3c244"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
 </head>
 <body class="min-h-screen">
 <div id="toast"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 inline-block text-yellow-500">

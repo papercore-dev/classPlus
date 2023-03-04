@@ -49,16 +49,16 @@ chdir(dirname(__FILE__));
 </div>
 </li>
 </a>
-<a href="javascript:Turbo.visit(`/list.php?id=4`)">
+<button id="subscribe">
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
-<div class="flex-shrink-0 text-3xl tossface">✅</div>
+<div class="flex-shrink-0 text-3xl tossface">🔔</div>
 <div class="flex-1 min-w-0">
-<p class="text-sm font-medium text-gray-900 truncate dark:text-white">교사 인증받기</p>
+<p class="text-sm font-medium text-gray-900 truncate dark:text-white">알림 받기</p>
 </div>
 </div>
 </li>
-</a>
+</button>
 <a href="javascript:Turbo.visit(`/oauth/logout.php`)">
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
@@ -69,29 +69,19 @@ chdir(dirname(__FILE__));
 </div>
 </li>
 </a>
-<a href="javascript:Turbo.visit(`/list.php?id=6`)">
-<li class="rounded-lg hover:bg-gray-200 my-1 py-2">
-<div class="flex items-center space-x-4">
-<div class="flex-shrink-0 text-3xl tossface">🗑</div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-medium text-gray-900 truncate dark:text-white">계정 삭제하기</p>
-</div>
-</div>
-</li>
-</a>
-<a href="javascript:Turbo.visit(`/list.php?id=7`)">
-<li class="rounded-lg hover:bg-gray-200 my-1 py-2">
-<div class="flex items-center space-x-4">
-<div class="flex-shrink-0 text-3xl tossface">🎧</div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-medium text-gray-900 truncate dark:text-white">고객센터</p>
-</div>
-</div>
-</li>
-</a>
 </ul>
 </div>
+<script>
+var button = document.getElementById("subscribe");
+button.addEventListener('click', function(e) {
+    Notification.requestPermission().then(function(result) {
+        if(result === 'granted') {
+            randomNotification();
+        }
+    });
+});
 
+</script>
 
 </div>
 </section>
