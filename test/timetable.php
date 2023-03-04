@@ -61,7 +61,31 @@ chdir(dirname(__FILE__));
        $schoolRegion = checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolSID")."&Type=json")["schoolInfo"][1]["row"][0]["LCTN_SC_NM"];
        //schoolRegion에서 앞 2글자만 utf 8로 가져오기 (eg: 서울특별시 -> 서울)
         $schoolRegion = mb_substr($schoolRegion, 0, 2, "UTF-8");
-        echo "<h1 class='text-2xl font-bold'>".$schoolRegion." ".$schoolType." 시간표</h1>";
+        //get timetable from API running on port 8271 (http://localhost:8271/timetable/{schoolRegion}/{schoolName}/{grade}/{class})
+        $timetable = file_get_contents("http://localhost:8271/timetable/".$schoolRegion."/".getData("schoolName")."/".getData("schoolGrade")."/".getData("schoolClass"));
+        $studytime = file_get_contents("http://localhost:8271/classtime/".$schoolRegion."/".getData("schoolName")."/".getData("schoolGrade")."/".getData("schoolClass"));
+        $timetable = json_decode($timetable, true);
+        $studytime = json_decode($studytime, true);
+        //create table to show timetable (get row from number of array in $timetable and get column from largest number of array in $timetable[n])
+        echo "<table class='table-auto border border-gray-100 bg-gray-50 p-1'>";
+        echo "<tr>";
+        echo "<th class='border border-gray-100 bg-gray-50 p-1'>교시</th>";
+        for ($i=0; $i < count($timetable); $i++) {
+          echo "<th class='border border-gray-100 bg-gray-50 p-1'>".($i+1)."교시</th>";
+        }
+        echo "</tr>";
+        for ($i=0; $i < count($timetable[0]); $i++) {
+          echo "<tr>";
+          echo "<td class='border border-gray-100 bg-gray-50 p-1'>".($i+1)."교시</td>";
+          for ($j=0; $j < count($timetable); $j++) {
+            echo "<td class='border border-gray-100 bg-gray-50 p-1'>".$timetable[$j][$i]."</td>";
+          }
+          echo "</tr>";
+        }
+        echo "</table>";
+        echo "<br>";
+        
+
       }
       else{
         echo "학교 정보를 불러오는데 실패했어요";
