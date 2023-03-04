@@ -41,6 +41,12 @@ class="inline-block"></lottie-player>
 <h2 class="text-lg font-semibold text-blue-500">Class+에 로그인하고</h2>
 <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-800 sm:text-4xl">
 친구들과 대화를 시작해봐요</p>
+<h2 class="mt-2 text-gray-500">iPhone이라면 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15"></path>
+</svg>공유&nbsp;<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+</svg>
+ 홈 화면에 추가해서 빠르게 이용해보세요!</h2>
 </div>
 </div>
 </div>

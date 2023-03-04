@@ -51,7 +51,7 @@ else{
 <div class="w-full items-center justify-center text-center">
 <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_fhynbgue.json" background="transparent" speed="1" style="width: 150px; height: 150px;" autoplay="" class="inline-block"></lottie-player>
 </div>
-<div class="mb-5 flex items-center justify-between">
+<div class="mb-5">
 <h4 class="text-2xl font-bold text-slate-500">아래의 정보로<br>채팅에서 로그인하세요</h4>
 <p class="text-sm text-gray-500">채팅은 <span class="text-blue-500">종단간 암호화</span> 되어 있기 때문에, 다중 로그인이나 암호 키를 활성화하지 않았다면 복구할 수 없어요.<br>
 채팅 내의 대화에 대해서 저희 클래스+는 책임지지 않지만, 법적 수사 과정에서 사용자 정보 요청 시 학생 정보를 <span class="text-blue-500">제출 가능</span>해요.</p>
