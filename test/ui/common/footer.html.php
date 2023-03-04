@@ -58,8 +58,8 @@ chdir(dirname(__FILE__));?>
 
 </div>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/firebase/9.14.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/firebase/9.14.0/firebase-messaging-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging-compat.js"></script>
   <script>
     var firebaseConfig = {
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
