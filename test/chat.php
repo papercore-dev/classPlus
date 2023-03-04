@@ -51,7 +51,7 @@ else{
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <div class="w-full items-center justify-center text-center">
-<lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_fhynbgue.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop="" autoplay="" class="inline-block"></lottie-player>
+<lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_fhynbgue.json" background="transparent" speed="1" style="width: 150px; height: 150px;" autoplay="" class="inline-block"></lottie-player>
 </div>
 <div class="mb-5 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500">아래의 정보로<br>채팅에서 로그인하세요</h4>
@@ -67,7 +67,11 @@ else{
 <strong>비밀번호&nbsp;</strong>
 <p class="text-gray-500"><?php echo $matrixPass;?></p>
 </div>
-<a href="https://chat.pcor.me" class="block visible py-4 px-4 mb-4 text-lg leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg w-full text-center font-bold">채팅 열기&nbsp;</a>
+<a href="https://chat.pcor.me" class="block visible py-4 px-4 mb-4 text-lg leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg w-full text-center font-bold">채팅 열기</a>
+<a href="#" class="w-full block mt-4 text-center text-blue-500">채팅이 잘 안 되나요? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
+  <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
+</svg>
+</a>
 </div>
 </div>
 </div>
