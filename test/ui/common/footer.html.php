@@ -58,14 +58,9 @@ chdir(dirname(__FILE__));?>
 
 </div>
   </div>
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js'
-
-    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
-
-    // Add Firebase products that you want to use
-    import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js'
+  <script src="https://www.gstatic.com/firebasejs/firebase/9.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/firebase/9.14.0/firebase-messaging-compat.js"></script>
+  <script>
     var firebaseConfig = {
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
     authDomain: "classplus-6299c.firebaseapp.com",
@@ -75,15 +70,19 @@ chdir(dirname(__FILE__));?>
     appId: "1:132817983245:web:c731204b44b8b6ebb3c244",
     measurementId: "G-FZ1RXSYVQC"
   };
+  firebase.initializeApp(firebaseConfig);
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics();
+  // Retrieve Firebase Messaging object.
+  const messaging = firebase.messaging();
 
+  // IDs of divs that display registration token UI or request permission UI.
   const tokenDivId = 'token_div';
   const permissionDivId = 'permission_div';
-  const messaging = getMessaging();
 
+  // Handle incoming messages. Called when:
+  // - a message is received while the app has focus
+  // - the user clicks on an app notification created by a service worker
+  //   `messaging.onBackgroundMessage` handler.
   messaging.onMessage((payload) => {
     console.log('Message received. ', payload);
     // Update the UI to include the received message.
