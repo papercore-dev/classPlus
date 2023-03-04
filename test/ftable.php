@@ -63,7 +63,46 @@ chdir(dirname(__FILE__));
       $mealData = checkNEIS("hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=".$schoolRegionCode."&SD_SCHUL_CODE=".getData("schoolSID")."&MLSV_FROM_YMD=".$currentDate."&MLSV_TO_YMD=".$sevenDaysLater."&Type=json")["mealServiceDietInfo"][1]["row"];
 
       foreach($mealData as $day){
-        echo $day["DDISH_NM"];
+        $beautifiedDate = date("n월 j일", strtotime($day["MLSV_YMD"]));
+        //YYYYMMDD에서 요일 추출
+        $dayOfWeek = date("w", strtotime($day["MLSV_YMD"]));
+        //요일 한글화
+        switch($dayOfWeek){
+          case 0:
+            $dayOfWeek = "일요일";
+            break;
+          case 1:
+            $dayOfWeek = "월요일";
+            break;
+          case 2:
+            $dayOfWeek = "화요일";
+            break;
+          case 3:
+            $dayOfWeek = "수요일";
+            break;
+          case 4:
+            $dayOfWeek = "목요일";
+            break;
+          case 5:
+            $dayOfWeek = "금요일";
+            break;
+          case 6:
+            $dayOfWeek = "토요일";
+            break;
+        }
+
+        echo '<div class="my-5 flex items-center justify-between">
+        <h4 class="text-2xl font-bold text-slate-500">'.$beautifiedDate.' '.$dayOfWeek.' '.$day["MMEAL_SC_NM"].'</h4><p class="text-gray-500">'.$day["CAL_INFO"].'</p>
+        </div>';
+        //if DDISH_NM includes word in array, make it bold
+        $tastyFood = array("돼지고기", "소고기", "닭고기", "오리고기", "양고기", "계란", "쌀", "콩", "밀", "잡곡", "콩나물", "콩나물국");
+        $dishToday = $day["DDISH_NM"];
+        foreach($tastyFood as $food){
+          if(strpos($day["DDISH_NM"], $food) !== false){
+            $dishToday = str_replace($food, "<b>".$food."</b>", $day["DDISH_NM"]);
+          }
+        }
+        echo $dishToday;
       }
       ?>
 </div>
