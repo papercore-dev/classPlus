@@ -87,14 +87,16 @@ chdir(dirname(__FILE__));
         echo "<tr>";
         echo "<th class='border border-gray-100 bg-gray-50 p-1'>교시</th>";
         for ($i=0; $i < count($timetable); $i++) {
-          echo "<th class='border border-gray-100 bg-gray-50 p-1'>".($i+1)."교시</th>";
+          //show week of day
+          $weekofday = array("월", "화", "수", "목", "금", "토", "일");
+          echo "<th class='border border-gray-100 bg-gray-50 p-1'>".$weekofday[$i]."</th>";
         }
         echo "</tr>";
         for ($i=0; $i < count($timetable[0]); $i++) {
           echo "<tr>";
           echo "<td class='border border-gray-100 bg-gray-50 p-1'>".($i+1)."교시</td>";
           for ($j=0; $j < count($timetable); $j++) {
-            echo "<td class='border border-gray-100 bg-gray-50 p-1'>".$timetable[$j][$i]."</td>";
+            echo "<td class='border border-gray-100 bg-gray-50 p-1'>".$timetable[$j][$i]["subject"]."<br>".$timetable[$j][$i]["teacher"]."</td>";
           }
           echo "</tr>";
         }
