@@ -12,8 +12,10 @@ requireStdVerification();
 
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
+include 'functions/checkNEIS.php';
+chdir(dirname(__FILE__));
 
-$serviceName = "ttable";
+$serviceName = "timetable";
 include 'functions/analyzeLogs.php';
 chdir(dirname(__FILE__));
 include 'ui/menu/menu.tl.html.php';
@@ -32,7 +34,7 @@ chdir(dirname(__FILE__));
       </li>
       <li class="flex-1">
         <a
-          href="javascript:Turbo.visit('/ttable.php');"
+          href="javascript:Turbo.visit('/timetable.php');"
           class="text-gra relative flex items-center justify-center gap-2 rounded-lg bg-white px-3 py-2 shadow hover:bg-white hover:text-gray-700"
         >
           시간표</a

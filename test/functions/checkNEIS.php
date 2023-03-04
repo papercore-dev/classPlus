@@ -13,3 +13,4 @@ function checkNEIS($rurl){
     $json = json_decode($output, true);
     return $json;
 }
+?>

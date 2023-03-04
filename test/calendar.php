@@ -32,7 +32,7 @@ chdir(dirname(__FILE__));
       </li>
       <li class="flex-1">
         <a
-          href="javascript:Turbo.visit('/ttable.php');"
+          href="javascript:Turbo.visit('/timetable.php');"
           class="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
         >
           시간표</a
