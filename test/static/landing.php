@@ -7,14 +7,10 @@ chdir(dirname(__FILE__));
 include '../ui/menu/menu.static.html.php';
 chdir(dirname(__FILE__));
 ?>
-<script type=module src=https://wnf81yc22f.execute-api.ap-northeast-2.amazonaws.com/1/api/fontstream/djs/?sid=gAAAAABkA2CkW2nqfP2txGdEO8stHTzSJYNSxhXRwF7-MFXin-zCBYrA4FdlwkZ8WVjDmtqp7phhJH-Af6dkBklKE_-VPvDnh2aVmtMBfp1QOelfXhJxPUHl4h1ubeMlsFVlge16a-QvaphSwC3EcDt19kcc47e8fINvYlvbjC6So0hwUfkmleZ7kA3H6NHw3_7ar0xWPSGJPK5iKFF9wsb2mzt4Hzf_kBlsTJDj36I5nOT8xpUxx0bnZut144I8yzqlrkl0ILhH charset=utf-8></script>
-<style>
-    .kdgd{font-family: Sandoll GyeokdongGothic!important;font-weight: 400;}
-</style>
 <section class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
-            <h1 class="max-w-2xl mb-4 text-4xl kdgd leading-none md:text-5xl xl:text-6xl dark:text-white">진보된 학급 경험</h1>
+            <h1 class="max-w-2xl mb-4 text-4xl font-bold leading-none md:text-5xl xl:text-6xl dark:text-white">진보된 학급 경험</h1>
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                 교사 중심의 커뮤니티에서, 학생 중심의 커뮤니티로, 우리가 운영해서 더욱 자유로운 클래스+
             </p>
@@ -26,7 +22,7 @@ chdir(dirname(__FILE__));
                 사용 문의하기
             </a> 
         </div>
-        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <div class="lg:mt-0 lg:col-span-5 lg:flex">
             <img src="/resources/images/heroImage.png" alt="휴대전화 목업">
         </div>                
     </div>
@@ -34,7 +30,7 @@ chdir(dirname(__FILE__));
 <section class="bg-gray-50 dark:bg-gray-800">
     <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
         <div class="max-w-screen-md mb-8 lg:mb-16">
-            <h2 class="mb-4 text-4xl kdgd text-gray-900 dark:text-white">학생 주도, 학급 커뮤니티의 새로운 지평</h2>
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">학생 주도, 학급 커뮤니티의 새로운 지평</h2>
             <p class="text-gray-500 sm:text-xl dark:text-gray-400">
             클래스+는 학생들이 주도하는 학급 커뮤니티와 교내 정보를 모바일에서 쉽게 접근할 수 있는 어플리케이션이에요. 학급 회장이나 학생회원들은 수업 일정, 과제, 행사 정보 등을 빠르게 전달하고, 학급 내 소외되는 학생 없이 모두가 적극적으로 참여할 수 있는 환경을 조성해요. 또한, 학생들끼리의 교류와 공유도 가능하여 학생들이 자유롭게 의견을 나누고 소통할 수 있어요. 클래스+와 함께 학생 주도의 새로운 학급 커뮤니티를 만들어 보아요!</p>
         </div>
@@ -97,7 +93,7 @@ chdir(dirname(__FILE__));
   <section class="bg-white dark:bg-gray-900">
     <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
         <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 class="mb-4 text-4xl kdgd text-gray-900 dark:text-white">학생의 눈으로 바라봐서, 뭐가 필요한지 잘 알아요</h2>
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">학생의 눈으로 바라봐서, 뭐가 필요한지 잘 알아요</h2>
             <p class="mb-4">우리가 학교 생활을 하면서 소소하게 불편했던 점들을 개선해 나간 것이지, 누군가의 눈먼 돈을 위해 만든 것이 아니에요.</p>
         </div>
         <div class="grid grid-cols-2 gap-4 mt-8">
@@ -110,7 +106,7 @@ chdir(dirname(__FILE__));
 <section class="bg-gray-50 dark:bg-gray-900 dark:bg-gray-800">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div class="max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 class="mb-4 text-4xl kdgd text-gray-900 dark:text-white">이제 <span>1,900+</span> 학생들에게로 다가가요</h2>
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">이제 <span>1,900+</span> 학생들에게로 다가가요</h2>
             <p class="mb-4 font-light">없어서 좋을 건 없으니까, 우리는 이 모든 것을 무료로 제공해요.</p>
             <p class="mb-4 font-medium">좋은 서비스를 학생들이 운영하고, 사용하기란 쉽지 않죠. 그래서 우리는 우리만 생각하지 않고 모두에게 무료로 제공하기로 결정했어요.</p>
         </div>
@@ -120,7 +116,7 @@ chdir(dirname(__FILE__));
   <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-sm text-center">
-            <h2 class="mb-4 text-4xl kdgd leading-tight text-gray-900 dark:text-white">지금 시작하세요</h2>
+            <h2 class="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white">지금 시작하세요</h2>
             <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">PC, 모바일의 경계를 허물고 어디서나 사용할 수 있어요</p>
             <a href="mailto:support@pcor.me" class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-800">사용 문의하기</a>
         </div>
