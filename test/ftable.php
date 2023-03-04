@@ -60,7 +60,7 @@ chdir(dirname(__FILE__));
       //7 days later date in YYYYMMDD format
       $sevenDaysLater = date("Ymd", strtotime("+7 days"));
       //get school meal data
-      $mealData = checkNEIS("hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=".$schoolRegionCode."&SD_SCHUL_CODE=".getData("schoolSID")."&MLSV_FROM_YMD=".$currentDate."&MLSV_TO_YMD=".$sevenDaysLater."&Type=json")["mealServiceDietInfo"];
+      $mealData = checkNEIS("hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=".$schoolRegionCode."&SD_SCHUL_CODE=".getData("schoolSID")."&MLSV_FROM_YMD=".$currentDate."&MLSV_TO_YMD=".$sevenDaysLater."&Type=json")["mealServiceDietInfo"][1]["row"];
 
       foreach($mealData as $day){
         echo $day["DDISH_NM"];
