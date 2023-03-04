@@ -38,7 +38,7 @@ else{
     $insertMatrixCreationLog = "INSERT INTO matrix_conn (userID, signMethod, matrixID, matrixPass) VALUES ('".$_SESSION["userID"]."', '".$_SESSION["signMethod"]."', '".$matrixID."', '".$matrixPass."')";
     $insertMatrixCreationLog_Result = $db->query($insertMatrixCreationLog);
     //create new synapse user with python script
-    exec("../scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k ".'"wntxWM0i4OE4dAFrV968SA2nab8ZX2uIaTHoX55NgqkzQ119DygtQjYqTrQdpFhH"'." https://chat-backend.pcor.me", $output);
+    exec("python3 ../scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k ".'"wntxWM0i4OE4dAFrV968SA2nab8ZX2uIaTHoX55NgqkzQ119DygtQjYqTrQdpFhH"'." https://chat-backend.pcor.me", $output);
     //show result
     echo "<pre>";
     print_r($output);
