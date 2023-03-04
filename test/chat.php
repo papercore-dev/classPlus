@@ -39,7 +39,10 @@ else{
     $insertMatrixCreationLog_Result = $db->query($insertMatrixCreationLog);
     //create new synapse user with python script
     exec("python3 ../scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k \"".$API_matrix."\" https://chat-backend.pcor.me", $output);
-    echo $output;
+    //show result
+    echo "<pre>";
+    print_r($output);
+    echo "</pre>";
 }
 ?>
 <!-- show login credentials and link to matrix -->
