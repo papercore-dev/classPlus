@@ -77,7 +77,7 @@ chdir(dirname(__FILE__));?>
   };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  const firebase = initializeApp(firebaseConfig);
   firebase.analytics();
 
   const tokenDivId = 'token_div';
