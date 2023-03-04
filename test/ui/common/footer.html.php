@@ -59,13 +59,13 @@ chdir(dirname(__FILE__));?>
 </div>
   </div>
   <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js'
 
     // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics-compat.js'
 
     // Add Firebase products that you want to use
-    import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js'
+    import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js'
     var firebaseConfig = {
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
     authDomain: "classplus-6299c.firebaseapp.com",
@@ -95,7 +95,7 @@ chdir(dirname(__FILE__));?>
     showToken('loading...');
     // Get registration token. Initially this makes a network call, once retrieved
     // subsequent calls to getToken will return from cache.
-    messaging.getToken({vapidKey: '<YOUR_PUBLIC_VAPID_KEY_HERE>'}).then((currentToken) => {
+    messaging.getToken({vapidKey: 'BKiriy08Tk9FLnL1Y9DuKQwAcMrNafuGF59bdSqM0MGHUXqm4SjDc0lJSm4oSVa7TU_iSOcFX_s6OfxFzyNtoP4'}).then((currentToken) => {
       if (currentToken) {
         sendTokenToServer(currentToken);
         updateUIForPushEnabled(currentToken);
