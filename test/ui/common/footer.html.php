@@ -65,7 +65,7 @@ chdir(dirname(__FILE__));?>
     import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
 
     // Add Firebase products that you want to use
-    import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js'
+    import { getMessaging, getToken, onMessage, appendMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js'
     var firebaseConfig = {
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
     authDomain: "classplus-6299c.firebaseapp.com",
@@ -77,12 +77,13 @@ chdir(dirname(__FILE__));?>
   };
 
   // Initialize Firebase
-  const firebase = initializeApp(firebaseConfig);
-  firebase.analytics();
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics();
 
   const tokenDivId = 'token_div';
   const permissionDivId = 'permission_div';
-  const messaging = firebase.messaging();
+  const messaging = getMessaging();
+
   messaging.onMessage((payload) => {
     console.log('Message received. ', payload);
     // Update the UI to include the received message.
