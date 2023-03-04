@@ -15,7 +15,7 @@ chdir(dirname(__FILE__));
 include 'functions/checkNEIS.php';
 chdir(dirname(__FILE__));
 
-$serviceName = "timetable";
+$serviceName = "meals";
 include 'functions/analyzeLogs.php';
 chdir(dirname(__FILE__));
 include 'ui/menu/menu.tl.html.php';
