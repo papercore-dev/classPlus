@@ -62,7 +62,7 @@ chdir(dirname(__FILE__));?>
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js'
 
     // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics-compat.js'
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
 
     // Add Firebase products that you want to use
     import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js'
