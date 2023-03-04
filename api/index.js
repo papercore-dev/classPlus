@@ -14,9 +14,10 @@ app.get('/timetable/:eduLocation/:school/:grade/:class', (req, res) => {
     try{
         const test = async () => {
             await timetable.init();
+            console.log(req.params);
             // 학교 검색 및 특정 학교 찾기
             const schoolList = await timetable.search(req.params.school);
-            console.log(req.params);
+            
             const targetSchool = schoolList.find((school) => {
               return school.region === req.params.eduLocation && school.name === req.params.school;
             });
@@ -44,9 +45,10 @@ app.get('/classtime/:eduLocation/:school/:grade/:class', (req, res) => {
     try{
         const test = async () => {
             await timetable.init();
+            console.log(req.params);
             // 학교 검색 및 특정 학교 찾기
             const schoolList = await timetable.search(req.params.school);
-            console.log(req.params);
+            
             const targetSchool = schoolList.find((school) => {
               return school.region === req.params.eduLocation && school.name === req.params.school;
             });
