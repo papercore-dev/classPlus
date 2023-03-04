@@ -142,12 +142,6 @@ chdir(dirname(__FILE__));?>
   }
 
   function showHideDiv(divId, show) {
-    const div = document.querySelector('#' + divId);
-    if (show) {
-      div.style = 'display: visible';
-    } else {
-      div.style = 'display: none';
-    }
   }
 
   function requestPermission() {
