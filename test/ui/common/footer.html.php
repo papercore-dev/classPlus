@@ -58,5 +58,183 @@ chdir(dirname(__FILE__));?>
 
 </div>
   </div>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js'
+    var firebaseConfig = {
+    apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
+    authDomain: "classplus-6299c.firebaseapp.com",
+    projectId: "classplus-6299c",
+    storageBucket: "classplus-6299c.appspot.com",
+    messagingSenderId: "132817983245",
+    appId: "1:132817983245:web:c731204b44b8b6ebb3c244",
+    measurementId: "G-FZ1RXSYVQC"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const tokenDivId = 'token_div';
+  const permissionDivId = 'permission_div';
+  const messaging = firebase.messaging();
+  messaging.onMessage((payload) => {
+    console.log('Message received. ', payload);
+    // Update the UI to include the received message.
+    appendMessage(payload);
+  });
+
+  function resetUI() {
+    clearMessages();
+    showToken('loading...');
+    // Get registration token. Initially this makes a network call, once retrieved
+    // subsequent calls to getToken will return from cache.
+    messaging.getToken({vapidKey: '<YOUR_PUBLIC_VAPID_KEY_HERE>'}).then((currentToken) => {
+      if (currentToken) {
+        sendTokenToServer(currentToken);
+        updateUIForPushEnabled(currentToken);
+      } else {
+        // Show permission request.
+        console.log('No registration token available. Request permission to generate one.');
+        // Show permission UI.
+        updateUIForPushPermissionRequired();
+        setTokenSentToServer(false);
+      }
+    }).catch((err) => {
+      console.log('An error occurred while retrieving token. ', err);
+      showToken('Error retrieving registration token. ', err);
+      setTokenSentToServer(false);
+    });
+  }
+
+
+  function showToken(currentToken) {
+    // Show token in console and UI.
+    const tokenElement = document.querySelector('#token');
+    tokenElement.textContent = currentToken;
+  }
+
+  // Send the registration token your application server, so that it can:
+  // - send messages back to this app
+  // - subscribe/unsubscribe the token from topics
+  function sendTokenToServer(currentToken) {
+    if (!isTokenSentToServer()) {
+      console.log('Sending token to server...');
+      // TODO(developer): Send the current token to your server.
+      setTokenSentToServer(true);
+    } else {
+      console.log('Token already sent to server so won\'t send it again ' +
+          'unless it changes');
+    }
+  }
+
+  function isTokenSentToServer() {
+    return window.localStorage.getItem('sentToServer') === '1';
+  }
+
+  function setTokenSentToServer(sent) {
+    window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+  }
+
+  function showHideDiv(divId, show) {
+    const div = document.querySelector('#' + divId);
+    if (show) {
+      div.style = 'display: visible';
+    } else {
+      div.style = 'display: none';
+    }
+  }
+
+  function requestPermission() {
+    console.log('Requesting permission...');
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        console.log('Notification permission granted.');
+        // TODO(developer): Retrieve a registration token for use with FCM.
+        // In many cases once an app has been granted notification permission,
+        // it should update its UI reflecting this.
+        resetUI();
+      } else {
+        console.log('Unable to get permission to notify.');
+      }
+    });
+  }
+
+  function deleteToken() {
+    // Delete registration token.
+    messaging.getToken().then((currentToken) => {
+      messaging.deleteToken(currentToken).then(() => {
+        console.log('Token deleted.');
+        setTokenSentToServer(false);
+        // Once token is deleted update UI.
+        resetUI();
+      }).catch((err) => {
+        console.log('Unable to delete token. ', err);
+      });
+    }).catch((err) => {
+      console.log('Error retrieving registration token. ', err);
+      showToken('Error retrieving registration token. ', err);
+    });
+  }
+
+  // Add a message to the messages element.
+  function appendMessage(payload) {
+    const messagesElement = document.querySelector('#messages');
+    const dataHeaderElement = document.createElement('h5');
+    const dataElement = document.createElement('pre');
+    dataElement.style = 'overflow-x:hidden;';
+    dataHeaderElement.textContent = 'Received message:';
+    dataElement.textContent = JSON.stringify(payload, null, 2);
+    messagesElement.appendChild(dataHeaderElement);
+    messagesElement.appendChild(dataElement);
+  }
+
+  // Clear the messages element of all children.
+  function clearMessages() {
+    const messagesElement = document.querySelector('#messages');
+    while (messagesElement.hasChildNodes()) {
+      messagesElement.removeChild(messagesElement.lastChild);
+    }
+  }
+
+  function updateUIForPushEnabled(currentToken) {
+    showHideDiv(tokenDivId, true);
+    showHideDiv(permissionDivId, false);
+    showToken(currentToken);
+  }
+
+  function updateUIForPushPermissionRequired() {
+    showHideDiv(tokenDivId, false);
+    showHideDiv(permissionDivId, true);
+  }
+
+  resetUI();
+
+  </script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+  
+
+  //register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
 </body>
 </html>

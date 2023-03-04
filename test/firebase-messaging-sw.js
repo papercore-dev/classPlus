@@ -1,10 +1,10 @@
 
 'use strict';
  
-importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js");
+importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-app-compat.js');
+ importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compat.js');
  
-const FIREBASE_CONFIG = {
+ firebase.initializeApp({
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
     authDomain: "classplus-6299c.firebaseapp.com",
     projectId: "classplus-6299c",
@@ -12,28 +12,9 @@ const FIREBASE_CONFIG = {
     messagingSenderId: "132817983245",
     appId: "1:132817983245:web:c731204b44b8b6ebb3c244",
     measurementId: "G-FZ1RXSYVQC"
-  };
+  });
  
-// Initialize the firebase in the service worker.
-firebase.initializeApp(FIREBASE_CONFIG);
- 
-self.addEventListener('push', function (event) {
-	var data = event.data.json();
- 
-	const title = data.Title;
-	data.Data.actions = data.Actions;
-	const options = {
-		body: data.Message,
-		data: data.Data
-	};
-	event.waitUntil(self.registration.showNotification(title, options));
-});
- 
-self.addEventListener('notificationclick', function (event) {});
- 
-self.addEventListener('notificationclose', function (event) {});
-
-
+  const messaging = firebase.messaging();
 
 const HOSTNAME_WHITELIST = [
     "https://cdn.jsdelivr.net",

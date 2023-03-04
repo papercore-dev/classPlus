@@ -152,41 +152,7 @@ a {
 
   gtag('config', '<?php echo $API_googleAnalytics;?>');
 </script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
-    authDomain: "classplus-6299c.firebaseapp.com",
-    projectId: "classplus-6299c",
-    storageBucket: "classplus-6299c.appspot.com",
-    messagingSenderId: "132817983245",
-    appId: "1:132817983245:web:c731204b44b8b6ebb3c244",
-    measurementId: "G-FZ1RXSYVQC"
-  };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-  //register service worker
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/firebase-messaging-sw.js').then(function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
-    });
-  }
-</script>
 </head>
 <body class="min-h-screen">
 <div id="toast"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 inline-block text-yellow-500">
