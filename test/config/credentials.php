@@ -18,3 +18,4 @@ $oAuth_secret_kakao = "RfdAQuAfPZhXnez6SP7wEinIN9a6YyQe";
 
 $API_youtube = "AIzaSyBADKT0xhzPL4lKypeC8xO6VwgP7NSVg4s";
 $API_googleAnalytics = 'G-GBFKBH0HW5';
+$API_matrix = "wntxWM0i4OE4dAFrV968SA2nab8ZX2uIaTHoX55NgqkzQ119DygtQjYqTrQjYqTrQdpFhH";
