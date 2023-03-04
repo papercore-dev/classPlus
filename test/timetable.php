@@ -83,7 +83,7 @@ chdir(dirname(__FILE__));
         $timetable = json_decode($timetable, true);
         $studytime = json_decode($studytime, true);
         //create table to show timetable (get row from number of array in $timetable and get column from largest number of array in $timetable[n])
-        echo "<table class='table-auto border border-gray-100 bg-gray-50 p-1'>";
+        echo "<table class='w-full mx-4 table-auto border border-gray-100 bg-gray-50 p-1'>";
         echo "<tr>";
         echo "<th class='border border-gray-100 bg-gray-50 p-1'>교시</th>";
         for ($i=0; $i < count($timetable); $i++) {
@@ -94,9 +94,9 @@ chdir(dirname(__FILE__));
         echo "</tr>";
         for ($i=0; $i < count($timetable[0]); $i++) {
           echo "<tr>";
-          echo "<td class='border border-gray-100 bg-gray-50 p-1'>".($i+1)."교시</td>";
+          echo "<td class='border border-gray-100 bg-gray-50 p-1 text-center'>".($i+1)."교시</td>";
           for ($j=0; $j < count($timetable); $j++) {
-            echo "<td class='border border-gray-100 bg-gray-50 p-1'>".$timetable[$j][$i]["subject"]."<br>".$timetable[$j][$i]["teacher"]."</td>";
+            echo "<td class='border border-gray-100 bg-gray-50 p-1 text-center'>".$timetable[$j][$i]["subject"]."<br>".$timetable[$j][$i]["teacher"]."</td>";
           }
           echo "</tr>";
         }
