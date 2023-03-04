@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 
 //use Comcigan-parser to get timetable from specific school written in parameter
-app.get('/timetable/:school/:eduLocation/:grade/:class', (req, res) => {
+app.get('/timetable/:eduLocation/:school/:grade/:class', (req, res) => {
     try{
         const test = async () => {
             await timetable.init();
@@ -40,7 +40,7 @@ catch(err){
 })
 
 //use Comcigan-parser to get timetable from specific school written in parameter
-app.get('/classtime/:school/:eduLocation/:grade/:class', (req, res) => {
+app.get('/classtime/:eduLocation/:school/:grade/:class', (req, res) => {
     try{
         const test = async () => {
             await timetable.init();
@@ -65,3 +65,8 @@ catch(err){
 app.listen(port, () => {
   console.log(`Class+ API started on port ${port}`)
 })
+
+//don't crash when error occurs
+process.on('uncaughtException', function (err) {
+    console.log(err);
+});
