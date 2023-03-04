@@ -62,8 +62,14 @@ chdir(dirname(__FILE__));
        //schoolRegion에서 앞 2글자만 utf 8로 가져오기 (eg: 서울특별시 -> 서울)
         $schoolRegion = mb_substr($schoolRegion, 0, 2, "UTF-8");
         //get timetable from API running on port 8271 (http://localhost:8271/timetable/{schoolRegion}/{schoolName}/{grade}/{class})
-        $timetable = file_get_contents("http://localhost:8271/timetable/".$schoolRegion."/".getData("schoolName")."/".getData("schoolGrade")."/".getData("schoolClass"));
-        $studytime = file_get_contents("http://localhost:8271/classtime/".$schoolRegion."/".getData("schoolName")."/".getData("schoolGrade")."/".getData("schoolClass"));
+        //url encode school name
+        $schoolName = urlencode(getData("schoolName"));
+        $schoolGrade = urlencode(getData("schoolGrade"));
+        $schoolClass = urlencode(getData("schoolClass"));
+        $schoolRegion = urlencode($schoolRegion);
+
+        $timetable = file_get_contents("http://localhost:8271/timetable/".$schoolRegion."/".$schoolName."/".$schoolGrade."/".$schoolClass);
+        $studytime = file_get_contents("http://localhost:8271/classtime/".$schoolRegion."/".$schoolName."/".$schoolGrade."/".$schoolClass);
         $timetable = json_decode($timetable, true);
         $studytime = json_decode($studytime, true);
         //create table to show timetable (get row from number of array in $timetable and get column from largest number of array in $timetable[n])
