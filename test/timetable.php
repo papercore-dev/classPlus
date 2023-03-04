@@ -70,6 +70,16 @@ chdir(dirname(__FILE__));
 
         $timetable = file_get_contents("http://localhost:8271/timetable/".$schoolRegion."/".$schoolName."/".$schoolGrade."/".$schoolClass);
         $studytime = file_get_contents("http://localhost:8271/classtime/".$schoolRegion."/".$schoolName."/".$schoolGrade."/".$schoolClass);
+        //if timetable or studytime connection is failed, show error message
+        if ($timetable == false or $studytime == false) {
+          echo "시간표를 불러오는데 실패했어요";
+          exit;
+        }
+        //if timetable or studytime returns "Server Error" or connection is failed, show error message
+        if ($timetable == "Server Error" or $studytime == "Server Error") {
+          echo "시간표를 불러오는데 실패했어요";
+          exit;
+        }
         $timetable = json_decode($timetable, true);
         $studytime = json_decode($studytime, true);
         //create table to show timetable (get row from number of array in $timetable and get column from largest number of array in $timetable[n])

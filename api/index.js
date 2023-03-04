@@ -36,7 +36,7 @@ app.get('/timetable/:eduLocation/:school/:grade/:class', (req, res) => {
 test();
 }
 catch(err){
-    res.send(err);
+    res.send("Server Error");
 }
 })
 
@@ -60,7 +60,7 @@ app.get('/classtime/:eduLocation/:school/:grade/:class', (req, res) => {
 test();
 }
 catch(err){
-    res.send(err);
+  res.send("Server Error");
 }
 })
 
