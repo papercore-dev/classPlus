@@ -1,8 +1,8 @@
 
 'use strict';
  
-importScripts("https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/8.2.4/firebase-messaging.js");
+importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js");
  
 const FIREBASE_CONFIG = {
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
