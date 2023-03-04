@@ -24,7 +24,7 @@ chdir(dirname(__FILE__));
 $findMatrixCreationLog = "SELECT * FROM matrix_conn WHERE userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."'";
 $findMatrixCreationLog_Result = $db->query($findMatrixCreationLog);
 if ($findMatrixCreationLog_Result->rowCount() > 0){
-    while($row = $getCalendarData_Result->fetch()){
+    while($row = $findMatrixCreationLog_Result->fetch()){
         $matrixID = $row["matrixID"];
         $matrixPass = $row["matrixPass"];
     }
@@ -38,7 +38,7 @@ else{
     $insertMatrixCreationLog = "INSERT INTO matrix_conn (userID, signMethod, matrixID, matrixPass) VALUES ('".$_SESSION["userID"]."', '".$_SESSION["signMethod"]."', '".$matrixID."', '".$matrixPass."')";
     $insertMatrixCreationLog_Result = $db->query($insertMatrixCreationLog);
     //create new synapse user with python script
-    exec("sudo -u ubuntu /usr/bin/python3 /home/ubuntu/html/classplus/scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k \"".$API_matrix."\" https://chat-backend.pcor.me", $output);
+    exec("../scripts/registerMatrix.py -u ".$matrixID." -p ".$matrixPass." -k ".'"wntxWM0i4OE4dAFrV968SA2nab8ZX2uIaTHoX55NgqkzQ119DygtQjYqTrQdpFhH"'." https://chat-backend.pcor.me", $output);
     //show result
     echo "<pre>";
     print_r($output);
