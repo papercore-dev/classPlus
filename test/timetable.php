@@ -54,7 +54,7 @@ chdir(dirname(__FILE__));
 
     <div class="my-4">
       <?php
-      echo "학교종류: ".checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolCode")."&Type=json")[0]["SCHUL_KND_SC_NM"];
+      echo "학교종류: ".checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolCode")."&Type=json")["schoolInfo"][1]["row"][0]["SCHUL_KND_SC_NM"];
       ?>
 </div>
 <?php
