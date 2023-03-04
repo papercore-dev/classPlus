@@ -23,9 +23,11 @@ jobs:
       - name: 동기화
         run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/html/classplus --delete-after
 
-      - name: API서버 재시작
+      - name: API서버 중지
         #send Ctrl+C to the screen '693817.ClassPlusComcigan'
         run: ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "screen -S 693817.ClassPlusComcigan -X stuff $'\003'"
+      - name: API서버 파일 복사
         run: ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cp -r /home/ubuntu/html/classplus/api /home/ubuntu"
+      - name: API서버 실행
         #run node.js from '693817.ClassPlusComcigan'
         run: ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "screen -dmS 693817.ClassPlusComcigan bash -c 'cd /home/ubuntu/api && node index.js'"
