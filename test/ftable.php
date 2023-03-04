@@ -110,7 +110,7 @@ chdir(dirname(__FILE__));
         $dishToday = $day["DDISH_NM"];
         foreach($tastyFood as $food){
           if(strpos($day["DDISH_NM"], $food) !== false){
-            $dishToday = str_replace($food, "<b>".$food."</b>", $day["DDISH_NM"]);
+            $dishToday = str_replace($food, "<b class='font-bold text-blue-500'>".$food."</b>", $day["DDISH_NM"]);
           }
         }
         echo $dishToday;
