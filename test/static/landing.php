@@ -7,21 +7,28 @@ chdir(dirname(__FILE__));
 include '../ui/menu/menu.static.html.php';
 chdir(dirname(__FILE__));
 ?>
+<script type=module src=https://wnf81yc22f.execute-api.ap-northeast-2.amazonaws.com/1/api/fontstream/djs/?sid=gAAAAABkA2CkW2nqfP2txGdEO8stHTzSJYNSxhXRwF7-MFXin-zCBYrA4FdlwkZ8WVjDmtqp7phhJH-Af6dkBklKE_-VPvDnh2aVmtMBfp1QOelfXhJxPUHl4h1ubeMlsFVlge16a-QvaphSwC3EcDt19kcc47e8fINvYlvbjC6So0hwUfkmleZ7kA3H6NHw3_7ar0xWPSGJPK5iKFF9wsb2mzt4Hzf_kBlsTJDj36I5nOT8xpUxx0bnZut144I8yzqlrkl0ILhH charset=utf-8></script>
+<style>
+    .kdgd{font-family: Sandoll GyeokdongGothic!important;
+font-weight: 400;}
+</style>
 <section class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
-            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Payments tool for software companies</h1>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
-            <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                Get started
+            <h1 class="max-w-2xl mb-4 text-4xl .kdgd leading-none md:text-5xl xl:text-6xl dark:text-white">새로워진 학급 경험</h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                교사 중심의 커뮤니티에서, 학생 중심의 커뮤니티로, 우리가 운영해서 더욱 자유로운 클래스+
+            </p>
+            <a href="/app.php" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-full bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                웹으로 시작하기
                 <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
-            <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                Speak to Sales
+            <a href="mailto:support@pcor.me" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                사용 문의하기
             </a> 
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+            <img src="/resources/images/heroImage.png" alt="휴대전화 목업">
         </div>                
     </div>
 </section>
