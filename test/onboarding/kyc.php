@@ -9,6 +9,22 @@ include '../functions/checkAccount.php';
 chdir(dirname(__FILE__));
 requireSignin("/onboarding");
 
+
+$findPrevRecord = "SELECT * FROM `account_users` WHERE `signMethod` = '".$_SESSION['signMethod']."' AND `userID` = '".$_SESSION['userID']."'";
+$findPrevRecord_Result = $db->query($findPrevRecord);  
+if ($findPrevRecord_Result->rowCount() > 0){
+    while($row = $findPrevRecord_Result->fetch()){
+        if ($row['eulaAccepted'] == null){
+            echo "<script>window.location.href = '/onboarding';</script>";
+            die;
+        }
+        if ($row['eulaAccepted'] > 1614396800){
+            echo "<script>window.location.href = '/onboarding';</script>";
+            die;
+            }
+    }
+}
+
 if (isset($_SESSION["schoolSID"])){
     if ($_SESSION["schoolSID"] == null or $_SESSION["schoolSID"] == ""){
     }
@@ -16,8 +32,6 @@ if (isset($_SESSION["schoolSID"])){
     echo "<script>window.location.href = '/app.php';</script>";
     die;
     }
-}
-else{
 }
 ?>
 
