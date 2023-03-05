@@ -123,10 +123,10 @@ $postContentPurified = nl2br($postContentPurified);
 $whitelist = array("https://www.youtube.com/embed/", "https://www.youtube.com/watch?v=", "https://youtu.be/");
 foreach ($whitelist as $item) {
     if (strpos($postContentPurified, $item) !== false) {
-        $postContentPurified = str_replace($item, "https://www.youtube.com/embed/", $postContentPurified);
+        $postContentPurified = str_replace($item, 
+        '<iframe src="https://www.youtube.com/embed/', $postContentPurified.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="w-full h-auto rounded-lg" allowfullscreen=""></iframe>');
     }
 }
-
 echo $postContentPurified;
 ?>
 <img src="<?php
