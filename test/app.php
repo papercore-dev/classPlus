@@ -136,16 +136,59 @@ else{
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="text-black dark:text-gray-50 block w-full">
-                <div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
-                    <strong>정치/시사</strong>
-                    <p class="text-gray-500">윤석열에 대해 알아보아요</p>
-            </div>
-            <div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
-                    <strong>초당중 게시판</strong>
-                    <p class="text-gray-500">초당중딩 전용 게시판</p>
-            </div>
+            <?php
+            $getQuickBoardData = "SELECT * FROM `account_boardAnalytics` WHERE userID = '".$_SESSION['userID']."' AND signMethod = '".$_SESSION['signMethod']."' ORDER BY `account_boardAnalytics`.`visitCount` DESC LIMIT 5";
+            $getQuickBoardData_Result = $db->query($getQuickBoardData);
+            if ($getQuickBoardData_Result->rowCount() > 0){
+            while($row = $getQuickBoardData_Result->fetch()){
+            $getQuickBoardName = "SELECT * FROM `board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
+            $getQuickBoardName_Result = $db->query($getQuickBoardName);
+            if ($getQuickBoardName_Result->rowCount() > 0){
+            while($row2 = $getQuickBoardName_Result->fetch()){
+              echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
+              <strong>'.$row2['boardNick'].'</strong>
+      </div>';
+              
+            }
+          }
+        }
+      }
+      else{
+        echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
+        <p class="text-gray-500">게시판을 사용하면 여기에 나타나요</p>
+</div>';
+      }
+            ?>
+                </div>
               </div>
             </div>
+            <div class="mb-5 flex items-center justify-between">
+<h4 class="text-2xl font-bold text-slate-500">인기 급상승</h4>
+</div>
+<?php
+$getPopularPost = "SELECT * FROM `board_post` WHERE `view_accesslevel` <= '".$_SESSION['accesslevel']."' ORDER BY `board_post`.`postLike` DESC LIMIT 5";
+$getPopularPost_Result = $db->query($getPopularPost);
+if ($getPopularPost_Result->rowCount() > 0){
+while($row = $getPopularPost_Result->fetch()){
+  $getBoardName = "SELECT * FROM `board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
+  $getBoardName_Result = $db->query($getBoardName);
+  if ($getBoardName_Result->rowCount() > 0){
+  while($row2 = $getBoardName_Result->fetch()){
+    echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
+    <strong>'.$row2['boardNick'].'</strong>
+    <a href="/board/'.$row['boardName'].'/'.$row['postID'].'">'.$row['postTitle'].'</a>
+</div>';
+  }
+}
+}
+}
+else{
+  echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
+  <p class="text-gray-500">게시판을 사용하면 여기에 나타나요</p>
+</div>';
+}
+?>
+
           </div>
 </section>
 <?php
