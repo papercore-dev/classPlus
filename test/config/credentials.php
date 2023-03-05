@@ -9,8 +9,8 @@ $DB_pass = "r_m2GZ@TCSo-Vcvp";
 $DB_name = "classplus_test";
 
 #oAuth 어댑터
-$oAuth_client_discord = "1028652743440736317";
-$oAuth_secret_discord = "9BjrSQlqmadC30mpa9eB56Fk-7G6xR1p";
+$oAuth_client_discord = "1081973034354741258";
+$oAuth_secret_discord = "WjStlt00vg9rke-G75l9gPXevfPCnLMX";
 $oAuth_client_twitter = "SHJiZE9aUFRwQ09EcUkwQWs4MHE6MTpjaQ";
 $oAuth_secret_twitter = "vtCrU6jV9viBQSufWZgrUrUe-CcbXGmroQG7CJi8VMsgibTVXw";
 $oAuth_client_kakao = "84806d5c24b3bbaada1f7aaf4959959b";
