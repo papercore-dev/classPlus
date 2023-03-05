@@ -141,7 +141,7 @@ else{
             $getQuickBoardData_Result = $db->query($getQuickBoardData);
             if ($getQuickBoardData_Result->rowCount() > 0){
             while($row = $getQuickBoardData_Result->fetch()){
-            $getQuickBoardName = "SELECT * FROM `posts_board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
+            $getQuickBoardName = "SELECT * FROM `posts_board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accessLevel` <= '".$_SESSION['accessLevel']."'";
             $getQuickBoardName_Result = $db->query($getQuickBoardName);
             if ($getQuickBoardName_Result->rowCount() > 0){
             while($row2 = $getQuickBoardName_Result->fetch()){
@@ -169,7 +169,7 @@ else{
 </div>
 <?php
 //today's popular post
-$getPopularPost = "SELECT * FROM `posts` WHERE `postDate` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `board_post`.`postView` DESC LIMIT 5";
+$getPopularPost = "SELECT * FROM `posts` WHERE `postCreation` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `board_post`.`postView` DESC LIMIT 5";
 $getPopularPost_Result = $db->query($getPopularPost);
 if ($getPopularPost_Result->rowCount() > 0){
 while($row = $getPopularPost_Result->fetch()){
