@@ -165,11 +165,11 @@ else{
               </div>
             </div>
             <div class="my-5 flex items-center justify-between">
-<h4 class="text-2xl font-bold text-slate-500">인기 급상승</h4>
+<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">🔥</span>&nbsp;인기 급상승 글</h4>
 </div>
 <?php
 //today's popular post
-$getPopularPost = "SELECT * FROM `posts` WHERE `postCreation` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `posts`.`visitCount` DESC LIMIT 5";
+$getPopularPost = "SELECT * FROM `posts` WHERE `postCreation` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `posts`.`visitCount` DESC LIMIT 30";
 $getPopularPost_Result = $db->query($getPopularPost);
 if ($getPopularPost_Result->rowCount() > 0){
 while($row = $getPopularPost_Result->fetch()){
@@ -178,8 +178,8 @@ while($row = $getPopularPost_Result->fetch()){
   if ($getBoardName_Result->rowCount() > 0){
   while($row2 = $getBoardName_Result->fetch()){
     echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
-    <strong>'.$row2['boardName'].'</strong>
-    <a href="javascipt:Turbo.visit(`/view.php?id='.$row['postID'].'`);">'.$row['postTitle'].'</a>
+    '.$row2['boardName'].' | 
+    <strong><a href="javascipt:Turbo.visit(`/view.php?id='.$row['postID'].'`);">'.$row['postTitle'].'</a></strong>
 </div>';
   }
 }

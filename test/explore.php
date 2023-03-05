@@ -81,7 +81,7 @@ else{
           </div>
 
           <div class="flex justify-between items-center mb-2 mt-4">
-        <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">✨</span>&nbsp;NEW 게시판</h3>
+        <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">✨</span>&nbsp;새로 나온 게시판</h3>
    </div>
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
