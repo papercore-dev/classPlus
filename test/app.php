@@ -99,7 +99,7 @@ chdir(dirname(__FILE__));
 
 <section class="p-5">
 <div class="mb-2 flex items-center justify-between">
-<h4 class="text-2xl font-bold text-slate-500">자주 사용</h4>
+<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">📂</span>&nbsp;자주 사용하는 서비스</h4>
 </div>
 <div class="overflow-x-scroll flex mb-5">
   <?php
@@ -130,7 +130,7 @@ else{
     </div>
   
 <div class="mb-5 flex items-center justify-between">
-<h4 class="text-2xl font-bold text-slate-500">자주 보는 게시판</h4>
+<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">⭐️</span>&nbsp;자주 보는 게시판</h4>
 </div>
 
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
@@ -164,7 +164,7 @@ else{
                 </div>
               </div>
             </div>
-            <div class="mb-5 flex items-center justify-between">
+            <div class="my-5 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500">인기 급상승</h4>
 </div>
 <?php
@@ -173,7 +173,7 @@ $getPopularPost = "SELECT * FROM `posts` WHERE `postCreation` >= DATE_SUB(NOW(),
 $getPopularPost_Result = $db->query($getPopularPost);
 if ($getPopularPost_Result->rowCount() > 0){
 while($row = $getPopularPost_Result->fetch()){
-  $getBoardName = "SELECT * FROM `posts_board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
+  $getBoardName = "SELECT * FROM `posts_board` WHERE boardID = '".$row['boardID']."' AND `boardHidden`= 0 AND `view_accessLevel` <= '".$_SESSION['accessLevel']."'";
   $getBoardName_Result = $db->query($getBoardName);
   if ($getBoardName_Result->rowCount() > 0){
   while($row2 = $getBoardName_Result->fetch()){
