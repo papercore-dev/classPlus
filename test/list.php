@@ -13,6 +13,9 @@ requireStdVerification();
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
 
+include '../functions/timeToRelative.php';
+chdir(dirname(__FILE__));
+
 //ID 검증
 if (!isset($_GET["id"])){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";

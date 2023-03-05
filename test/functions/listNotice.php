@@ -2,8 +2,6 @@
 chdir(dirname(__FILE__));
 include '../security.php';
 chdir(dirname(__FILE__));
-include '../functions/timeToRelative.php';
-chdir(dirname(__FILE__));
 
 $getPostList_Result = $db->query($getPostList);
 
