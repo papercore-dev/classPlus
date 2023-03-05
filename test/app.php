@@ -141,13 +141,15 @@ else{
             $getQuickBoardData_Result = $db->query($getQuickBoardData);
             if ($getQuickBoardData_Result->rowCount() > 0){
             while($row = $getQuickBoardData_Result->fetch()){
-            $getQuickBoardName = "SELECT * FROM `board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
+            $getQuickBoardName = "SELECT * FROM `posts_board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
             $getQuickBoardName_Result = $db->query($getQuickBoardName);
             if ($getQuickBoardName_Result->rowCount() > 0){
             while($row2 = $getQuickBoardName_Result->fetch()){
-              echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
-              <strong>'.$row2['boardNick'].'</strong>
-      </div>';
+              echo '
+              <a href="javascript:Turbo.visit(`/list.php?id='.$row['boardID'].'">
+              <div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
+              <strong>'.$row2['boardName'].'</strong>
+      </div></a>';
               
             }
           }
@@ -167,17 +169,17 @@ else{
 </div>
 <?php
 //today's popular post
-$getPopularPost = "SELECT * FROM `board_post` WHERE `postDate` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `board_post`.`postView` DESC LIMIT 5";
+$getPopularPost = "SELECT * FROM `posts` WHERE `postDate` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `board_post`.`postView` DESC LIMIT 5";
 $getPopularPost_Result = $db->query($getPopularPost);
 if ($getPopularPost_Result->rowCount() > 0){
 while($row = $getPopularPost_Result->fetch()){
-  $getBoardName = "SELECT * FROM `board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
+  $getBoardName = "SELECT * FROM `posts_board` WHERE boardName = '".$row['boardName']."' AND `boardHidden`= 0 AND `view_accesslevel` <= '".$_SESSION['accesslevel']."'";
   $getBoardName_Result = $db->query($getBoardName);
   if ($getBoardName_Result->rowCount() > 0){
   while($row2 = $getBoardName_Result->fetch()){
     echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
-    <strong>'.$row2['boardNick'].'</strong>
-    <a href="/board/'.$row['boardName'].'/'.$row['postID'].'">'.$row['postTitle'].'</a>
+    <strong>'.$row2['boardName'].'</strong>
+    <a href="javascipt:Turbo.visit(`/view.php?id='.$row['postID'].'`);">'.$row['postTitle'].'</a>
 </div>';
   }
 }
