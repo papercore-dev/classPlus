@@ -166,7 +166,8 @@ else{
 <h4 class="text-2xl font-bold text-slate-500">인기 급상승</h4>
 </div>
 <?php
-$getPopularPost = "SELECT * FROM `board_post` WHERE `view_accesslevel` <= '".$_SESSION['accesslevel']."' ORDER BY `board_post`.`postLike` DESC LIMIT 5";
+//today's popular post
+$getPopularPost = "SELECT * FROM `board_post` WHERE `postDate` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `board_post`.`postView` DESC LIMIT 5";
 $getPopularPost_Result = $db->query($getPopularPost);
 if ($getPopularPost_Result->rowCount() > 0){
 while($row = $getPopularPost_Result->fetch()){
