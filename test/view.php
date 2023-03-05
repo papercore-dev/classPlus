@@ -32,16 +32,16 @@ if ($getPostData_Result->rowCount() == 0){
     die;
 }
 else{
-    while($row = $getPostData_Result->fetch()){
-    $postData = $row;
-    $getBoardID = "SELECT * FROM `posts_board` WHERE `boardID` = ".$row["boardID"]." AND boardHidden = '0' AND view_accessLevel <= '".$_SESSION['accessLevel']."'";
+    while($row1 = $getPostData_Result->fetch()){
+    $postData = $row1;
+    $getBoardID = "SELECT * FROM `posts_board` WHERE `boardID` = ".$row1["boardID"]." AND boardHidden = '0' AND view_accessLevel <= '".$_SESSION['accessLevel']."'";
     $getBoardID_Result = $db->query($getBoardID);
     if ($getBoardID_Result->rowCount() == 0){
         echo "<script>window.location.href = '/explore.php?error=글이 존재하지 않거나 삭제됐어요.';</script>";
         die;
     }
     else{
-        while($row2 = $getBoardID_Result->fetch()){
+        while($row = $getBoardID_Result->fetch()){
             include 'functions/specificFunction.php';
             if ($isBannerHidden){
                 echo "<script>window.location.href = '/explore.php?error=글이 존재하지 않거나 삭제됐어요.';</script>";
@@ -84,21 +84,6 @@ else{
             </div>
             
             <div class="px-5 w-full mx-auto">
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 <p class="my-5">국무위원은 국무총리의 제청으로 대통령이 임명한다. 모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 군사법원의 조직·권한 및 재판관의 자격은 법률로 정한다. 국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
 <img src="https://injeonmetro.co.kr/resources/images/logo-white.png" class="rounded-xl bg-gray-500 mt-2">
 </p>
