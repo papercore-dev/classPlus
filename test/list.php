@@ -72,7 +72,7 @@ else{
 </h4>
 </div>
 
-<form action="/explore.php" method="post">   
+<form action="/list.php?id=<?php echo $_GET["id"]?>" method="post">   
         <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
         <div class="relative">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -95,7 +95,7 @@ else{
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
 
    <div class="text-black dark:text-gray-50 block w-full">';
-            $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `visitCount` DESC";
+            $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
             include 'functions/listPost.php';
             chdir(dirname(__FILE__));
     echo'
@@ -105,19 +105,15 @@ else{
     else{
         echo'
         <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
-        <div class="flex justify-between items-center mb-2 mt-4">
-        <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">게시판</h3>
-   </div>
-           <div class="flow-root">
-                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
-                    $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." AND `boardName` LIKE '%".$search."%' ORDER BY `boardID` DESC";
-                    include 'functions/listRank.php';
-                    chdir(dirname(__FILE__));
-                    echo'
-                    </ul>
-                      </div>
-                    </div>
-            </section>';
+        
+           <div class="text-black dark:text-gray-50 block w-full">';
+        //search title and content
+        $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' AND (`postTitle` LIKE '%".$search."%' OR `postContent` LIKE '%".$search."%') ORDER BY `visitCount` DESC";
+        include 'functions/listPost.php';
+        chdir(dirname(__FILE__));
+        echo'
+        </div>
+</section>';
     }
 ?>
 <?php
