@@ -14,7 +14,9 @@ while($row = $getPostList_Result->fetch()){
     $getLikeCount = "SELECT * FROM `posts_like` WHERE `postID` = '".$row['postID']."'";
     $getLikeCount_Result = $db->query($getLikeCount);
     $likeCount = $getLikeCount_Result->rowCount();
-    $getRelativePostCreation = relativeTime($row['postCreation']);
+
+    $postCreationToTime = strtotime($row['postCreation']);
+    $getRelativePostCreation = relativeTime($postCreationToTime);
 
     echo '
     <a href="javascript:Turbo.visit(`/view.php?id='.$row['postID'].'`)">
