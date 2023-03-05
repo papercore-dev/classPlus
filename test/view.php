@@ -60,29 +60,64 @@ else{
 ?>
 <div class="w-full mx-auto">
             
-            <div class="mt-8 w-full text-gray-800 text-2xl px-5 font-bold leading-none">아모 사랑해 귀여워</div>
-            
-            
-            
-            
-            
-            <div class="w-full text-gray-600 text-normal mx-5">
-                
+            <div class="mt-8 w-full text-gray-800 text-2xl px-5 font-bold leading-none">
+                <?php
+                echo $postData["postTitle"];
+                ?>
             </div>
             
             <div class="w-full text-gray-600 font-thin px-5 pt-3">
 <div class="flex items-center">
-<img class="object-cover object-center w-10 h-10 rounded-full" src="https://cdn.discordapp.com/avatars/897087746575851520/e6e4f0f1f827374bd869620d9e4b5555.png?size=512">
+<img class="object-cover object-center w-10 h-10 rounded-full" src="
+<?php
+    $getAuthorData = "SELECT * FROM `account_users` WHERE `userID` = '".$postData["userID"]."' AND `signMethod` = '".$postData["signMethod"]."'";
+    $getAuthorData_Result = $db->query($getAuthorData);
+    if ($getAuthorData_Result->rowCount() == 0){
+        echo "/resources/images/fallback_profile.jpg";
+    }
+    else{
+        while($row = $getAuthorData_Result->fetch()){
+            $postUserData = $row;
+            echo $row["userAvatar"];
+        }
+    }
+?>">
 <div class="mx-4">
 
-<h1 class="text-gray-700 dark:text-gray-200">TEST · <span class="text-blue-500">초당중학교</span></h1><h1 class="text-gray-700 text-xs dark:text-gray-200">2023.03.06 오전 02:18</h1>
+<h1 class="text-gray-700 dark:text-gray-200"><?php echo $postUserData["userNick"];
+if ($postUserData["schoolSID"] == $_SESSION["schoolSID"]){
+    echo " (".$postUserData["userName"].")";
+}?> · <span class="text-blue-500">
+    <?php
+    $getWriterSchool = "SELECT * FROM `school_whitelisted` WHERE `schoolSID` = '".$postUserData["schoolSID"]."'";
+    $getWriterSchool_Result = $db->query($getWriterSchool);
+    if ($getWriterSchool_Result->rowCount() == 0){
+        echo "학교 정보 없음";
+    }
+    else{
+        while($row = $getWriterSchool_Result->fetch()){
+            echo $row["schoolName"];
+        }
+    }
+    ?>
+</span></h1>
+<h1 class="text-gray-700 text-xs dark:text-gray-200"><?php
+//$postData["postCreation"] is in datetime. We need to convert it to YYYY년 MM월 DD일 HH시 MM분 SS초 format using php's date function.
+echo date("Y년 m월 d일 H:i:s", strtotime($postData["postCreation"]));
+?>
+</h1>
 </div>
 </div>
             </div>
             
             <div class="px-5 w-full mx-auto">
-                <p class="my-5">국무위원은 국무총리의 제청으로 대통령이 임명한다. 모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 군사법원의 조직·권한 및 재판관의 자격은 법률로 정한다. 국회는 헌법 또는 법률에 특별한 규정이 없는 한 재적의원 과반수의 출석과 출석의원 과반수의 찬성으로 의결한다. 가부동수인 때에는 부결된 것으로 본다.
-<img src="https://injeonmetro.co.kr/resources/images/logo-white.png" class="rounded-xl bg-gray-500 mt-2">
+                <p class="my-5">
+                <?php
+echo $postData["postContent"];
+?>
+<img src="                <?php
+echo $postData["postAttachment"];
+?>" class="rounded-xl bg-gray-500 mt-2">
 </p>
             </div>
             <div class="antialiased mx-auto max-w-screen-sm">
