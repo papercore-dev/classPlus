@@ -95,6 +95,15 @@ else{
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
 
    <div class="text-black dark:text-gray-50 block w-full">';
+   if ($_GET["id"] !== "13"){
+    //13번 게시판에 중앙공지가 저장됨
+   $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '1' ORDER BY `postCreation` DESC";
+   include 'functions/listPost.php';
+   chdir(dirname(__FILE__));
+}
+   $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '13' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
+   include 'functions/listPost.php';
+   chdir(dirname(__FILE__));
             $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
             include 'functions/listPost.php';
             chdir(dirname(__FILE__));
