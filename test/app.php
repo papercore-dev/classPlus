@@ -146,7 +146,7 @@ else{
             if ($getQuickBoardName_Result->rowCount() > 0){
             while($row2 = $getQuickBoardName_Result->fetch()){
               echo '
-              <a href="javascript:Turbo.visit(`/list.php?id='.$row['boardID'].'">
+              <a href="javascript:Turbo.visit(`/list.php?id='.$row['boardID'].'`);">
               <div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
               <strong>'.$row2['boardName'].'</strong>
       </div></a>';
