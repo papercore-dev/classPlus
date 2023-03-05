@@ -47,6 +47,9 @@ include 'functions/analyzeBoards.php';
 chdir(dirname(__FILE__));
 include 'ui/menu/menu.bd.html.php';
 chdir(dirname(__FILE__));
+
+$increaseViewCount = "UPDATE `posts_board` SET `visitCount` = `visitCount` + 1 WHERE `boardID` = '".$_GET["id"]."'";
+$increaseViewCount_Result = $db->query($increaseViewCount);
 ?>
 <?php
 //check if POST's search is set

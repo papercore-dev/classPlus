@@ -58,7 +58,7 @@ else{
 }
 
 //글 조회수 증가
-$increaseViewCount = "UPDATE `posts` SET `postViewCount` = `postViewCount` + 1 WHERE `postID` = '".$_GET["id"]."'";
+$increaseViewCount = "UPDATE `posts` SET `visitCount` = `visitCount` + 1 WHERE `postID` = '".$_GET["id"]."'";
 $increaseViewCount_Result = $db->query($increaseViewCount);
 
 
