@@ -48,9 +48,6 @@ else{
                 die;
             }
             else{
-                $serviceName = $row["boardID"];
-                include 'functions/analyzeBoards.php';
-                chdir(dirname(__FILE__));
                 $headName = $row["boardName"];
                 include 'ui/menu/menu.custom.html.php';
                 chdir(dirname(__FILE__));
