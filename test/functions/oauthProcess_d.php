@@ -22,7 +22,8 @@ if(get('action') == 'login') {
     $params = array(
       'client_id' => OAUTH2_CLIENT_ID,
       'redirect_uri' => 'https://'.$_SERVER["HTTP_HOST"].$redirectURL,
-      'response_type' => 'code'
+      'response_type' => 'code',
+      'scope' => 'identify'
     );
   
     header('Location: ' . $authorizeURL . '?' . http_build_query($params));
