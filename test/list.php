@@ -12,8 +12,7 @@ requireStdVerification();
 
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
-
-include '../functions/timeToRelative.php';
+include 'functions/timeToRelative.php';
 chdir(dirname(__FILE__));
 
 //ID 검증
