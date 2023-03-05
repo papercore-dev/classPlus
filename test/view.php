@@ -113,9 +113,23 @@ echo date("Y년 m월 d일 H:i:s", strtotime($postData["postCreation"]));
             <div class="px-5 w-full mx-auto">
                 <p class="my-5">
                 <?php
-echo $postData["postContent"];
+$postContentPurified = $postData["postContent"];
+
+$postContentPurified = str_replace("<", "&lt;", $postContentPurified);
+$postContentPurified = str_replace(">", "&gt;", $postContentPurified);
+$postContentPurified = nl2br($postContentPurified);
+
+//accept link only if it's in the whitelist array
+$whitelist = array("https://www.youtube.com/embed/", "https://www.youtube.com/watch?v=", "https://youtu.be/");
+foreach ($whitelist as $item) {
+    if (strpos($postContentPurified, $item) !== false) {
+        $postContentPurified = str_replace($item, "https://www.youtube.com/embed/", $postContentPurified);
+    }
+}
+
+echo $postContentPurified;
 ?>
-<img src="                <?php
+<img src="<?php
 echo $postData["postAttachment"];
 ?>" class="rounded-xl bg-gray-500 mt-2">
 </p>
