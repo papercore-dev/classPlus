@@ -179,7 +179,7 @@ while($row = $getPopularPost_Result->fetch()){
   while($row2 = $getBoardName_Result->fetch()){
     echo '<div class="my-1 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded-lg border">
     '.$row2['boardName'].' | 
-    <strong><a href="javascipt:Turbo.visit(`/view.php?id='.$row['postID'].'`);">'.$row['postTitle'].'</a></strong>
+    <strong><a href="javascript:Turbo.visit(`/view.php?id='.$row['postID'].'`);">'.$row['postTitle'].'</a></strong>
 </div>';
   }
 }
