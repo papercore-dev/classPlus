@@ -19,10 +19,8 @@ if ($findPrevRecord_Result->rowCount() > 0){
     while($row = $findPrevRecord_Result->fetch()){
         if ($row['eulaAccepted'] !== null){
             $redirectAfterOnboarding = "/onboarding/kyc.php";
-            if ($row['eulaAccepted'] > 1614396800){
                 echo "<script>window.location.href = '/onboarding/kyc.php';</script>";
                 die;
-                }
         }
         else{
             $updateUserData = "UPDATE `account_users` SET `eulaAccepted` = current_timestamp() WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";

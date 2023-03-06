@@ -18,10 +18,6 @@ if ($findPrevRecord_Result->rowCount() > 0){
             echo "<script>window.location.href = '/onboarding';</script>";
             die;
         }
-        if ($row['eulaAccepted'] > 1614396800){
-            echo "<script>window.location.href = '/onboarding';</script>";
-            die;
-            }
     }
 }
 
