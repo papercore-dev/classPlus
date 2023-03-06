@@ -87,13 +87,17 @@ chdir(dirname(__FILE__));
       </div>';
     }
     ?>
-
+<div class="swiper-pagination"></div>
   </div>
 </div>
 <script>
     const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
 });
 </script>
 

@@ -129,13 +129,22 @@ $postContentPurified = str_replace("\\", "&#92;", $postContentPurified);
 
 $postContentPurified = nl2br($postContentPurified);
 
-//extract youtube video ID
-$youtubeVideoID = "";
-$youtubeVideoID = substr($postContentPurified, strpos($postContentPurified, "https://www.youtube.com/watch?v=") + 32, 11);
-if ($youtubeVideoID != ""){
-    $postContentPurified = str_replace("https://www.youtube.com/watch?v=".$youtubeVideoID, "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$youtubeVideoID."\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>", $postContentPurified);
+//extract youtube video ID from URL until there is no more youtube URL
+while (strpos($postContentPurified, "https://www.youtube.com/watch?v=") !== false){
+    $youtubeURL = substr($postContentPurified, strpos($postContentPurified, "https://www.youtube.com/watch?v="), 43);
+    $youtubeID = substr($youtubeURL, 32, 11);
+    $postContentPurified = str_replace($youtubeURL, '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', $postContentPurified);
 }
-
+while (strpos($postContentPurified, "https://youtu.be/") !== false){
+    $youtubeURL = substr($postContentPurified, strpos($postContentPurified, "https://youtu.be/"), 43);
+    $youtubeID = substr($youtubeURL, 17, 11);
+    $postContentPurified = str_replace($youtubeURL, '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', $postContentPurified);
+}
+while (strpos($postContentPurified, "https://m.youtube.com/watch?v=") !== false){
+    $youtubeURL = substr($postContentPurified, strpos($postContentPurified, "https://m.youtube.com/watch?v="), 43);
+    $youtubeID = substr($youtubeURL, 32, 11);
+    $postContentPurified = str_replace($youtubeURL, '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', $postContentPurified);
+}
 echo $postContentPurified;
 ?>
 <img src="<?php
