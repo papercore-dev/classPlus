@@ -44,8 +44,14 @@ else{
     
 }
 ?>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
 <!-- show login credentials and link to matrix -->
-<section class="p-5">
+<section class="p-5" id="pageContent">
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <div class="w-full items-center justify-center text-center">
@@ -67,7 +73,7 @@ else{
 <strong>비밀번호&nbsp;</strong>
 <p class="text-gray-500"><?php echo $matrixPass;?></p>
 </div>
-<a href="https://chat.pcor.me" class="block visible py-4 px-4 mb-4 text-lg leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg w-full text-center font-bold">채팅 열기</a>
+<a href="javascript:openChat()" class="block visible py-4 px-4 mb-4 text-lg leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg w-full text-center font-bold">채팅 열기</a>
 <a href="#" class="w-full block mt-4 text-center text-blue-500">채팅이 잘 안 되나요? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
   <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
 </svg>
@@ -76,7 +82,13 @@ else{
 </div>
 </div>
 </section>
-
+<script>
+    function openChat(){
+        Turbo.visit('https://chat.pcor.me');
+        document.getElementById("pageContent").classList.add("animate__fadeOutRight");
+        document.getElementById("pageContent").classList.add("animate__animated");
+    }
+</script>
 <?php
 include 'ui/common/footer.html.php';
 ?>
