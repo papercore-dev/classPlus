@@ -87,8 +87,8 @@ chdir(dirname(__FILE__));
       </div>';
     }
     ?>
-<div class="swiper-pagination"></div>
   </div>
+  <div class="swiper-pagination"></div>
 </div>
 <script>
     const swiper = new Swiper('.swiper', {
