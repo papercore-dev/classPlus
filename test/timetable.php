@@ -57,7 +57,8 @@ chdir(dirname(__FILE__));
       $schoolType = checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolSID")."&Type=json")["schoolInfo"][1]["row"][0]["SCHUL_KND_SC_NM"];
       if ($schoolType == "초등학교") {
         echo "초등학교에서는 시간표를 지원하지 않아요";
-      } else if ($schoolType == "중학교" or $schoolType == "고등학교") {
+      //} else if ($schoolType == "중학교" or $schoolType == "고등학교") {
+      } else if ($schoolType == "대학교") {
        $schoolRegion = checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolSID")."&Type=json")["schoolInfo"][1]["row"][0]["LCTN_SC_NM"];
        //schoolRegion에서 앞 2글자만 utf 8로 가져오기 (eg: 서울특별시 -> 서울)
         $schoolRegion = mb_substr($schoolRegion, 0, 2, "UTF-8");
@@ -110,7 +111,7 @@ chdir(dirname(__FILE__));
 
       }
       else{
-        echo "학교 정보를 불러오는데 실패했어요";
+        echo "나이스 api 오류로 현재 지원하지 않습니다.";
       }
 
       ?>
