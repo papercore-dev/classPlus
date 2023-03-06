@@ -129,14 +129,13 @@ $postContentPurified = str_replace("\\", "&#92;", $postContentPurified);
 
 $postContentPurified = nl2br($postContentPurified);
 
-//accept link only if it's in the whitelist array
-$whitelist = array("https://www.youtube.com/embed/", "https://www.youtube.com/watch?v=", "https://youtu.be/");
-foreach ($whitelist as $item) {
-    if (strpos($postContentPurified, $item) !== false) {
-        $postContentPurified = str_replace($item, 
-        '<iframe src="https://www.youtube.com/embed/', $postContentPurified.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="w-full h-auto rounded-lg" allowfullscreen=""></iframe>');
-    }
+//extract youtube video ID
+$youtubeVideoID = "";
+$youtubeVideoID = substr($postContentPurified, strpos($postContentPurified, "https://www.youtube.com/watch?v=") + 32, 11);
+if ($youtubeVideoID != ""){
+    $postContentPurified = str_replace("https://www.youtube.com/watch?v=".$youtubeVideoID, "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".$youtubeVideoID."\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>", $postContentPurified);
 }
+
 echo $postContentPurified;
 ?>
 <img src="<?php
@@ -145,7 +144,7 @@ echo $postData["postAttachment"];
 </p>
             </div>
 
-            
+
         </div>
 <?php
 include 'ui/common/footer.html.php';
