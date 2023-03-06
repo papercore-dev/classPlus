@@ -84,9 +84,12 @@ else{
 </section>
 <script>
     function openChat(){
-        Turbo.visit('https://chat.pcor.me');
+        
         document.getElementById("pageContent").classList.add("animate__fadeOutRight");
         document.getElementById("pageContent").classList.add("animate__animated");
+        setTimeout(function(){
+            Turbo.visit('https://chat.pcor.me');
+        }, 250);
     }
 </script>
 <?php
