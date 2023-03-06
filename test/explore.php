@@ -68,6 +68,19 @@ else{
     if ($search == ""){
         echo'
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
+
+<div class="flex justify-between items-center mb-2 mt-4">
+<h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">🏫</span>&nbsp;우리 학교 게시판</h3>
+</div>
+<div class="flow-root">
+<ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
+    $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." AND `schoolSID` = '".getData("schoolSID")."' ORDER BY `visitCount` DESC";
+    include 'functions/listRank.php';
+    chdir(dirname(__FILE__));
+echo'
+</ul>
+  </div>
+
           <div class="flex justify-between items-center mb-2 mt-4">
         <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">🔥</span>&nbsp;인기 급상승 게시판</h3>
    </div>
