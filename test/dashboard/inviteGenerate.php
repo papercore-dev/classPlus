@@ -42,7 +42,7 @@ $inviteCode = str_pad($inviteCode, 6, "0", STR_PAD_LEFT);
 
 function checkInviteCode($CinviteCode, $database){
     $checkInviteCode = "SELECT * FROM `invite` WHERE inviteCode = '".$CinviteCode."' AND used = '0'";
-    $checkInviteCode_Result = $db->query($checkInviteCode);
+    $checkInviteCode_Result = $database->query($checkInviteCode);
     if ($checkInviteCode_Result->rowCount() > 0){
         return true;
     }
