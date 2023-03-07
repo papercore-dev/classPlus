@@ -129,21 +129,23 @@ $postContentPurified = str_replace("\\", "&#92;", $postContentPurified);
 
 $postContentPurified = nl2br($postContentPurified);
 
+$ytEmbedPrefix = '<iframe width="560" height="315" src="https://www.youtube.com/embed/';
+$ytEmbedSuffix = '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="w-full h-auto rounded-lg" allowfullscreen=""></iframe>';
 //extract youtube video ID from URL until there is no more youtube URL
 while (strpos($postContentPurified, "https://www.youtube.com/watch?v=") !== false){
     $youtubeURL = substr($postContentPurified, strpos($postContentPurified, "https://www.youtube.com/watch?v="), 43);
     $youtubeID = substr($youtubeURL, 32, 11);
-    $postContentPurified = str_replace($youtubeURL, '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', $postContentPurified);
+    $postContentPurified = str_replace($youtubeURL, $ytEmbedPrefix.$youtubeID.$ytEmbedSuffix, $postContentPurified);
 }
 while (strpos($postContentPurified, "https://youtu.be/") !== false){
     $youtubeURL = substr($postContentPurified, strpos($postContentPurified, "https://youtu.be/"), 43);
     $youtubeID = substr($youtubeURL, 17, 11);
-    $postContentPurified = str_replace($youtubeURL, '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', $postContentPurified);
+    $postContentPurified = str_replace($youtubeURL, $ytEmbedPrefix.$youtubeID.$ytEmbedSuffix, $postContentPurified);
 }
 while (strpos($postContentPurified, "https://m.youtube.com/watch?v=") !== false){
     $youtubeURL = substr($postContentPurified, strpos($postContentPurified, "https://m.youtube.com/watch?v="), 43);
     $youtubeID = substr($youtubeURL, 32, 11);
-    $postContentPurified = str_replace($youtubeURL, '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$youtubeID.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', $postContentPurified);
+    $postContentPurified = str_replace($youtubeURL, $ytEmbedPrefix.$youtubeID.$ytEmbedSuffix, $postContentPurified);
 }
 echo $postContentPurified;
 ?>
