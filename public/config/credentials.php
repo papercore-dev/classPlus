@@ -4,9 +4,9 @@ include '../security.php';
 chdir(dirname(__FILE__));
 
 $DB_host = "127.0.0.1";
-$DB_user = "classplus_test";
-$DB_pass = "r_m2GZ@TCSo-Vcvp";
-$DB_name = "classplus_test";
+$DB_user = "classplus";
+$DB_pass = "DCB[O]z/lNmjFq**";
+$DB_name = "classplus";
 
 #oAuth 어댑터
 $oAuth_client_discord = "1081973034354741258";
