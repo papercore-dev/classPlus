@@ -161,7 +161,7 @@ if ($_SESSION["accessLevel"] == 5 || $_SESSION["userID"] == $postData["userID"])
             <div class="px-5 w-full mx-auto">
             <article class="prose my-5 overflow-x-hidden lg:prose-xl">
                 <?php
-$postContentPurified = purifyXSS($postData["postContent"]);
+$postContentPurified = $postData["postContent"];
 
 $ytEmbedPrefix = '<iframe width="560" height="315" src="https://www.youtube.com/embed/';
 $ytEmbedSuffix = '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="w-full h-auto rounded-lg" allowfullscreen=""></iframe>';
@@ -243,7 +243,7 @@ echo '</span></p>
 </div>
 </footer>
 <div class="text-gray-900 dark:text-white">
-<p>'.purifyXSS($commentData["commentContent"]).'</p>
+<p>'.$commentData["commentContent"].'</p>
 </div>
 </article>
                     ';

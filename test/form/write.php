@@ -61,6 +61,12 @@ if (!isset($_POST["post"])){
 }
 
 $purifiedTitle = purifyXSS($_POST["title"]);
+$purifiedTitle = str_replace("\r", "", $purifiedTitle);
+$purifiedTitle = str_replace("\n", "", $purifiedTitle);
+//make title to be within 100 characters
+if (strlen($purifiedTitle) > 100){
+    $purifiedTitle = substr($purifiedTitle, 0, 100);
+}
 $purifiedPost = purifyXSS($_POST["post"]);
 
 //check if imageURL is valid imgbb URL using regex (https://i.ibb.co/(A-Z, a-z, 0-9 7 letters)/post-upload*)

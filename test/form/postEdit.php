@@ -72,6 +72,13 @@ if (!isset($_POST["post"])){
 }
 
 $purifiedTitle = purifyXSS($_POST["title"]);
+//make title to be one line and within 100 characters
+$purifiedTitle = str_replace("\r", "", $purifiedTitle);
+$purifiedTitle = str_replace("\n", "", $purifiedTitle);
+//make title to be within 100 characters
+if (strlen($purifiedTitle) > 100){
+    $purifiedTitle = substr($purifiedTitle, 0, 100);
+}
 $purifiedPost = purifyXSS($_POST["post"]);
 
 //check if imageURL is valid imgbb URL using regex (https://i.ibb.co/(A-Z, a-z, 0-9 7 letters)/post-upload*)
@@ -92,7 +99,7 @@ else{
 $postToDB = "UPDATE `posts` SET postTitle = '".$purifiedTitle."', postContent = '".$purifiedPost."', postAttachment = '".$purifiedImageURL."' WHERE postID = '".$_POST["postURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."'";
 //post to database and redirect to newly created post
 if ($db->query($postToDB)){
-    $getNewPostID = "SELECT * FROM `posts` WHERE boardID = '".$_POST["boardURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."' ORDER BY postID DESC LIMIT 1";
+    $getNewPostID = "SELECT * FROM `posts` WHERE postID = '".$_POST["postURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."' ORDER BY postID DESC LIMIT 1";
     $getNewPostID_Result = $db->query($getNewPostID);
     if ($getNewPostID_Result->rowCount() == 0){
         echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
