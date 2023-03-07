@@ -42,6 +42,25 @@ chdir(dirname(__FILE__));
                 </div>
             </li>
             </a>
+            <?php
+            if ($_SESSION["accType"] == "teacher" or getData('accessLevel') >= 4) {
+            echo'
+            <a href="javascript:Turbo.visit(`/dashboard`)">
+            <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
+                <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0 text-3xl tossface">
+                    ⚙️
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        우리 반 관리하기
+                        </p>
+                    </div>
+                </div>
+            </li>
+            </a>';
+        }
+        ?>
         </ul>
           </div>
           <div class="flex justify-between items-center mb-4">
