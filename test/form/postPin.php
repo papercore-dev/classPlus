@@ -76,7 +76,7 @@ else{
 $getPinned = "SELECT * FROM `posts` WHERE `postID` = '".$_GET["postID"]."' AND `postNotice` = '1'";
 $getPinned_Result = $db->query($getPinned);
 
-if ($getServiceData_Result->rowCount() == 0){
+if ($getPinned_Result->rowCount() == 0){
 $postToDB = "UPDATE `posts` SET `postNotice` = '1' WHERE `postID` = '".$_GET["postID"]."'";
 //post to database and redirect to newly created post
 if ($db->query($postToDB)){
