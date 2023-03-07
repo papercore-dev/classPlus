@@ -80,18 +80,19 @@ if (strlen($purifiedTitle) > 100){
 $purifiedPost = purifyXSS($_POST["post"]);
 
 //check if imageURL is valid imgbb URL using regex (https://i.ibb.co/(A-Z, a-z, 0-9 7 letters)/post-upload*)
-if (isset($_POST["imageURL"])){
-    if (!preg_match("/https:\/\/i\.ibb\.co\/[A-Za-z0-9]{7}\/post-upload.*/", $_POST["imageURL"])){
-        echo "<script>window.location.href = '/form/write.php?id=".$serviceName."&error=이미지 URL이 올바르지 않아요.';</script>";
-        die;
+    if (isset($_POST["imageURL"])){
+        if (!empty($_POST["imageURL"]) and !preg_match("/https:\/\/i\.ibb\.co\/[A-Za-z0-9]{7}\/post-upload.*/", $_POST["imageURL"])){
+            echo "<script>window.location.href = '/form/write.php?id=".$serviceName."&error=이미지 URL이 올바르지 않아요.';</script>";
+            die;
+        }
+        else{
+            $purifiedImageURL = $_POST["imageURL"];
+        }
     }
     else{
-        $purifiedImageURL = $_POST["imageURL"];
+        $purifiedImageURL = "";
     }
-}
-else{
-    $purifiedImageURL = "";
-}
+    
 
 //post to database
 $postToDB = "UPDATE `posts` SET postTitle = '".$purifiedTitle."', postContent = '".$purifiedPost."', postAttachment = '".$purifiedImageURL."' WHERE postID = '".$_POST["postURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."'";
