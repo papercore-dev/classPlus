@@ -92,7 +92,7 @@ chdir(dirname(__FILE__));
 
 <p class="text-red-500 mt-4" id="submissionError">
 </p>
-<img src="" id="preview" style="display:none;" class="w-full">
+<img src="" id="preview" class="w-1/2 rounded-lg">
 <input type="file" id="image" hidden style="display:none;" accept="image/*"></input>
 <button type="button" id="next-button" class="hover:shadow-lg rounded-lg bg-blue-500 py-3 px-8 text-base font-semibold text-white outline-none" onclick="imgUpload()">이미지 업로드</button>
 <script>

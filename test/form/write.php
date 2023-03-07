@@ -2,20 +2,20 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include 'ui/common/header.html.php';
+include '../ui/common/header.html.php';
 chdir(dirname(__FILE__));
 
-include 'functions/checkAccount.php';
+include '../functions/checkAccount.php';
 chdir(dirname(__FILE__));
 requireSignin("/menu.php");
 requireStdVerification();
 
-include 'functions/checkUserData.php';
+include '../functions/checkUserData.php';
 chdir(dirname(__FILE__));
-include 'functions/timeToRelative.php';
+include '../functions/timeToRelative.php';
 chdir(dirname(__FILE__));
 
-include 'functions/purifyXSS.php';
+include '../functions/purifyXSS.php';
 chdir(dirname(__FILE__));
 //check if method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
