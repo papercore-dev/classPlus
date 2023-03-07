@@ -199,7 +199,7 @@ echo $postData["postAttachment"];
 
         
                 while ($commentData = $getCommentQuery_Result->fetch()){
-                    $getCommentUserQuery = "SELECT * FROM account_users WHERE userID = ".$commentData["userID"]." AND signMethod = ".$commentData["signMethod"]."";
+                    $getCommentUserQuery = "SELECT * FROM account_users WHERE userID = '".$commentData["userID"]."' AND signMethod = '".$commentData["signMethod"]."'";
                     $getCommentUserQuery_Result = $db->query($getCommentUserQuery);
                     $commentUserData = $getCommentUserQuery_Result->fetch();
                     echo'
