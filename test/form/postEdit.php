@@ -43,6 +43,7 @@ else{
         $boardID = $row["boardID"];
     }
 }
+$serviceName = $boardID;
 
 $getServiceData = "SELECT * FROM `posts_board` WHERE boardID = '".$serviceName."' AND boardHidden = '0' AND write_accessLevel <= '".$_SESSION['accessLevel']."'";
 $getServiceData_Result = $db->query($getServiceData);

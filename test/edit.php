@@ -91,9 +91,8 @@ chdir(dirname(__FILE__));
           name="post"
           id="post"
           placeholder="내용을 작성해주세요"
-          value="<?php echo $content;?>"
           class="w-full resize-none border-b bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-        ></textarea>
+        ><?php echo $content;?></textarea>
       </div>
       <div>
         <input type="hidden" name="imageURL" id="imageURL" value="<?php echo $image;?>" />
