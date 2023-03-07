@@ -246,16 +246,15 @@ echo '</span></p>
 
         <nav class="rounded-t-xl shadow-lg commentSection max-w-md visible fixed bottom-0 w-full border bg-white">
 
-<form>
+        <form action="/form/postComment.php" method="POST">
 <label for="chat" class="sr-only">Your message</label>
 <div class="flex w-full items-center py-2 px-3 bg-gray-50 rounded-lg dark:bg-gray-700">
-    <form action="/form/postComment.php" method="POST">
+    
     <input type="hidden" name="postID" value="<?php echo $_GET["id"]; ?>">
     <input id="chat" name="chat" rows="1" class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="댓글을 작성하세요">
         <button type="submit" class="inline-flex justify-center p-2 text-blue-500 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
     </button>
-            </form>
 </div>
 </form>
 
