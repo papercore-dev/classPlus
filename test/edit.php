@@ -26,7 +26,7 @@ if (!is_numeric($_GET["id"])){
 } 
 
 //get board id from post id
-$getBoardID = "SELECT boardID FROM `posts` WHERE postID = '".$_GET["id"]."' AND postHidden = '0' AND userID = '".$_SESSION['userID']."' AND signMethod = '".$_SESSION['signMethod']."'";
+$getBoardID = "SELECT * FROM `posts` WHERE postID = '".$_GET["id"]."' AND postHidden = '0' AND userID = '".$_SESSION['userID']."' AND signMethod = '".$_SESSION['signMethod']."'";
 $getBoardID_Result = $db->query($getBoardID);
 if ($getBoardID_Result->rowCount() == 0){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
