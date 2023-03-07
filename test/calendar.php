@@ -24,7 +24,7 @@ chdir(dirname(__FILE__));
     <ul class="flex items-center gap-2 text-sm font-medium">
       <li class="flex-1">
         <a
-          href="javascript:Turbo.visit('/calendar.php');"
+          href="javascript:Turbo.visit('/calendar.php', { action: 'replace' });"
           class="text-gra relative flex items-center justify-center gap-2 rounded-lg bg-white px-3 py-2 shadow hover:bg-white hover:text-gray-700"
         >
           캘린더</a
@@ -32,7 +32,7 @@ chdir(dirname(__FILE__));
       </li>
       <li class="flex-1">
         <a
-          href="javascript:Turbo.visit('/timetable.php');"
+          href="javascript:Turbo.visit('/timetable.php', { action: 'replace' });""
           class="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
         >
           시간표</a
@@ -40,7 +40,7 @@ chdir(dirname(__FILE__));
       </li>
       <li class="flex-1">
         <a
-          href="javascript:Turbo.visit('/ftable.php');"
+          href="javascript:Turbo.visit('/ftable.php', { action: 'replace' });"
           class="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
         >
           급식표</a
