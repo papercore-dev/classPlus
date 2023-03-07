@@ -60,7 +60,7 @@ $inviteSchoolNo = $_POST["schoolNo"];
 $inviteUserName = $_POST["userName"];
 $inviteUserName = purifyXSS($inviteUserName);
 
-$sendInviteData = "INSERT INTO `invite` (`inviteCode`, `schoolSID`, `schoolGrade`, `schoolClass`, `schoolNo`, `userName`, `used`) VALUES ('".$inviteCode."', '".$_SESSION["schoolSID"]."', '".$_SESSION["schoolGrade"]."', '".$_SESSION["schoolClass"]."', '".$inviteSchoolNo."', '".$inviteUserName."', '0')";
+$sendInviteData = "INSERT INTO `account_invite` (`inviteCode`, `schoolSID`, `schoolGrade`, `schoolClass`, `schoolNo`, `userName`, `used`) VALUES ('".$inviteCode."', '".$_SESSION["schoolSID"]."', '".$_SESSION["schoolGrade"]."', '".$_SESSION["schoolClass"]."', '".$inviteSchoolNo."', '".$inviteUserName."', '0')";
 $sendInviteData_Result = $db->query($sendInviteData);
 
 if ($sendInviteData_Result){
