@@ -11,7 +11,7 @@ while($row = $getCommunityList_Result->fetch()){
 include 'specificFunction.php';
 if(!$isBannerHidden){
 $getCommunityRank++;
-if ($getCommunityRank == 6) {
+if ($getCommunityRank == $maxDisplayRank + 1) {
     break;
 }
     echo '

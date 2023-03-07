@@ -75,6 +75,7 @@ else{
 <div class="flow-root">
 <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
     $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." AND `schoolSID` = '".getData("schoolSID")."' ORDER BY `visitCount` DESC";
+    $maxDisplayRank = 9999;
     include 'functions/listRank.php';
     chdir(dirname(__FILE__));
 echo'
@@ -87,6 +88,7 @@ echo'
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
             $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." ORDER BY `visitCount` DESC";
+            $maxDisplayRank = 5;
             include 'functions/listRank.php';
             chdir(dirname(__FILE__));
     echo'
@@ -99,6 +101,7 @@ echo'
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
             $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." ORDER BY `boardID` DESC";
+            $maxDisplayRank = 5;
             include 'functions/listRank.php';
             chdir(dirname(__FILE__));
             echo'
@@ -116,7 +119,8 @@ echo'
    </div>
            <div class="flow-root">
                 <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
-                    $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." AND `boardName` LIKE '%".$search."%' ORDER BY `boardID` DESC";
+                    $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." AND `boardName` LIKE '%".$search."%' ORDER BY `visitCount` DESC";
+                    $maxDisplayRank = 9999;
                     include 'functions/listRank.php';
                     chdir(dirname(__FILE__));
                     echo'
