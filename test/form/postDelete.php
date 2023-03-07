@@ -18,7 +18,7 @@ chdir(dirname(__FILE__));
 include '../functions/purifyXSS.php';
 chdir(dirname(__FILE__));
 //check if method is POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
+if ($_SERVER['REQUEST_METHOD'] !== 'GET'){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
     die;
 }
