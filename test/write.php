@@ -55,6 +55,8 @@ $headName = $boardName." 게시판에 글 쓰기";
 include 'ui/menu/menu.custom.html.php';
 chdir(dirname(__FILE__));
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <div class="mx-auto w-full">
     <form action="#" method="POST">
       <div class="">
@@ -63,7 +65,7 @@ chdir(dirname(__FILE__));
           name="title"
           id="title"
           placeholder="제목"
-          class="w-full border border-gray-500 bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          class="w-full border-t border-b bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         />
       </div>
       <div class="mb-5">
@@ -72,7 +74,7 @@ chdir(dirname(__FILE__));
           name="post"
           id="post"
           placeholder="내용을 작성해주세요"
-          class="w-full resize-none border-b border-l border-r border-gray-500 bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          class="w-full resize-none border-b bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         ></textarea>
       </div>
       <div>
