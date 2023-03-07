@@ -89,7 +89,7 @@ else{
 }
 
 //post to database
-$postToDB = "UPDATE `posts` SET postTitle = '".$purifiedTitle."', postContent = '".$purifiedPost."', postImageURL = '".$purifiedImageURL."' WHERE postID = '".$_POST["postURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."'";
+$postToDB = "UPDATE `posts` SET postTitle = '".$purifiedTitle."', postContent = '".$purifiedPost."', postAttachment = '".$purifiedImageURL."' WHERE postID = '".$_POST["postURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."'";
 //post to database and redirect to newly created post
 if ($db->query($postToDB)){
     $getNewPostID = "SELECT * FROM `posts` WHERE boardID = '".$_POST["boardURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."' ORDER BY postID DESC LIMIT 1";
