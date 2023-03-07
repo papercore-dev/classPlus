@@ -42,7 +42,7 @@ if ($getServiceData_Result->rowCount() == 0){
 }
 else{
     while($row = $getServiceData_Result->fetch()){
-        include 'functions/specificFunction.php';
+        include '../functions/specificFunction.php';
         if ($isBannerHidden){
             echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
             die;
@@ -81,7 +81,7 @@ else{
 $postToDB = "INSERT INTO `posts` (`postID`, `signMethod`, `userID`, `postTitle`, `postContent`, `postAttachment`, `postCreation`, `visitCount`, `postHidden`, `postNotice`, `boardID`) VALUES (NULL, '".$_SESSION["signMethod"]."', '".$_SESSION["userID"]."', '".$purifiedTitle."', '".$purifiedPost."', '".$purifiedImageURL."', current_timestamp(), '0', '0', '0', '".$_POST["boardURL"]."');";
 //post to database and redirect to newly created post
 if ($db->query($postToDB)){
-    $getNewPostID = "SELECT * FROM `posts` WHERE boardID = '".$_POST["boardURL"]."' AND userID = '".$_SESSION["userID"]."' ORDER BY postID DESC LIMIT 1";
+    $getNewPostID = "SELECT * FROM `posts` WHERE boardID = '".$_POST["boardURL"]."' AND userID = '".$_SESSION["userID"]."' AND signMethod = '".$_SESSION["signMethod"]."' ORDER BY postID DESC LIMIT 1";
     $getNewPostID_Result = $db->query($getNewPostID);
     if ($getNewPostID_Result->rowCount() == 0){
         echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
