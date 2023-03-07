@@ -14,7 +14,8 @@ include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
 include 'functions/timeToRelative.php';
 chdir(dirname(__FILE__));
-
+include 'functions/purifyXSS.php';
+chdir(dirname(__FILE__));
 //ID 검증
 if (!isset($_GET["id"])){
     echo "<script>window.location.href = '/explore.php?error=글이 존재하지 않거나 삭제됐어요.';</script>";
@@ -148,16 +149,7 @@ echo date("Y년 m월 d일 H:i:s", strtotime($postData["postCreation"]));
             <div class="px-5 w-full mx-auto">
             <article class="prose my-5 overflow-x-hidden lg:prose-xl">
                 <?php
-$postContentPurified = $postData["postContent"];
-
-$postContentPurified = str_replace("<", "&lt;", $postContentPurified);
-$postContentPurified = str_replace(">", "&gt;", $postContentPurified);
-$postContentPurified = str_replace("'", "&#39;", $postContentPurified);
-$postContentPurified = str_replace('"', "&quot;", $postContentPurified);
-$postContentPurified = str_replace("`", "&#96;", $postContentPurified);
-$postContentPurified = str_replace("\\", "&#92;", $postContentPurified);
-
-$postContentPurified = nl2br($postContentPurified);
+$postContentPurified = purifyXSS($postData["postContent"]);
 
 $ytEmbedPrefix = '<iframe width="560" height="315" src="https://www.youtube.com/embed/';
 $ytEmbedSuffix = '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="w-full h-auto rounded-lg" allowfullscreen=""></iframe>';
@@ -188,40 +180,42 @@ echo $postData["postAttachment"];
 
         </div>
         <section class="bg-white dark:bg-gray-900 py-8 lg:py-16">
+
+
   <div class="max-w-2xl mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-            댓글 <span class="text-gray-600 dark:text-gray-400">0</span>개
+            댓글 <span class="text-gray-600 dark:text-gray-400"><?php echo ""; ?> </span>개
         </h2>
     </div>
 
-    <article class="p-2 text-base bg-white border-b border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+    <?php
+            $getCommentQuery = "SELECT * FROM posts_comments WHERE postID = ".$_GET["id"]." AND commentHidden = 0 ORDER BY commentCreation DESC";
+            $getCommentQuery_Result = $db->query($getCommentQuery);
+
+            if ($getCommentQuery_Result->num_rows > 0){
+                while ($commentData = $getCommentQuery_Result->fetch_assoc()){
+                    $getCommentUserQuery = "SELECT * FROM account_users WHERE userID = ".$commentData["userID"]." AND signMethod = ".$commentData["signMethod"]."";
+                    $getCommentUserQuery_Result = $db->query($getCommentUserQuery);
+                    $commentUserData = $getCommentUserQuery_Result->fetch_assoc();
+                    echo'
+                    <article class="p-2 text-base bg-white border-b border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
 <footer class="flex justify-between items-center mb-2">
 <div class="flex items-center">
-<p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Helene Engels">Helene Engels</p>
-<p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate="" datetime="2022-06-23" title="June 23rd, 2022">Jun. 23, 2022</time></p>
-</div>
-<button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
-<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-</path>
-</svg>
-</button>
-
-<div id="dropdownComment4" class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-<ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
-<li>
-<a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">삭제하기</a>
-</li>
-</ul>
+<p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img class="mr-2 w-6 h-6 rounded-full"
+src="'.$commentUserData["userAvatar"].'" alt="avatar"><span class="font-bold">'.$commentUserData["userNickname"].'</span></p>
+<p class="text-sm text-gray-600 dark:text-gray-400">'.relativeTime($commentData["commentCreation"]).'</p>
 </div>
 </footer>
-<p class="text-gray-500 dark:text-gray-400">
-    Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.</p>
+<div class="text-gray-900 dark:text-white">
+<p>'.purifyXSS($commentData["commentContent"]).'</p>
+</div>
 </article>
+                    ';
+                }
+            }
+            ?>
 
-  </div>
-</section>
         <nav class="rounded-t-xl shadow-lg commentSection max-w-md visible fixed bottom-0 w-full border bg-white">
 
 <form>
