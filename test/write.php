@@ -58,7 +58,7 @@ chdir(dirname(__FILE__));
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <div class="mx-auto w-full">
-    <form action="#" method="POST">
+    <form action="/form/write.php" method="POST">
       <div class="">
         <input
           type="text"
@@ -79,6 +79,7 @@ chdir(dirname(__FILE__));
       </div>
       <div>
         <input type="hidden" name="imageURL" id="imageURL" />
+        <input type="hidden" name="boardURL" id="boardURL" value="<?php echo $_GET["id"];?>" />
         <button
           class="hover:shadow-lg rounded-lg bg-blue-500 py-3 px-8 text-base font-semibold text-white outline-none"
         >
@@ -91,6 +92,7 @@ chdir(dirname(__FILE__));
 
 <p class="text-red-500 mt-4" id="submissionError">
 </p>
+<img src="" id="preview" style="display:none;" class="w-full">
 <input type="file" id="image" hidden style="display:none;" accept="image/*"></input>
 <button type="button" id="next-button" class="hover:shadow-lg rounded-lg bg-blue-500 py-3 px-8 text-base font-semibold text-white outline-none" onclick="imgUpload()">이미지 업로드</button>
 <script>
@@ -124,6 +126,8 @@ var form = new FormData();
             document.getElementById("imageURL").value = res.data.url;
             document.getElementById("next-button").classList.remove("opacity-50");
             document.getElementById("image").style.display = "none";
+            document.getElementById("submissionError").innerHTML = "";
+            document.getElementById("preview").src = res.data.url;
         }
         else{
             document.getElementById("submissionError").innerHTML = "이미지 업로드에 실패했어요. 다시 시도해주세요.";
