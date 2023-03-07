@@ -209,12 +209,12 @@ echo $postData["postAttachment"];
 <footer class="flex justify-between items-center mb-2">
 <div class="flex items-center">
 <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img class="mr-2 w-6 h-6 rounded-full"
-src="'.$commentUserData["userAvatar"].'" alt="avatar"><span class="font-bold">'.$commentUserData["userNick"];
+src="'.$commentUserData["userAvatar"].'" alt="avatar"><span>'.$commentUserData["userNick"];
 
 if ($commentUserData["schoolSID"] == $_SESSION["schoolSID"]){
     echo " (".$commentUserData["userName"].")";
 }
-echo '· <span class="text-blue-500">';
+echo '&nbsp;·&nbsp;<span class="text-blue-500">';
 $getWriterSchool = "SELECT * FROM `school_whitelisted` WHERE `schoolSID` = '".$commentUserData["schoolSID"]."'";
     $getWriterSchool_Result = $db->query($getWriterSchool);
     if ($getWriterSchool_Result->rowCount() == 0){
