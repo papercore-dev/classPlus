@@ -70,7 +70,7 @@ chdir(dirname(__FILE__));
       </div>
       <div class="mb-5">
         <textarea
-          rows="4"
+          rows="15"
           name="post"
           id="post"
           placeholder="내용을 작성해주세요"
@@ -78,7 +78,7 @@ chdir(dirname(__FILE__));
         ></textarea>
       </div>
       <div>
-        <input type="hidden" name="imageURL" />
+        <input type="hidden" name="imageURL" id="imageURL" />
         <button
           class="hover:shadow-lg rounded-lg bg-blue-500 py-3 px-8 text-base font-semibold text-white outline-none"
         >
@@ -115,6 +115,8 @@ var form = new FormData();
     "contentType": false,
     "data": form
     };
+
+    document.getElementById("submissionError").innerHTML = "업로드 중...";
 
     $.ajax(settings).done(function (response) {
         var res = JSON.parse(response);
