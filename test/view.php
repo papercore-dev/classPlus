@@ -63,6 +63,13 @@ $increaseViewCount_Result = $db->query($increaseViewCount);
 
 
 ?>
+<script src="
+https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.9/src/index.min.js
+"></script>
+
+<link href="
+https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.9/dist/typography.min.css
+" rel="stylesheet">
 <div class="w-full mx-auto">
             
             <div class="mt-8 w-full text-gray-800 text-2xl px-5 font-bold leading-none">
@@ -116,7 +123,7 @@ echo date("Y년 m월 d일 H:i:s", strtotime($postData["postCreation"]));
             </div>
             
             <div class="px-5 w-full mx-auto">
-                <p class="my-5">
+            <article class="prose lg:prose-xl">
                 <?php
 $postContentPurified = $postData["postContent"];
 
@@ -152,7 +159,7 @@ echo $postContentPurified;
 <img src="<?php
 echo $postData["postAttachment"];
 ?>" class="rounded-xl bg-gray-500 mt-2">
-</p>
+</article>
             </div>
 
 
