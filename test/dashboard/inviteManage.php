@@ -31,21 +31,23 @@ include '../ui/menu/menu.custom.html.php';
 //show current invites in table
 $currentInviteUsage = "SELECT * FROM `account_invite` WHERE `schoolSID` = '".$_SESSION["schoolSID"]."' AND `schoolGrade` = '".$_SESSION["schoolGrade"]."' AND `schoolClass` = '".$_SESSION["schoolClass"]."'";
 $currentInviteUsageResult = $db->query($currentInviteUsage);
-if ($currentInviteUsageResult->num_rows > 0) {
+if ($currentInviteUsageResult->rowCount() > 0) {
     echo "<table class='table-auto w-full'>";
     echo "<thead>";
     echo "<tr>";
+    echo "<th class='px-4 py-2'>번호</th>";
+    echo "<th class='px-4 py-2'>이름</th>";
     echo "<th class='px-4 py-2'>초대 코드</th>";
-    echo "<th class='px-4 py-2'>초대 날짜</th>";
     echo "<th class='px-4 py-2'>초대 사용 여부</th>";
     echo "</tr>";
     echo "</thead>";
     echo "<tbody>";
-    while($row = $currentInviteUsageResult->fetch_assoc()) {
+    while($row = $currentInviteUsageResult->fetch()) {
         echo "<tr>";
+        echo "<td class='border px-4 py-2'>".$row["schoolNo"]."</td>";
+        echo "<td class='border px-4 py-2'>".$row["userName"]."</td>";
         echo "<td class='border px-4 py-2'>".$row["inviteCode"]."</td>";
-        echo "<td class='border px-4 py-2'>".$row["inviteDate"]."</td>";
-        if ($row["inviteUsed"] == 1) {
+        if ($row["used"] == 1) {
             echo "<td class='border px-4 py-2'>사용됨</td>";
         }
         else {
@@ -78,6 +80,7 @@ else {
 </div>
 </div>
 <?php
-include '../ui/common/footer.html.php';
 chdir(dirname(__FILE__));
+include '../ui/common/footer.html.php';
+
 ?>
