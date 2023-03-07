@@ -202,13 +202,32 @@ echo $postData["postAttachment"];
                     $getCommentUserQuery = "SELECT * FROM account_users WHERE userID = '".$commentData["userID"]."' AND signMethod = '".$commentData["signMethod"]."'";
                     $getCommentUserQuery_Result = $db->query($getCommentUserQuery);
                     $commentUserData = $getCommentUserQuery_Result->fetch();
+
+                    
                     echo'
                     <article class="p-2 text-base bg-white border-b border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
 <footer class="flex justify-between items-center mb-2">
 <div class="flex items-center">
 <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img class="mr-2 w-6 h-6 rounded-full"
-src="'.$commentUserData["userAvatar"].'" alt="avatar"><span class="font-bold">'.$commentUserData["userNickname"].'</span></p>
-<p class="text-sm text-gray-600 dark:text-gray-400">'.relativeTime($commentData["commentCreation"]).'</p>
+src="'.$commentUserData["userAvatar"].'" alt="avatar"><span class="font-bold">'.$commentUserData["userNick"];
+
+if ($commentUserData["schoolSID"] == $_SESSION["schoolSID"]){
+    echo " (".$commentUserData["userName"].")";
+}
+echo '· <span class="text-blue-500">';
+$getWriterSchool = "SELECT * FROM `school_whitelisted` WHERE `schoolSID` = '".$commentUserData["schoolSID"]."'";
+    $getWriterSchool_Result = $db->query($getWriterSchool);
+    if ($getWriterSchool_Result->rowCount() == 0){
+        echo "학교 정보 없음";
+    }
+    else{
+        while($row = $getWriterSchool_Result->fetch()){
+            echo $row["schoolName"];
+        }
+}
+
+echo '</span></p>
+<p class="text-sm text-gray-600 dark:text-gray-400">'.relativeTime(strtotime($commentData["commentCreation"])).'</p>
 </div>
 </footer>
 <div class="text-gray-900 dark:text-white">
