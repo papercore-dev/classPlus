@@ -249,7 +249,7 @@ echo '</span></p>
 <form>
 <label for="chat" class="sr-only">Your message</label>
 <div class="flex w-full items-center py-2 px-3 bg-gray-50 rounded-lg dark:bg-gray-700">
-    <form action="/form/postComment.php" method="post">
+    <form action="/form/postComment.php" method="POST">
     <input type="hidden" name="postID" value="<?php echo $_GET["id"]; ?>">
     <input id="chat" name="chat" rows="1" class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="댓글을 작성하세요">
         <button type="submit" class="inline-flex justify-center p-2 text-blue-500 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
