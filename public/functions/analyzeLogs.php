@@ -1,0 +1,21 @@
+<?php
+chdir(dirname(__FILE__));
+include '../security.php';
+chdir(dirname(__FILE__));
+
+if (isset($serviceName)){
+    $checkPreviousVisit = "SELECT * FROM `account_serviceAnalytics` WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."' AND `serviceName` = '".$serviceName."'";
+    $checkPreviousVisit_Result = $db->query($checkPreviousVisit);
+
+    if ($checkPreviousVisit_Result->rowCount() > 0){
+        while($row = $checkPreviousVisit_Result->fetch()){
+            $updateServiceAnalytics = "UPDATE `account_serviceAnalytics` SET `visitCount` = `visitCount` + 1 WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."' AND `serviceName` = '".$serviceName."'";
+            $updateServiceAnalytics_Result = $db->query($updateServiceAnalytics);
+        }
+    } else {
+        $insertServiceAnalytics = "INSERT INTO `account_serviceAnalytics` (`userID`, `signMethod`, `serviceName`, `visitCount`) VALUES ('".$_SESSION['userID']."', '".$_SESSION['signMethod']."', '".$serviceName."', 1)";
+        $insertServiceAnalytics_Result = $db->query($insertServiceAnalytics);
+    }
+}
+
+?>

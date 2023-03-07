@@ -1,0 +1,7 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "com.cplus.test",
+                     "sha256_cert_fingerprints": ["25:1F:65:05:B7:61:0E:1F:EB:A6:CE:7E:8A:0A:26:7B:15:EB:1B:D6:04:A2:F9:5E:2A:8F:E2:52:96:ED:6B:5F",
+                     "18:13:8F:02:2E:A5:D6:C9:6B:33:F8:DF:47:85:E7:C9:8D:9B:93:BB:D4:1E:5B:D1:52:9F:63:4C:21:E1:A6:CA"] }
+      }
+]

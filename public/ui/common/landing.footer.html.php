@@ -20,12 +20,12 @@ chdir(dirname(__FILE__));?>
                 이용 약관
             </a>
             <a
-                href="#"
+                href="https://metroplus.notion.site/024e9b4918384709b242ad7807e1bc51"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 개인정보처리방침
             </a>
             <a
-                href="#"
+                href="https://metroplus.notion.site/0cc73b1e4aaf40659551388f6e2f9582"
                 class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 청소년 보호정책
             </a>

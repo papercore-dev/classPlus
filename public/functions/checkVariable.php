@@ -3,9 +3,9 @@ chdir(dirname(__FILE__));
 include '../security.php';
 chdir(dirname(__FILE__));
 
-function checkVariable($varName){
-    if (isset($_GET[$varName])){
-        if ($_GET[$varName]){
+function checkVariable($varName, $varCheck){
+    if (isset($varName)){
+        if ($varName == $varCheck){
             return true;
         }
     }

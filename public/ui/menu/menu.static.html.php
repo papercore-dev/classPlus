@@ -2,74 +2,32 @@
 chdir(dirname(__FILE__));
 include '../../security.php';
 chdir(dirname(__FILE__));?>
-<style>
-    @font-face {
-    font-family: 'NEXON Lv2 Gothic';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-*{
-    font-family: 'NEXON Lv2 Gothic', sans-serif;
-}
-</style>
-<!-- Page Main -->
-<main class="flex flex-col items-center justify-center mt-32">
-    <header class="container">
-        <!-- Navbar -->
-        <nav
-            class="flex justify-between md:justify-around py-4 bg-white shadow-md w-full px-10 fixed top-0 left-0 right-0 z-10 px-8 md:px-3"
-            >
-            <!-- Logo Container -->
-            <div class="flex items-center">
-                <!-- Logo -->
-                <a class="cursor-pointer" href="/">
-                <h3 class="text-2xl font-medium text-gray-500 justify-center my-auto font-bold flex ml-4">
-<img class="w-10 " src="/resources/images/classplus_logo_site_landing.png" alt="Class+">
-<span class="py-auto my-auto h-full hidden md:block">Class+</span></h3>
-                </a>
-            </div>
-
-            <!-- Links Section -->
-            <div
-                class="hidden md:block items-center md:space-x-8 justify-center justify-items-start md:justify-items-center md:flex md:pt-2 w-full left-0 top-16 px-5 md:px-10 py-3 md:py-0 border-t md:border-t-0">
-                <a
-                    class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    소개
-                </a>
-
-                <a
-                    class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    요금 안내
-                </a>
-
-                <a
-                    class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    공지사항
-                </a>
-
-            </div>
-
-            <!-- Auth Links -->
-            <div class="flex items-center space-x-5">
-                <!-- Register -->
-                <a
-                    class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="h-5 w-5 mr-2 mt-0.5">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-</svg>
-                </a>
-
-                <!-- Login -->
-                <a
-                    class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="h-5 w-5 mr-2 mt-0.5">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-</svg>
-                </a>
-            </div>
-        </nav>
-    </header>
+ <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+<header>
+<nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <a href="/" class="flex items-center">
+            <img src="/resources/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="ClassPlus Logo" />
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">클래스+</span>
+        </a>
+        <div class="flex items-center lg:order-2">
+            <a href="https://chat.pcor.me" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">채팅 열기</a>
+            <a href="/app.php" class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">클래스+ 열기</a>
+            <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-full lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+                <span class="sr-only">메인 메뉴 열기</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+        <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                <li>
+                    <a href="/static/landing.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                        홈
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>

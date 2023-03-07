@@ -1,7 +1,7 @@
 {
   "name": "클래스+",
   "short_name": "클래스+",
-  "start_url": "https://classplus.pcor.me",
+  "start_url": "https://classplus.pcor.me/?mode=standalone",
   "display": "standalone",
   "description": "학급생활에 클래스를 플러스",
   "lang": "ko_KR",
@@ -10,29 +10,127 @@
   "orientation": "any",
   "icon": [
     {
-      "src": "icon/manifest-icon-192.maskable.png",
+      "src": "/icon/manifest-icon-192.maskable.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon/manifest-icon-192.maskable.png",
+      "src": "/icon/manifest-icon-192.maskable.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "icon/manifest-icon-512.maskable.png",
+      "src": "/icon/manifest-icon-512.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon/manifest-icon-512.maskable.png",
+      "src": "/icon/manifest-icon-512.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
+    },
+    {
+      "src": "/icon/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image\/png",
+      "density": "0.75"
+     },
+     {
+      "src": "/icon/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image\/png",
+      "density": "1.0"
+     },
+     {
+      "src": "/icon/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image\/png",
+      "density": "1.5"
+     },
+     {
+      "src": "/icon/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image\/png",
+      "density": "2.0"
+     },
+     {
+      "src": "/icon/android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image\/png",
+      "density": "3.0"
+     },
+     {
+      "src": "/icon/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png",
+      "density": "4.0"
+     }
+  ],
+  "icons": [
+    {
+      "src": "/icon/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image\/png",
+      "density": "0.75"
+     },
+     {
+      "src": "/icon/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image\/png",
+      "density": "1.0"
+     },
+     {
+      "src": "/icon/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image\/png",
+      "density": "1.5"
+     },
+     {
+      "src": "/icon/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image\/png",
+      "density": "2.0"
+     },
+     {
+      "src": "/icon/android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image\/png",
+      "density": "3.0"
+     },
+     {
+      "src": "/icon/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png",
+      "density": "4.0"
+     }
   ],
   "prefer_related_applications": false
 }
