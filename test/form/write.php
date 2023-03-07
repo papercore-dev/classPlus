@@ -63,10 +63,10 @@ if (!isset($_POST["post"])){
 $purifiedTitle = purifyXSS($_POST["title"]);
 $purifiedPost = purifyXSS($_POST["post"]);
 
-//check if imageURL is valid imgbb URL using regex
+//check if imageURL is valid imgbb URL using regex (https://i.ibb.co/(A-Z, a-z, 0-9 7 letters)/post-upload*)
 if (isset($_POST["imageURL"])){
-    if (!preg_match('/^(https:\/\/i\.imgbb\.com\/)([a-zA-Z0-9]{5,10})(\.)([a-zA-Z]{3,4})$/', $_POST["imageURL"])){
-        echo "<script>window.location.href = '/form/write.php?boardURL=".$serviceName."&error=이미지 URL이 올바르지 않아요.';</script>";
+    if (!preg_match("/https:\/\/i\.ibb\.co\/[A-Za-z0-9]{7}\/post-upload.*/", $_POST["imageURL"])){
+        echo "<script>window.location.href = '/form/write.php?id=".$serviceName."&error=이미지 URL이 올바르지 않아요.';</script>";
         die;
     }
     else{

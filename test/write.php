@@ -57,6 +57,9 @@ chdir(dirname(__FILE__));
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/nsfwjs@2.4.2/dist/nsfwjs.min.js
+"></script>
   <div class="mx-auto w-full">
     <form action="/form/write.php" method="POST">
       <div class="">
@@ -103,6 +106,20 @@ image.style.display = "block";
 document.getElementById("next-button").classList.add("opacity-50");
 }
 document.getElementById("image").addEventListener("change", function() {
+    //use nsfwjs to cease upload if image is NSFW
+    const img = document.getElementById('image')
+
+// Load model from my S3.
+// See the section hosting the model files on your site.
+nsfwjs.load()
+  .then(function (model) {
+    // Classify the image
+    return model.classify(img)
+  })
+  .then(function (predictions) {
+    console.log('Predictions: ', predictions)
+  })
+
 var form = new FormData();
     form.append("image", image.files[0]);
     form.append("key", "f6b9c05f362e92b7be21792346f9243e");
