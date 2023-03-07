@@ -183,21 +183,25 @@ echo $postData["postAttachment"];
 
 
   <div class="max-w-2xl mx-auto px-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-            댓글 <span class="text-gray-600 dark:text-gray-400"><?php echo ""; ?> </span>개
-        </h2>
-    </div>
+   
 
     <?php
+    //if ( == 0){
+
             $getCommentQuery = "SELECT * FROM posts_comments WHERE postID = ".$_GET["id"]." AND commentHidden = 0 ORDER BY commentCreation DESC";
             $getCommentQuery_Result = $db->query($getCommentQuery);
 
-            if ($getCommentQuery_Result->num_rows > 0){
-                while ($commentData = $getCommentQuery_Result->fetch_assoc()){
+            echo '   <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+                댓글 <span class="text-gray-600 dark:text-gray-400">'.$getCommentQuery_Result->rowCount().'</span>개
+            </h2>
+        </div>';
+
+        
+                while ($commentData = $getCommentQuery_Result->fetch()){
                     $getCommentUserQuery = "SELECT * FROM account_users WHERE userID = ".$commentData["userID"]." AND signMethod = ".$commentData["signMethod"]."";
                     $getCommentUserQuery_Result = $db->query($getCommentUserQuery);
-                    $commentUserData = $getCommentUserQuery_Result->fetch_assoc();
+                    $commentUserData = $getCommentUserQuery_Result->fetch();
                     echo'
                     <article class="p-2 text-base bg-white border-b border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
 <footer class="flex justify-between items-center mb-2">
@@ -213,7 +217,6 @@ src="'.$commentUserData["userAvatar"].'" alt="avatar"><span class="font-bold">'.
 </article>
                     ';
                 }
-            }
             ?>
 
         <nav class="rounded-t-xl shadow-lg commentSection max-w-md visible fixed bottom-0 w-full border bg-white">
