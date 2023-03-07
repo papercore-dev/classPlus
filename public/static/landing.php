@@ -16,8 +16,8 @@ chdir(dirname(__FILE__));
                 웹으로 시작하기
                 <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
-            <a href="mailto:support@pcor.me" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-full hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                사용 문의하기
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_j2Vj6gKleyCC4E7q5ODI0kWN9poJ3UazBLkVhtU9R2bWYw/viewform?usp=sf_link" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-full hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                사용 신청하기
             </a> 
         </div>
         <div class="lg:mt-0 lg:col-span-5 lg:flex">
@@ -116,7 +116,7 @@ chdir(dirname(__FILE__));
         <div class="mx-auto max-w-screen-sm text-center">
             <h2 class="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white">지금 시작하세요</h2>
             <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">PC, 모바일의 경계를 허물고 어디서나 사용할 수 있어요</p>
-            <a href="mailto:support@pcor.me" class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-800">사용 문의하기</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_j2Vj6gKleyCC4E7q5ODI0kWN9poJ3UazBLkVhtU9R2bWYw/viewform?usp=sf_link" class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-800">사용 신청하기</a>
         </div>
     </div>
 </section>
