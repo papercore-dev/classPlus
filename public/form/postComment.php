@@ -68,7 +68,11 @@ if (!isset($_POST["chat"])){
 }
 
 $purifiedPost = purifyXSS($_POST["chat"]);
-
+//if chat is empty
+if (empty($purifiedPost)){
+    echo "<script>window.location.href = '/view.php?id=".$_POST["id"]."&error=내용을 입력해주세요.';</script>";
+    die;
+}
 //post to database
 $postToDB = "INSERT INTO `posts_comments` (`postID`, `userID`, `commentContent`, `signMethod`) VALUES ('".$_POST["postID"]."', '".$_SESSION["userID"]."', '".$purifiedPost."', '".$_SESSION["signMethod"]."')";
 //post to database and redirect to newly created post

@@ -81,6 +81,14 @@ else{
     $purifiedImageURL = "";
 }
 
+if (empty($purifiedTitle)){
+    echo "<script>window.location.href = '/form/write.php?id=".$serviceName."&error=내용을 입력해주세요.';</script>";
+    die;
+}
+if (empty($purifiedPost)){
+    echo "<script>window.location.href = '/form/write.php?id=".$serviceName."&error=내용을 입력해주세요.';</script>";
+    die;
+}
 //post to database
 $postToDB = "INSERT INTO `posts` (`postID`, `signMethod`, `userID`, `postTitle`, `postContent`, `postAttachment`, `postCreation`, `visitCount`, `postHidden`, `postNotice`, `boardID`) VALUES (NULL, '".$_SESSION["signMethod"]."', '".$_SESSION["userID"]."', '".$purifiedTitle."', '".$purifiedPost."', '".$purifiedImageURL."', current_timestamp(), '0', '0', '0', '".$_POST["boardURL"]."');";
 //post to database and redirect to newly created post
