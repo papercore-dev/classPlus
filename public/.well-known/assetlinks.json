@@ -1,7 +1,7 @@
 [{
         "relation": ["delegate_permission/common.handle_all_urls"],
-        "target" : { "namespace": "android_app", "package_name": "com.cplus.test",
-                     "sha256_cert_fingerprints": ["25:1F:65:05:B7:61:0E:1F:EB:A6:CE:7E:8A:0A:26:7B:15:EB:1B:D6:04:A2:F9:5E:2A:8F:E2:52:96:ED:6B:5F",
-                     "18:13:8F:02:2E:A5:D6:C9:6B:33:F8:DF:47:85:E7:C9:8D:9B:93:BB:D4:1E:5B:D1:52:9F:63:4C:21:E1:A6:CA"] }
+        "target" : { "namespace": "android_app", "package_name": "com.cplus.app",
+                     "sha256_cert_fingerprints": ["EF:E1:70:27:F0:56:50:0D:C9:62:FB:75:E3:F8:98:B8:DC:62:42:24:B2:2C:82:88:4E:9C:ED:29:46:CE:7B:97",
+                     "DD:3E:B1:69:B6:30:95:22:1F:15:38:1C:F4:4E:83:DE:DC:4C:99:7F:65:6B:D1:41:B2:AB:68:65:93:1E:C4:6E"] }
       }
 ]
