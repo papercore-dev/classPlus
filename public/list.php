@@ -104,7 +104,7 @@ else{
    include 'functions/listNotice.php';
    chdir(dirname(__FILE__));
 }
-   $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '13' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
+   $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '13' AND `postHidden` = '0' AND `postNotice` = '1' ORDER BY `postCreation` DESC";
    include 'functions/listNotice.php';
    chdir(dirname(__FILE__));
             $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
