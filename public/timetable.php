@@ -56,7 +56,13 @@ chdir(dirname(__FILE__));
       if ($schoolType == "초등학교") {
         echo "초등학교에서는 시간표를 지원하지 않아요";
       //} else if ($schoolType == "중학교" or $schoolType == "고등학교") {
-      } else if ($schoolType == "대학교") {
+      }
+      else if (getData("schoolSID") == "7751187" and getData("schoolGrade").getData("schoolClass") == "21" ){
+        //show timetable image
+        echo "<img src='https://media.discordapp.net/attachments/936620635889729558/1083032104453013564/image.png?width=576&height=814' class='w-full'>";
+        
+      }
+      else if ($schoolType == "대학교") {
        $schoolRegion = checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolSID")."&Type=json")["schoolInfo"][1]["row"][0]["LCTN_SC_NM"];
        //schoolRegion에서 앞 2글자만 utf 8로 가져오기 (eg: 서울특별시 -> 서울)
         $schoolRegion = mb_substr($schoolRegion, 0, 2, "UTF-8");
