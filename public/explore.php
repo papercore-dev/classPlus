@@ -86,7 +86,7 @@ echo'
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
             $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." ORDER BY `visitCount` DESC";
-            $maxDisplayRank = 5;
+            $maxDisplayRank = 10;
             include 'functions/listRank.php';
             chdir(dirname(__FILE__));
     echo'
@@ -99,7 +99,7 @@ echo'
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">';
             $getCommunityList = "SELECT * FROM `posts_board` WHERE `boardHidden` = '0' AND `view_accessLevel` <= ".getData("accessLevel")." ORDER BY `boardID` DESC";
-            $maxDisplayRank = 5;
+            $maxDisplayRank = 10;
             include 'functions/listRank.php';
             chdir(dirname(__FILE__));
             echo'
@@ -124,6 +124,18 @@ echo'
                     echo'
                     </ul>
                       </div>
+                    </div>';
+                    echo'
+                    <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
+                    <div class="flex justify-between items-center mb-2 mt-4">
+                    <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">글</h3>
+               </div>
+                       <div class="text-black dark:text-gray-50 block w-full">';
+                    //search title and content
+                    $getPostList = "SELECT * FROM `posts` WHERE `postHidden` = '0' AND (`postTitle` LIKE '%".$search."%' OR `postContent` LIKE '%".$search."%') ORDER BY `visitCount` DESC";
+                    include 'functions/listPost.php';
+                    chdir(dirname(__FILE__));
+                    echo'
                     </div>
             </section>';
     }

@@ -102,7 +102,13 @@ chdir(dirname(__FILE__));?>
         // Show permission request.
         console.log('No registration token available. Request permission to generate one.');
         // Show permission UI.
-        updateUIForPushPermissionRequired();
+      
+        if (navigator.userAgent.match(/iPhone|iPad|iPod/i) && parseInt(navigator.userAgent.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) < 16) {
+          console.log('iOS version is under 16.4, do not show permission UI');
+        } else {
+          document.getElementById('notificationModal').setAttribute('x-data', "{'open': true}");
+        }
+        
         setTokenSentToServer(false);
       }
     }).catch((err) => {
@@ -114,19 +120,25 @@ chdir(dirname(__FILE__));?>
 
 
   function showToken(currentToken) {
-    // Show token in console and UI.
-    const tokenElement = document.querySelector('#token');
-    tokenElement.textContent = currentToken;
+    //send currentToken to server using jquery
+
+
   }
 
-  // Send the registration token your application server, so that it can:
-  // - send messages back to this app
-  // - subscribe/unsubscribe the token from topics
   function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer()) {
       console.log('Sending token to server...');
-      // TODO(developer): Send the current token to your server.
-      setTokenSentToServer(true);
+      $.ajax({
+      url: '/form/fcm.php',
+      type: 'POST',
+      data: {
+        'token': currentToken
+      },
+      success: function (data) {
+        setTokenSentToServer(true);
+      }
+    });
+      
     } else {
       console.log('Token already sent to server so won\'t send it again ' +
           'unless it changes');
@@ -149,9 +161,6 @@ chdir(dirname(__FILE__));?>
     Notification.requestPermission().then((permission) => {
       if (permission === 'granted') {
         console.log('Notification permission granted.');
-        // TODO(developer): Retrieve a registration token for use with FCM.
-        // In many cases once an app has been granted notification permission,
-        // it should update its UI reflecting this.
         resetUI();
       } else {
         console.log('Unable to get permission to notify.');
@@ -178,33 +187,17 @@ chdir(dirname(__FILE__));?>
 
   // Add a message to the messages element.
   function appendMessage(payload) {
-    const messagesElement = document.querySelector('#messages');
-    const dataHeaderElement = document.createElement('h5');
-    const dataElement = document.createElement('pre');
-    dataElement.style = 'overflow-x:hidden;';
-    dataHeaderElement.textContent = 'Received message:';
-    dataElement.textContent = JSON.stringify(payload, null, 2);
-    messagesElement.appendChild(dataHeaderElement);
-    messagesElement.appendChild(dataElement);
+    console.log(JSON.stringify(payload, null, 2));
   }
 
   // Clear the messages element of all children.
   function clearMessages() {
-    const messagesElement = document.querySelector('#messages');
-    while (messagesElement.hasChildNodes()) {
-      messagesElement.removeChild(messagesElement.lastChild);
-    }
   }
 
   function updateUIForPushEnabled(currentToken) {
     showHideDiv(tokenDivId, true);
     showHideDiv(permissionDivId, false);
     showToken(currentToken);
-  }
-
-  function updateUIForPushPermissionRequired() {
-    showHideDiv(tokenDivId, false);
-    showHideDiv(permissionDivId, true);
   }
 
   resetUI();

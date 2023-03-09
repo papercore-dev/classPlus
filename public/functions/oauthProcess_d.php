@@ -13,6 +13,8 @@ if (session_status() === PHP_SESSION_NONE){
 $load = true;
 include 'checkVariable.php';
 chdir(dirname(__FILE__));
+include 'sendNotification.php';
+chdir(dirname(__FILE__));
 include '../database/adapter_db.php';
 chdir(dirname(__FILE__));
 
@@ -22,8 +24,8 @@ if(get('action') == 'login') {
     $params = array(
       'client_id' => OAUTH2_CLIENT_ID,
       'redirect_uri' => 'https://'.$_SERVER["HTTP_HOST"].$redirectURL,
-      'response_type' => 'code',
-      'scope' => 'identify'
+      'scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+      'response_type' => 'code'
     );
   
     header('Location: ' . $authorizeURL . '?' . http_build_query($params));
@@ -50,9 +52,10 @@ if(get('code')) {
   if(session('access_token')) {
 
     $user = apiRequest($apiURLBase);
-    $_SESSION['userNick'] = $user->username;
-    $_SESSION['userAvatar'] = 'https://cdn.discordapp.com/avatars/'.$user->id.'/'.$user->avatar.'.png?size=512';
-    $_SESSION['userID'] = $user->id;
+   //userNick (user full name), userAvatar (full url form), userID (Email address) from google's API
+    $_SESSION['userNick'] = $user->name;
+    $_SESSION['userAvatar'] = $user->picture;
+    $_SESSION['userID'] = $user->email;
   $_SESSION['signMethod'] = $providerName;
 
   $findBanRecord = "SELECT * FROM `account_ban` WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."'";
@@ -96,7 +99,7 @@ if(get('code')) {
     $insertNewRecord_Result = $db->query($insertNewRecord);
   }
 
-
+  sendNotification($_SESSION["userID"], $_SESSION["signMethod"], "🔑 계정 로그인 확인", "로그인이 확인되었어요. 본인의 활동이 맞는지 확인해주세요.", "", "", $db);
     //if redirect url is specified, redirect to there
     if(isset($_SESSION["redirectURL"])){
       $redirect = $_SESSION["redirectURL"];

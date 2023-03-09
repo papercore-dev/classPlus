@@ -13,7 +13,13 @@ chdir(dirname(__FILE__));
 
 include '../functions/purifyXSS.php';
 chdir(dirname(__FILE__));
-
+if ($_SESSION["accType"] == "teacher" or getData('accessLevel') >= 4) {
+}
+else{
+    echo "<script>alert('접근 권한이 없습니다.');</script>";
+    echo "<script>location.href='/app.php';</script>";
+    exit;
+}
 $headName = "초대 관리";
 include '../ui/menu/menu.custom.html.php';
 
@@ -58,7 +64,34 @@ $inviteSchoolNo = $_POST["schoolNo"];
 $inviteUserName = $_POST["userName"];
 $inviteUserName = purifyXSS($inviteUserName);
 
-$sendInviteData = "INSERT INTO `account_invite` (`inviteCode`, `schoolSID`, `schoolGrade`, `schoolClass`, `schoolNo`, `userName`, `used`) VALUES ('".$inviteCode."', '".$_SESSION["schoolSID"]."', '".$_SESSION["schoolGrade"]."', '".$_SESSION["schoolClass"]."', '".$inviteSchoolNo."', '".$inviteUserName."', '0')";
+if ($_SESSION["accessLevel"] == "5"){
+    if (!isset($_POST["schoolSID"])){
+        $inviteSchoolSID = $_SESSION["schoolSID"];
+    }
+    else{
+        $inviteSchoolSID = $_POST["schoolSID"];
+    }
+
+    if (!isset($_POST["schoolGrade"])){
+        $inviteSchoolGrade = $_SESSION["schoolGrade"];
+    }
+    else{
+        $inviteSchoolGrade = $_POST["schoolGrade"];
+    }
+
+    if (!isset($_POST["schoolClass"])){
+        $inviteSchoolClass = $_SESSION["schoolClass"];
+    }
+    else{
+        $inviteSchoolClass = $_POST["schoolClass"];
+    }
+}
+else{
+    $inviteSchoolSID = $_SESSION["schoolSID"];
+    $inviteSchoolGrade = $_SESSION["schoolGrade"];
+    $inviteSchoolClass = $_SESSION["schoolClass"];
+}
+$sendInviteData = "INSERT INTO `account_invite` (`inviteCode`, `schoolSID`, `schoolGrade`, `schoolClass`, `schoolNo`, `userName`, `used`) VALUES ('".$inviteCode."', '".$inviteSchoolSID."', '".$inviteSchoolGrade."', '".$inviteSchoolClass."', '".$inviteSchoolNo."', '".$inviteUserName."', '0')";
 $sendInviteData_Result = $db->query($sendInviteData);
 
 if ($sendInviteData_Result){

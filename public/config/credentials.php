@@ -15,6 +15,8 @@ $oAuth_client_twitter = "SHJiZE9aUFRwQ09EcUkwQWs4MHE6MTpjaQ";
 $oAuth_secret_twitter = "vtCrU6jV9viBQSufWZgrUrUe-CcbXGmroQG7CJi8VMsgibTVXw";
 $oAuth_client_kakao = "84806d5c24b3bbaada1f7aaf4959959b";
 $oAuth_secret_kakao = "RfdAQuAfPZhXnez6SP7wEinIN9a6YyQe";
+$oAuth_client_google = "811675195675-96dfdg3jn0cvu9ih4jajpci8jb274cuf.apps.googleusercontent.com";
+$oAuth_secret_google = "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";
 
 $API_youtube = "AIzaSyBADKT0xhzPL4lKypeC8xO6VwgP7NSVg4s";
 $API_googleAnalytics = 'G-GBFKBH0HW5';

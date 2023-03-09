@@ -13,6 +13,8 @@ if (session_status() === PHP_SESSION_NONE){
 $load = true;
 include 'checkVariable.php';
 chdir(dirname(__FILE__));
+include 'sendNotification.php';
+chdir(dirname(__FILE__));
 include '../database/adapter_db.php';
 chdir(dirname(__FILE__));
 
@@ -96,6 +98,7 @@ if(get('code')) {
   }
 
 
+  sendNotification($_SESSION["userID"], $_SESSION["signMethod"], "🔑 계정 로그인 확인", "로그인이 확인되었어요. 본인의 활동이 맞는지 확인해주세요.", "", "", $db);
     //if redirect url is specified, redirect to there
     if(isset($_SESSION["redirectURL"])){
       $redirect = $_SESSION["redirectURL"];

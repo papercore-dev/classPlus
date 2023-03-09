@@ -10,8 +10,6 @@ requireStdVerification();
 
 include '../functions/checkUserData.php';
 chdir(dirname(__FILE__));
-include '../ui/menu/menu.nt.html.php';
-chdir(dirname(__FILE__));
 ?>
 <?php
 if ($_SESSION["accType"] == "teacher" or getData('accessLevel') >= 4) {
@@ -21,8 +19,10 @@ else{
     echo "<script>location.href='/app.php';</script>";
     exit;
 }
+$headName = "대시보드";
+include '../ui/menu/menu.dash.html.php';
 ?>
-<div class="p-5">
+<div class="p-5 lg:ml-64">
 <div class="my-4">
 
 <div class="my-5 flex items-center justify-between">
@@ -42,6 +42,12 @@ else{
 </div>
 </a>
 
+<a href="boardManage.php" class="flex-none py-3 px-6">
+<div class="flex flex-col items-center justify-center gap-3">
+<p class="text-4xl tossface">📝</p>
+<span class="text-slate-900 dark:text-slate-200">게시판 관리</span>
+</div>
+</a>
 
 </div>
 
@@ -49,6 +55,6 @@ else{
 </div>
 </div>
 <?php
-include '../ui/common/footer.html.php';
 chdir(dirname(__FILE__));
+include '../ui/common/footer.html.php';
 ?>

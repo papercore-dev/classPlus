@@ -15,6 +15,8 @@ chdir(dirname(__FILE__));
 
 include '../functions/purifyXSS.php';
 chdir(dirname(__FILE__));
+include '../functions/sendNotification.php';
+chdir(dirname(__FILE__));
 //check if method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
@@ -86,14 +88,32 @@ if ($db->query($postToDB)){
     else{
         while($row = $getNewPostID_Result->fetch()){
             echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글이 성공적으로 작성됐어요.';</script>";
-            die;
+            //send notification to post owner
+            $getOwnerID = "SELECT userID FROM `posts` WHERE postID = '".$row["postID"]."'";
+            $getOwnerID_Result = $db->query($getOwnerID);
+            $getPostTitle = "SELECT postTitle FROM `posts` WHERE postID = '".$row["postID"]."'";
+            $getPostTitle_Result = $db->query($getPostTitle);
+            if ($getPostTitle_Result->rowCount() == 0){
+                die;
+            }
+            else{
+                while($row2 = $getPostTitle_Result->fetch()){
+                    $postTitle = $row2["postTitle"];
+                }
+            }
+            if ($getOwnerID_Result->rowCount() == 0){
+                die;
+            }
+            else{
+                while($row2 = $getOwnerID_Result->fetch()){
+                    sendNotification($row2["userID"], $_SESSION["signMethod"], "💬 ".$postTitle."에 새로운 댓글이 달렸어요!", $purifiedPost, "https://classplus.pcor.me/resources/images/bell.png", "https://classplus.pcor.me/view.php?id=".$row["postID"], $db);
+                }
+            }
+
         }
     }
 }
-else{
-    echo "<script>window.location.href = '/view.php?id=".$_POST["id"]."&error=댓글 작성에 실패했어요.';</script>";
-    die;
-}
+
 ?>
 </body>
 </html>
