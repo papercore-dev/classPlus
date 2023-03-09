@@ -114,9 +114,18 @@ chdir(dirname(__FILE__));?>
 
 
   function showToken(currentToken) {
-    // Show token in console and UI.
-    const tokenElement = document.querySelector('#token');
-    tokenElement.textContent = currentToken;
+    //send currentToken to server using jquery
+    $.ajax({
+      url: '/form/fcm.php',
+      type: 'POST',
+      data: {
+        'token': currentToken
+      },
+      success: function (data) {
+        toastShow("알림 설정이 완료됐어요.");
+      }
+    });
+
   }
 
   // Send the registration token your application server, so that it can:
@@ -149,9 +158,6 @@ chdir(dirname(__FILE__));?>
     Notification.requestPermission().then((permission) => {
       if (permission === 'granted') {
         console.log('Notification permission granted.');
-        // TODO(developer): Retrieve a registration token for use with FCM.
-        // In many cases once an app has been granted notification permission,
-        // it should update its UI reflecting this.
         resetUI();
       } else {
         console.log('Unable to get permission to notify.');

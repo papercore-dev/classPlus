@@ -36,6 +36,30 @@ chdir(dirname(__FILE__));
 include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
+
+<div class="min-h-screen py-6 flex flex-col justify-center py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);"
+x-data="{ open: false }"  x-init="() => setTimeout(() => open = true, 500)" x-show="open"    
+        style="display:none;"
+        x-transition:enter-start="opacity-0 scale-90" 
+        x-transition:enter="transition duration-200 transform ease"
+        x-transition:leave="transition duration-200 transform ease"
+        x-transition:leave-end="opacity-0 scale-90">
+  <div class="py-3 max-w-xl mx-auto">
+ <div  class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
+      <div class="px-12 py-5 text-center">
+        <h2 class="text-gray-800 text-5xl mb-2 font-semibold">🔔</h2>
+        <h2 class="text-gray-800 text-3xl font-semibold">알림을 활성화 해 주세요</h2>
+      </div>
+      <div class="h-20 flex items-center justify-center">
+                <div class="w-3/4 flex flex-col">
+          <button onclick="requestPermission()" @click="open = false" class="py-3 my-8 text-lg bg-blue-500 rounded-xl text-white">권한 주기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="swiper">
   <div class="swiper-wrapper">
     <?php

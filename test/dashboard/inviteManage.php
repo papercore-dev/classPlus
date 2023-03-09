@@ -72,7 +72,7 @@ else {
 <form action="inviteGenerate.php" method="post">
 <div class="flex flex-col gap-2">
     <?php
-    if ($_SESSION("accessLevel") == 5){
+    if ($_SESSION["accessLevel"] == 5){
 echo '<label for="schoolSID">나이스 학교코드</label>
 <input type="text" name="schoolSID" id="schoolSID" class="border rounded-md px-2 py-1" />';
 echo '<label for="schoolGrade">학년</label>

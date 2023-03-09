@@ -47,33 +47,6 @@ chdir(dirname(__FILE__));
 </div>
 </li>
 </a>
-<button onclick="deleteToken()">
-<li class="rounded-lg hover:bg-gray-200 my-1 py-2">
-<div class="flex items-center space-x-4">
-<div class="flex-shrink-0 text-3xl tossface">🔔</div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-medium text-gray-900 truncate dark:text-white">알림 token erase</p>
-</div>
-</div>
-</li>
-</button>
-<div id="permission_div">
-            <h4>Needs Permission</h4>
-            <p id="token"></p>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                    onclick="requestPermission()">Request Permission</button>
-          </div>
-          <div id="messages"></div>
-<button id="subscribe">
-<li class="rounded-lg hover:bg-gray-200 my-1 py-2">
-<div class="flex items-center space-x-4">
-<div class="flex-shrink-0 text-3xl tossface">🔔</div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-medium text-gray-900 truncate dark:text-white">알림 받기</p>
-</div>
-</div>
-</li>
-</button>
 <a href="javascript:Turbo.visit(`/oauth/logout.php`)">
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
