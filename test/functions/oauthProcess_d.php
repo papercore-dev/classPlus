@@ -50,9 +50,10 @@ if(get('code')) {
   if(session('access_token')) {
 
     $user = apiRequest($apiURLBase);
-    $_SESSION['userNick'] = $user->username;
-    $_SESSION['userAvatar'] = 'https://cdn.discordapp.com/avatars/'.$user->id.'/'.$user->avatar.'.png?size=512';
-    $_SESSION['userID'] = $user->id;
+   //userNick (user full name), userAvatar (full url form), userID (Email address) from google's API
+    $_SESSION['userNick'] = $user->name;
+    $_SESSION['userAvatar'] = $user->picture;
+    $_SESSION['userID'] = $user->email;
   $_SESSION['signMethod'] = $providerName;
 
   $findBanRecord = "SELECT * FROM `account_ban` WHERE `userID` = '".$_SESSION['userID']."' AND `signMethod` = '".$_SESSION['signMethod']."'";

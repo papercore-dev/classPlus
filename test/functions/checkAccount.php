@@ -10,11 +10,11 @@ function checkAccount(){
     return false;
 }
 
-function requireSignin($target){
-    if (!checkAccount()){
-        echo "<script>window.location.href = '/oauth?redirect=".$target."';</script>";
-        die;
-    }
+function requireSignin($target, $accessLevel=2){
+        if (!checkAccount()){
+            echo "<script>window.location.href = '/oauth?redirect=".$target."';</script>";
+            die;
+        }
 }
 
 function requireStdVerification(){

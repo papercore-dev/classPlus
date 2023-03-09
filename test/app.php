@@ -36,10 +36,11 @@ chdir(dirname(__FILE__));
 include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
-
-<div id="notificationModal" class="min-h-screen py-6 flex flex-col justify-center py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);"
+<style>
+  [x-cloak] { display: none, opacity:0; }
+</style>
+<div id="notificationModal" x-cloak class="min-h-screen py-6 flex flex-col justify-center py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);display:none;"
 x-data="{ open: false }" x-show="open"    
-        style="display:none;"
         x-transition:enter-start="opacity-0 scale-90" 
         x-transition:enter="transition duration-200 transform ease"
         x-transition:leave="transition duration-200 transform ease"
@@ -49,6 +50,7 @@ x-data="{ open: false }" x-show="open"
       <div class="px-12 py-5 text-center">
         <h2 class="text-gray-800 text-5xl mb-2 font-semibold">🔔</h2>
         <h2 class="text-gray-800 text-3xl font-semibold">알림을 활성화 해 주세요</h2>
+        <p class="text-gray-700">iOS는 16.4 버전 이상을 사용해야 알림을 받을 수 있어요</p>
       </div>
       <div class="h-20 flex items-center justify-center">
                 <div class="w-3/4 flex flex-col">
