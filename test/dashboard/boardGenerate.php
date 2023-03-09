@@ -92,21 +92,21 @@ $comment_accessLevel = $_POST["comment_accessLevel"];
 $manage_accessLevel = $_POST["manage_accessLevel"];
 
 if ($_SESSION["accessLevel"] == "5"){
-    if (!isset($_POST["schoolSID"])){
+    if (!isset($_POST["schoolSID"]) or empty($_POST["schoolSID"])){
         $inviteSchoolSID = "NULL";
     }
     else{
         $inviteSchoolSID = $_POST["schoolSID"];
     }
 
-    if (!isset($_POST["schoolGrade"])){
+    if (!isset($_POST["schoolGrade"]) or empty($_POST["schoolGrade"])){
         $inviteSchoolGrade = "NULL";
     }
     else{
         $inviteSchoolGrade = $_POST["schoolGrade"];
     }
 
-    if (!isset($_POST["schoolClass"])){
+    if (!isset($_POST["schoolClass"]) or empty($_POST["schoolClass"])){
         $inviteSchoolClass = "NULL";
     }
     else{
