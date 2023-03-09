@@ -10,7 +10,8 @@ requireStdVerification();
 
 include 'functions/checkUserData.php';
 chdir(dirname(__FILE__));
-
+include 'functions/timeToRelative.php';
+chdir(dirname(__FILE__));
 include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 
