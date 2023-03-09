@@ -35,6 +35,8 @@ else{
         $boardID = $row["boardID"];
         $title = $row["postTitle"];
         $content = $row["postContent"];
+        $content = htmlspecialchars_decode($content);
+        $content = str_replace("<br />", "", $content);
         $image = $row["postAttachment"];
     }
 }
