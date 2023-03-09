@@ -252,7 +252,7 @@ echo '</span></p>
             <nav class="rounded-t-xl shadow-lg commentSection max-w-md visible fixed bottom-0 w-full border bg-white">
 
 <form action="/form/postComment.php" method="POST">
-<label for="chat" class="sr-only">Your message</label>
+<label for="chat" class="sr-only">메시지를 작성하세요</label>
 <div class="flex w-full items-center py-2 px-3 bg-gray-50 rounded-lg dark:bg-gray-700">
 
 <input type="hidden" name="postID" value="<?php echo $_GET["id"]; ?>">

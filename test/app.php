@@ -48,7 +48,7 @@ x-data="{ open: false }" x-show="open"
   <div class="py-3 max-w-xl mx-auto">
  <div  class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
       <div class="px-12 py-5 text-center">
-        <h2 class="text-gray-800 text-5xl mb-2 font-semibold">🔔</h2>
+        <h2 class="text-gray-800 text-5xl mb-2 font-semibold tossface">🔔</h2>
         <h2 class="text-gray-800 text-3xl font-semibold">알림을 활성화 해 주세요</h2>
         <p class="text-gray-700">iOS는 16.4 버전 이상을 사용해야 알림을 받을 수 있어요</p>
       </div>

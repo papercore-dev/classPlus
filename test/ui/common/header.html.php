@@ -135,6 +135,8 @@ a {
 }
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 <script type="module">
   import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo@7.1.0';
   

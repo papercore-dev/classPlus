@@ -54,7 +54,6 @@ include 'ui/menu/menu.custom.html.php';
 chdir(dirname(__FILE__));
 ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <div class="mx-auto w-full">
     <form action="/form/write.php" method="POST">
       <div class="">
