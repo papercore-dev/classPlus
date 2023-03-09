@@ -91,12 +91,22 @@ if ($db->query($postToDB)){
             //send notification to post owner
             $getOwnerID = "SELECT userID FROM `posts` WHERE postID = '".$row["postID"]."'";
             $getOwnerID_Result = $db->query($getOwnerID);
+            $getPostTitle = "SELECT postTitle FROM `posts` WHERE postID = '".$row["postID"]."'";
+            $getPostTitle_Result = $db->query($getPostTitle);
+            if ($getPostTitle_Result->rowCount() == 0){
+                die;
+            }
+            else{
+                while($row2 = $getPostTitle_Result->fetch()){
+                    $postTitle = $row2["postTitle"];
+                }
+            }
             if ($getOwnerID_Result->rowCount() == 0){
                 die;
             }
             else{
                 while($row2 = $getOwnerID_Result->fetch()){
-                    sendNotification($row2["userID"], $_SESSION["signMethod"], "💬 ".$row["postTitle"]."에 새로운 댓글이 달렸어요!", $purifiedPost, "https://classplus.pcor.me/resources/images/bell.png", "https://classplus.pcor.me/view.php?id=".$row["postID"], $db);
+                    sendNotification($row2["userID"], $_SESSION["signMethod"], "💬 ".$postTitle."에 새로운 댓글이 달렸어요!", $purifiedPost, "https://classplus.pcor.me/resources/images/bell.png", "https://classplus.pcor.me/view.php?id=".$row["postID"], $db);
                 }
             }
 
