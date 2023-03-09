@@ -14,7 +14,7 @@ chdir(dirname(__FILE__));
 $serviceName = "chat";
 include 'functions/analyzeLogs.php';
 chdir(dirname(__FILE__));
-include 'sendNotification.php';
+include 'functions/sendNotification.php';
 chdir(dirname(__FILE__));
 include 'ui/menu/menu.tl.html.php';
 chdir(dirname(__FILE__));
