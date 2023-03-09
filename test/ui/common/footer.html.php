@@ -102,8 +102,13 @@ chdir(dirname(__FILE__));?>
         // Show permission request.
         console.log('No registration token available. Request permission to generate one.');
         // Show permission UI.
-        //set #notificationModal 's x-data to {'open': true} using vanilla js
-        document.getElementById('notificationModal').setAttribute('x-data', "{'open': true}");
+      
+        if (navigator.userAgent.match(/iPhone|iPad|iPod/i) && parseInt(navigator.userAgent.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) < 16) {
+          console.log('iOS version is under 16.4, do not show permission UI');
+        } else {
+          document.getElementById('notificationModal').setAttribute('x-data', "{'open': true}");
+        }
+        
         setTokenSentToServer(false);
       }
     }).catch((err) => {
