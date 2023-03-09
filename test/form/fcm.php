@@ -27,12 +27,6 @@ if (!isset($_POST["token"])){
 
 $purifiedToken = $_POST["token"];
 $purifiedToken = purifyXSS($purifiedToken);
-//check if purifiedToken is valid firebase FCM token using regex
-$regex = "/^[a-zA-Z0-9_-]{140}$/";
-if (!preg_match($regex, $purifiedToken)){
-    echo "{\"error\": \"토큰이 유효하지 않아요.\"}";
-    die;
-}
 
 $findPrevTokenRecord = "SELECT * FROM `account_fcm` WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";
 $findPrevTokenRecord_Result = $db->query($findPrevTokenRecord);
