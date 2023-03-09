@@ -102,7 +102,8 @@ chdir(dirname(__FILE__));?>
         // Show permission request.
         console.log('No registration token available. Request permission to generate one.');
         // Show permission UI.
-        updateUIForPushPermissionRequired();
+        //set #notificationModal 's x-data to {'open': true} using vanilla js
+        document.getElementById('notificationModal').setAttribute('x-data', "{'open': true}");
         setTokenSentToServer(false);
       }
     }).catch((err) => {
@@ -115,27 +116,24 @@ chdir(dirname(__FILE__));?>
 
   function showToken(currentToken) {
     //send currentToken to server using jquery
-    $.ajax({
+
+
+  }
+
+  function sendTokenToServer(currentToken) {
+    if (!isTokenSentToServer()) {
+      console.log('Sending token to server...');
+      $.ajax({
       url: '/form/fcm.php',
       type: 'POST',
       data: {
         'token': currentToken
       },
       success: function (data) {
-        toastShow("알림 설정이 완료됐어요.");
+        setTokenSentToServer(true);
       }
     });
-
-  }
-
-  // Send the registration token your application server, so that it can:
-  // - send messages back to this app
-  // - subscribe/unsubscribe the token from topics
-  function sendTokenToServer(currentToken) {
-    if (!isTokenSentToServer()) {
-      console.log('Sending token to server...');
-      // TODO(developer): Send the current token to your server.
-      setTokenSentToServer(true);
+      
     } else {
       console.log('Token already sent to server so won\'t send it again ' +
           'unless it changes');
@@ -184,33 +182,17 @@ chdir(dirname(__FILE__));?>
 
   // Add a message to the messages element.
   function appendMessage(payload) {
-    const messagesElement = document.querySelector('#messages');
-    const dataHeaderElement = document.createElement('h5');
-    const dataElement = document.createElement('pre');
-    dataElement.style = 'overflow-x:hidden;';
-    dataHeaderElement.textContent = 'Received message:';
-    dataElement.textContent = JSON.stringify(payload, null, 2);
-    messagesElement.appendChild(dataHeaderElement);
-    messagesElement.appendChild(dataElement);
+    console.log(JSON.stringify(payload, null, 2));
   }
 
   // Clear the messages element of all children.
   function clearMessages() {
-    const messagesElement = document.querySelector('#messages');
-    while (messagesElement.hasChildNodes()) {
-      messagesElement.removeChild(messagesElement.lastChild);
-    }
   }
 
   function updateUIForPushEnabled(currentToken) {
     showHideDiv(tokenDivId, true);
     showHideDiv(permissionDivId, false);
     showToken(currentToken);
-  }
-
-  function updateUIForPushPermissionRequired() {
-    showHideDiv(tokenDivId, false);
-    showHideDiv(permissionDivId, true);
   }
 
   resetUI();

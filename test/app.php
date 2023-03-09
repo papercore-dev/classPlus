@@ -37,8 +37,8 @@ include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
 
-<div class="min-h-screen py-6 flex flex-col justify-center py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);"
-x-data="{ open: false }"  x-init="() => setTimeout(() => open = true, 500)" x-show="open"    
+<div id="notificationModal" class="min-h-screen py-6 flex flex-col justify-center py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);"
+x-data="{ open: false }" x-show="open"    
         style="display:none;"
         x-transition:enter-start="opacity-0 scale-90" 
         x-transition:enter="transition duration-200 transform ease"
