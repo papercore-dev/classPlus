@@ -35,9 +35,14 @@ else {
 }
 $currentInviteUsageResult = $db->query($currentInviteUsage);
 if ($currentInviteUsageResult->rowCount() > 0) {
-    echo "<table class='table-auto w-full'>";
+    echo "<table class='table-auto w-full text-xs'>";
     echo "<thead>";
     echo "<tr>";
+    if ($_SESSION["accessLevel"] == 5) {
+    echo "<th class='px-4 py-2'>학교코드</th>";
+    echo "<th class='px-4 py-2'>학년</th>";
+    echo "<th class='px-4 py-2'>반</th>";
+    }
     echo "<th class='px-4 py-2'>번호</th>";
     echo "<th class='px-4 py-2'>이름</th>";
     echo "<th class='px-4 py-2'>초대 코드</th>";
@@ -47,6 +52,11 @@ if ($currentInviteUsageResult->rowCount() > 0) {
     echo "<tbody>";
     while($row = $currentInviteUsageResult->fetch()) {
         echo "<tr>";
+        if ($_SESSION["accessLevel"] == 5) {
+            echo "<td class='border px-4 py-2'>".$row["schoolSID"]."</td>";
+            echo "<td class='border px-4 py-2'>".$row["schoolGrade"]."</td>";
+            echo "<td class='border px-4 py-2'>".$row["schoolClass"]."</td>";
+        }
         echo "<td class='border px-4 py-2'>".$row["schoolNo"]."</td>";
         echo "<td class='border px-4 py-2'>".$row["userName"]."</td>";
         echo "<td class='border px-4 py-2'>".$row["inviteCode"]."</td>";
