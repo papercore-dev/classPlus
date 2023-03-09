@@ -114,11 +114,11 @@ echo '<label for="schoolClass">반</label>
 <option value="3">반</option>
 </select>
 <label for="write_accessLevel">글쓰기 권한</label>
-<input type="number" name="write_accessLevel" id="write_accessLevel" class="border rounded-md px-2 py-1" value="1" min="1" max="5" />';
+<input type="number" name="write_accessLevel" id="write_accessLevel" class="border rounded-md px-2 py-1" value="1" min="1" max="5" />
 <label for="comment_accessLevel">댓글 권한</label>
-<input type="number" name="comment_accessLevel" id="comment_accessLevel" class="border rounded-md px-2 py-1" value="1" min="1" max="5" />';
+<input type="number" name="comment_accessLevel" id="comment_accessLevel" class="border rounded-md px-2 py-1" value="1" min="1" max="5" />
 <label for="manage_accessLevel">글읽기 권한</label>
-<input type="number" name="manage_accessLevel" id="manage_accessLevel" class="border rounded-md px-2 py-1" value="1" min="1" max="5" />';
+<input type="number" name="manage_accessLevel" id="manage_accessLevel" class="border rounded-md px-2 py-1" value="1" min="1" max="5" />
 <p>* 권한 안내<br>
 1: 비로그인 <br>
 2: 학생인증 마침<br>

@@ -126,7 +126,7 @@ $sendBoardData = array(
     "visitCount" => 0
 );
 
-$sendBoard = "INSERT INTO board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (:boardName, :publicLevel, :write_accessLevel, :comment_accessLevel, :manage_accessLevel, :schoolSID, :schoolGrade, :schoolClass, :boardHidden, :visitCount)";
+$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (:boardName, :publicLevel, :write_accessLevel, :comment_accessLevel, :manage_accessLevel, :schoolSID, :schoolGrade, :schoolClass, :boardHidden, :visitCount)";
 $sendBoard = $db->prepare($sendBoard);
 $sendBoard->execute($sendBoardData);
 
