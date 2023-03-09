@@ -31,7 +31,7 @@ if (!is_numeric($_GET["commentID"])){
 } 
 
 //get comment author
-$getCommentAuthor = "SELECT commentAuthor FROM `posts_comments` WHERE commentID = '".$_GET["commentID"]."' AND commentHidden = '0'";
+$getCommentAuthor = "SELECT * FROM `posts_comments` WHERE commentID = '".$_GET["commentID"]."' AND commentHidden = '0'";
 $getCommentAuthor_Result = $db->query($getCommentAuthor);
 if ($getCommentAuthor_Result->rowCount() == 0){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
@@ -39,7 +39,7 @@ if ($getCommentAuthor_Result->rowCount() == 0){
 }
 else{
     while($row = $getCommentAuthor_Result->fetch()){
-        $commentAuthor = $row["commentAuthor"];
+        $commentAuthor = $row["userID"];
     }
 }
 
