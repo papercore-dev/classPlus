@@ -119,7 +119,7 @@ else{
     $inviteSchoolClass = $_SESSION["schoolClass"];
 }
 
-$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (`".$boardName."`, `".$publicLevel."`, ".$write_accessLevel.", ".$comment_accessLevel.", ".$manage_accessLevel.", ".$inviteSchoolSID.", ".$inviteSchoolGrade.", ".$inviteSchoolClass.", 0, 0)";
+$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES ('".$boardName."', ".$publicLevel.", ".$write_accessLevel.", ".$comment_accessLevel.", ".$manage_accessLevel.", ".$inviteSchoolSID.", ".$inviteSchoolGrade.", ".$inviteSchoolClass.", 0, 0)";
 $sendBoard = $db->prepare($sendBoard);
 $sendBoard->execute();
 
