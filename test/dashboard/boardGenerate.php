@@ -119,22 +119,9 @@ else{
     $inviteSchoolClass = $_SESSION["schoolClass"];
 }
 
-$sendBoardData = array(
-    "boardName" => $boardName,
-    "publicLevel" => $publicLevel,
-    "write_accessLevel" => $write_accessLevel,
-    "comment_accessLevel" => $comment_accessLevel,
-    "manage_accessLevel" => $manage_accessLevel,
-    "schoolSID" => $inviteSchoolSID,
-    "schoolGrade" => $inviteSchoolGrade,
-    "schoolClass" => $inviteSchoolClass,
-    "boardHidden" => 0,
-    "visitCount" => 0
-);
-
-$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (:boardName, :publicLevel, ".$write_accessLevel.", ".$comment_accessLevel.", ".$manage_accessLevel.", ".$inviteSchoolSID.", ".$inviteSchoolGrade.", ".$inviteSchoolClass.", :boardHidden, :visitCount)";
+$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (`".$boardName."`, `".$publicLevel."`, ".$write_accessLevel.", ".$comment_accessLevel.", ".$manage_accessLevel.", ".$inviteSchoolSID.", ".$inviteSchoolGrade.", ".$inviteSchoolClass.", 0, 0)";
 $sendBoard = $db->prepare($sendBoard);
-$sendBoard->execute($sendBoardData);
+$sendBoard->execute();
 
 echo "<script>window.location.href = '/dashboard?success=게시판 생성 완료';</script>";
 ?>
