@@ -88,37 +88,18 @@ if ($db->query($postToDB)){
     else{
         while($row = $getNewPostID_Result->fetch()){
             echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글이 성공적으로 작성됐어요.';</script>";
-            //send notification to OP
-            $getOP = "SELECT * FROM `posts` WHERE postID = '".$row["postID"]."'";
-            $getOP_Result = $db->query($getOP);
-            if ($getOP_Result->rowCount() == 0){
-                echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글 작성에 실패했어요.';</script>";
+            //send notification to post owner
+            $getOwnerID = "SELECT userID FROM `posts` WHERE postID = '".$row["postID"]."'";
+            $getOwnerID_Result = $db->query($getOwnerID);
+            if ($getOwnerID_Result->rowCount() == 0){
                 die;
             }
             else{
-                while($row2 = $getOP_Result->fetch()){
-                    if ($row2["userID"] != $_SESSION["userID"]){
-                            while($row3 = $getOPData_Result->fetch()){
-                                $getOPSignMethod = $row3["signMethod"];
-                                $getOPUserID = $row3["userID"];
-                                $getOPTitle = "SELECT * FROM `posts` WHERE postID = '".$row["postID"]."'";
-                                $getOPTitle_Result = $db->query($getOPTitle);
-                                if ($getOPTitle_Result->rowCount() == 0){
-                                    echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글 작성에 실패했어요.';</script>";
-                                    die;
-                                }
-                                else{
-                                    while($row4 = $getOPTitle_Result->fetch()){
-                                        $getOPTitle = $row4["postTitle"];
-                                    }
-                                }
+                while($row2 = $getOwnerID_Result->fetch()){
+                    sendNotification($row2["userID"], $_SESSION["signMethod"], "💬 ".$row["postTitle"]."에 새로운 댓글이 달렸어요!", $purifiedPost, "https://classplus.pcor.me/resources/images/bell.png", "https://classplus.pcor.me/view.php?id=".$row["postID"], $db);
+                }
+            }
 
-                                sendNotification($getOPUserID, $getOPSignMethod, "💬 '".$getOPTitle."' 에 올라온 새 댓글", $purifiedPost, "", "", $db);
-                            }
-            die;
-        }
-    }
-}
         }
     }
 }
