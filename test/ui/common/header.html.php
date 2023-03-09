@@ -5,10 +5,10 @@ include './../../security.php';
 chdir(dirname(__FILE__));
 
 if (session_status() === PHP_SESSION_NONE){
-  ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30 * 30);
-  ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30 * 30);
     session_start();
     ob_start();
+    ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30 * 30);
+  ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30 * 30);
 }
 
 date_default_timezone_set('Asia/Seoul');
