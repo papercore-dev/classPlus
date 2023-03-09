@@ -93,21 +93,21 @@ $manage_accessLevel = $_POST["manage_accessLevel"];
 
 if ($_SESSION["accessLevel"] == "5"){
     if (!isset($_POST["schoolSID"])){
-        $inviteSchoolSID = $_SESSION["schoolSID"];
+        $inviteSchoolSID = null;
     }
     else{
         $inviteSchoolSID = $_POST["schoolSID"];
     }
 
     if (!isset($_POST["schoolGrade"])){
-        $inviteSchoolGrade = $_SESSION["schoolGrade"];
+        $inviteSchoolGrade = null;
     }
     else{
         $inviteSchoolGrade = $_POST["schoolGrade"];
     }
 
     if (!isset($_POST["schoolClass"])){
-        $inviteSchoolClass = $_SESSION["schoolClass"];
+        $inviteSchoolClass = null;
     }
     else{
         $inviteSchoolClass = $_POST["schoolClass"];
