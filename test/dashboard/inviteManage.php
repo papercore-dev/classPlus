@@ -28,7 +28,7 @@ include '../ui/menu/menu.custom.html.php';
 <?php
 //show current invites in table
 if ($_SESSION["accessLevel"] == 5) {
-    $currentInviteUsage = "SELECT * FROM `account_invite` WHERE `schoolSID` = '".$_SESSION["schoolSID"]."'";
+    $currentInviteUsage = "SELECT * FROM `account_invite`";
 }
 else {
     $currentInviteUsage = "SELECT * FROM `account_invite` WHERE `schoolSID` = '".$_SESSION["schoolSID"]."' AND `schoolGrade` = '".$_SESSION["schoolGrade"]."' AND `schoolClass` = '".$_SESSION["schoolClass"]."'";
