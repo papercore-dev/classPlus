@@ -171,7 +171,7 @@ else{
 </div>
 <?php
 //today's popular post
-$getPopularPost = "SELECT * FROM `posts` WHERE `postCreation` >= DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `posts`.`visitCount` DESC LIMIT 30";
+$getPopularPost = "SELECT * FROM `posts` WHERE `postCreation` >= DATE_SUB(NOW(), INTERVAL 1 DAY) AND `postHidden`=0 ORDER BY `posts`.`visitCount` DESC LIMIT 30";
 $getPopularPost_Result = $db->query($getPopularPost);
 if ($getPopularPost_Result->rowCount() > 0){
 while($row = $getPopularPost_Result->fetch()){

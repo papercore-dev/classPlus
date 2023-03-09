@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 include '../ui/common/header.html.php';
 chdir(dirname(__FILE__));
 
@@ -80,11 +78,11 @@ if ($getPinned_Result->rowCount() == 0){
 $postToDB = "UPDATE `posts` SET `postNotice` = '1' WHERE `postID` = '".$_GET["postID"]."'";
 //post to database and redirect to newly created post
 if ($db->query($postToDB)){
-    echo "<script>window.location.href = '/view.php?id=".$_GET["postID"]."&error=글을 공지에 업로드했어요.';</script>";
+    echo "<script>window.location.replace('/view.php?id=".$_GET["postID"]."&error=글을 고정했어요.');</script>";
     die;
 }
 else{
-    echo "<script>window.location.href = '/view.php?id=".$_GET["postID"]."&error=고정에 실패했어요.';</script>";
+    echo "<script>window.location.replace('/view.php?id=".$_GET["postID"]."&error=고정에 실패했어요.');</script>";
     die;
 }
 }
@@ -92,11 +90,11 @@ else{
     $postToDB = "UPDATE `posts` SET `postNotice` = '0' WHERE `postID` = '".$_GET["postID"]."'";
     //post to database and redirect to newly created post
     if ($db->query($postToDB)){
-        echo "<script>window.location.href = '/view.php?id=".$_GET["postID"]."&error=글을 공지에서 내렸어요.';</script>";
+        echo "<script>window.location.replace('/view.php?id=".$_GET["postID"]."&error=글을 고정 해제 했어요.');</script>";
         die;
     }
     else{
-        echo "<script>window.location.href = '/view.php?id=".$_GET["postID"]."&error=고정에 실패했어요.';</script>";
+        echo "<script>window.location.replace('/view.php?id=".$_GET["postID"]."&error=고정에 실패했어요.');</script>";
         die;
     }
 }

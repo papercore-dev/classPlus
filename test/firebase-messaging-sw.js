@@ -25,6 +25,17 @@ const HOSTNAME_WHITELIST = [
     "https://googletagmanager.com"
 ]
 
+
+//cache /offline.html
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open('pwa-cache').then(function(cache) {
+            return cache.addAll([
+                '/offline.html'
+            ]);
+        })
+    );
+});
 // The Util Function to hack URLs of intercepted requests
 const getFixedUrl = (req) => {
     var now = Date.now()
@@ -92,3 +103,15 @@ if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
     )
 }
 })
+
+//on offline, show alert and close the app
+self.addEventListener('fetch', function(event) {
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+        fetch(event.request).catch(function() {
+            return caches.match('offline.html');
+        })
+        );
+    }
+    }
+);

@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 include 'ui/common/header.html.php';
 chdir(dirname(__FILE__));
 
@@ -106,7 +104,7 @@ else{
    include 'functions/listNotice.php';
    chdir(dirname(__FILE__));
 }
-   $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '13' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
+   $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '13' AND `postHidden` = '0' AND `postNotice` = '1' ORDER BY `postCreation` DESC";
    include 'functions/listNotice.php';
    chdir(dirname(__FILE__));
             $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' ORDER BY `postCreation` DESC";
@@ -122,7 +120,7 @@ else{
         
            <div class="text-black dark:text-gray-50 block w-full">';
         //search title and content
-        $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND `postNotice` = '0' AND (`postTitle` LIKE '%".$search."%' OR `postContent` LIKE '%".$search."%') ORDER BY `visitCount` DESC";
+        $getPostList = "SELECT * FROM `posts` WHERE `boardID` = '".$_GET["id"]."' AND `postHidden` = '0' AND (`postTitle` LIKE '%".$search."%' OR `postContent` LIKE '%".$search."%') ORDER BY `visitCount` DESC";
         include 'functions/listPost.php';
         chdir(dirname(__FILE__));
         echo'

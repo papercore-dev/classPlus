@@ -25,6 +25,9 @@ chdir(dirname(__FILE__));?>
                     <a href="/static/landing.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
                         홈
                     </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_j2Vj6gKleyCC4E7q5ODI0kWN9poJ3UazBLkVhtU9R2bWYw/viewform?usp=sf_link" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-500 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                        사용 신청하기
+                    </a>
                 </li>
             </ul>
         </div>

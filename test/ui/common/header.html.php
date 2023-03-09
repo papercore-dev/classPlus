@@ -5,17 +5,15 @@ include './../../security.php';
 chdir(dirname(__FILE__));
 
 if (session_status() === PHP_SESSION_NONE){
-  ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30);
-  ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30);
+  ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30 * 30);
+  ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30 * 30);
     session_start();
     ob_start();
 }
 
 date_default_timezone_set('Asia/Seoul');
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 include './../../database/adapter_db.php';
 chdir(dirname(__FILE__));
@@ -139,8 +137,13 @@ a {
 
 <script type="module">
   import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo@7.1.0';
+  
 </script>
-
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  }
+</script>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <!-- Google tag (gtag.js) -->

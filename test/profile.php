@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 include 'ui/common/header.html.php';
 chdir(dirname(__FILE__));
 
@@ -88,7 +86,17 @@ chdir(dirname(__FILE__));
 </a>
 </ul>
 </div>
-
+<div class="flex justify-between items-center mb-2 mt-4">
+<h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">☺️</span>&nbsp;여러분 덕분입니다</h3>
+</div>
+<ul>
+        <li><strong>Class+ v1.0-prod</strong></li>
+        <li>이 서비스는 여러분들의 의견을 통해 만들어졌어요.</li>
+        <li><strong>대표</strong> : 등대 (유한선)</li>
+        <li><strong>개발자</strong> : 만원 </li>
+        <li><strong>테스터</strong> : 토끼, 우유, 멌지다, 703 (한인승), 321PLEK</li>
+        <li><strong>그리고...</strong> : <?php echo getData('userName'); ?> (<?php echo getData('userID'); ?>)</li>
+</ul>
 </div>
 </section>
 <?php
