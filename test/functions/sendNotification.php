@@ -24,7 +24,7 @@ function sendNotification($recipientUserID, $recipientSignMethod, $subject, $con
             );
             $fields = json_encode ( $fields );
             $header = array (
-                    'Authorization: key=' . $serverKey,
+                    'Authorization: key=c904041bb87c3f97b41f9f9c304fe3e7dc3dbe78',
                     'Content-Type: application/json'
             );
             $ch = curl_init ();
