@@ -3,7 +3,7 @@ chdir(dirname(__FILE__));
 include '../security.php';
 chdir(dirname(__FILE__));
 
-function sendNotification($recipientUserID, $recipientSignMethod, $subject, $content, $icon="", $link="https://classplus.pcor.me", $database){
+function sendNotification($recipientUserID, $recipientSignMethod, $subject, $content, $icon="https://classplus.pcor.me/resources/images/bell.png", $link="https://classplus.pcor.me", $database){
     $insertNotification = "INSERT INTO `account_logs` (`userID`, `signMethod`, `actionSubject`, `actionContent`, `actionIcon`, `actionLink`) VALUES ('".$recipientUserID."', '".$recipientSignMethod."', '".$subject."', '".$content."', '".$icon."', '".$link."')";
     $insertNotification_Result = $database->query($insertNotification);
 
