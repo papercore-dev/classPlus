@@ -42,6 +42,12 @@ else{
 </div>
 </a>
 
+<a href="boardManage.php" class="flex-none py-3 px-6">
+<div class="flex flex-col items-center justify-center gap-3">
+<p class="text-4xl tossface">📝</p>
+<span class="text-slate-900 dark:text-slate-200">게시판 관리</span>
+</div>
+</a>
 
 </div>
 

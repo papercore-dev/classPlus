@@ -47,7 +47,7 @@ chdir(dirname(__FILE__));
 </div>
 </li>
 </a>
-<button onclick="deleteToken()" style="display: none;">
+<button onclick="deleteToken()">
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
 <div class="flex-shrink-0 text-3xl tossface">🔔</div>
@@ -57,14 +57,14 @@ chdir(dirname(__FILE__));
 </div>
 </li>
 </button>
-<div id="permission_div" style="display: none;">
+<div id="permission_div">
             <h4>Needs Permission</h4>
             <p id="token"></p>
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                     onclick="requestPermission()">Request Permission</button>
           </div>
           <div id="messages"></div>
-<button id="subscribe" style="display: none;">
+<button id="subscribe">
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
 <div class="flex-shrink-0 text-3xl tossface">🔔</div>
@@ -90,7 +90,7 @@ chdir(dirname(__FILE__));
 <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">☺️</span>&nbsp;여러분 덕분입니다</h3>
 </div>
 <ul>
-        <li><strong>Class+ v1.0-prod</strong></li>
+        <li><strong>Class+ v1.0.1-dev</strong></li>
         <li>이 서비스는 여러분들의 의견을 통해 만들어졌어요.</li>
         <li><strong>대표</strong> : 등대 (유한선)</li>
         <li><strong>개발자</strong> : 만원 </li>
