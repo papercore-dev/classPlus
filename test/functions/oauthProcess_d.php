@@ -22,8 +22,8 @@ if(get('action') == 'login') {
     $params = array(
       'client_id' => OAUTH2_CLIENT_ID,
       'redirect_uri' => 'https://'.$_SERVER["HTTP_HOST"].$redirectURL,
-      'response_type' => 'code',
-      'scope' => 'identify'
+      'scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+      'response_type' => 'code'
     );
   
     header('Location: ' . $authorizeURL . '?' . http_build_query($params));
