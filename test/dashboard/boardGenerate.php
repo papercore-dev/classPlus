@@ -93,21 +93,21 @@ $manage_accessLevel = $_POST["manage_accessLevel"];
 
 if ($_SESSION["accessLevel"] == "5"){
     if (!isset($_POST["schoolSID"])){
-        $inviteSchoolSID = "";
+        $inviteSchoolSID = "NULL";
     }
     else{
         $inviteSchoolSID = $_POST["schoolSID"];
     }
 
     if (!isset($_POST["schoolGrade"])){
-        $inviteSchoolGrade = "";
+        $inviteSchoolGrade = "NULL";
     }
     else{
         $inviteSchoolGrade = $_POST["schoolGrade"];
     }
 
     if (!isset($_POST["schoolClass"])){
-        $inviteSchoolClass = "";
+        $inviteSchoolClass = "NULL";
     }
     else{
         $inviteSchoolClass = $_POST["schoolClass"];
@@ -132,7 +132,7 @@ $sendBoardData = array(
     "visitCount" => 0
 );
 
-$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (:boardName, :publicLevel, :write_accessLevel, :comment_accessLevel, :manage_accessLevel, :schoolSID, :schoolGrade, :schoolClass, :boardHidden, :visitCount)";
+$sendBoard = "INSERT INTO posts_board (boardName, publicLevel, write_accessLevel, comment_accessLevel, manage_accessLevel, schoolSID, schoolGrade, schoolClass, boardHidden, visitCount) VALUES (:boardName, :publicLevel, ".$write_accessLevel.", ".$comment_accessLevel.", ".$manage_accessLevel.", ".$inviteSchoolSID.", ".$inviteSchoolGrade.", ".$inviteSchoolClass.", :boardHidden, :visitCount)";
 $sendBoard = $db->prepare($sendBoard);
 $sendBoard->execute($sendBoardData);
 
