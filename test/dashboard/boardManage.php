@@ -11,7 +11,7 @@ requireStdVerification();
 include '../functions/checkUserData.php';
 chdir(dirname(__FILE__));
 $headName = "게시판 관리";
-include '../ui/menu/menu.custom.html.php';
+include '../ui/menu/menu.dash.html.php';
 ?>
 <div class="p-5">
 <div class="my-4">
