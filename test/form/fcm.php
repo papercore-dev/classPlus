@@ -28,14 +28,12 @@ if (!isset($_POST["token"])){
 $purifiedToken = $_POST["token"];
 $purifiedToken = purifyXSS($purifiedToken);
 
-$findPrevTokenRecord = "SELECT * FROM `account_fcm` WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";
+$findPrevTokenRecord = "SELECT * FROM `account_fcm` WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."' AND `token` = '".$purifiedToken."'";
 $findPrevTokenRecord_Result = $db->query($findPrevTokenRecord);
 
 if ($findPrevTokenRecord_Result->rowCount() > 0){
-    while($row = $findPrevTokenRecord_Result->fetch()){
-    $updateTokenRecord = "UPDATE FROM `account_fcm` SET `token` = '".$purifiedToken."' WHERE `userID` = '".$_SESSION["userID"]."' AND `signMethod` = '".$_SESSION["signMethod"]."'";
-    $updateTokenRecord_Result = $db->query($updateTokenRecord);
-    }
+    echo "{\"success\": \"토큰이 이미 등록되어 있어요.\"}";
+    die;
 }
 else{
     $insertTokenRecord = "INSERT INTO `account_fcm` (`userID`, `signMethod`, `token`) VALUES ('".$_SESSION["userID"]."', '".$_SESSION["signMethod"]."', '".$purifiedToken."')";
