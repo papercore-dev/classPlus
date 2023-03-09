@@ -10,10 +10,18 @@ requireStdVerification();
 
 include '../functions/checkUserData.php';
 chdir(dirname(__FILE__));
+if ($_SESSION["accType"] == "teacher" or getData('accessLevel') >= 4) {
+}
+else{
+    echo "<script>alert('접근 권한이 없습니다.');</script>";
+    echo "<script>location.href='/app.php';</script>";
+    exit;
+}
+
 $headName = "게시판 관리";
 include '../ui/menu/menu.dash.html.php';
 ?>
-<div class="p-5">
+<div class="p-5 lg:ml-64">
 <div class="my-4">
 
 <div class="my-5 flex items-center justify-between">
