@@ -15,6 +15,8 @@ chdir(dirname(__FILE__));
 
 include '../functions/purifyXSS.php';
 chdir(dirname(__FILE__));
+include '../functions/sendNotification.php';
+chdir(dirname(__FILE__));
 //check if method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
     echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
@@ -86,14 +88,41 @@ if ($db->query($postToDB)){
     else{
         while($row = $getNewPostID_Result->fetch()){
             echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글이 성공적으로 작성됐어요.';</script>";
+            //send notification to OP
+            $getOP = "SELECT * FROM `posts` WHERE postID = '".$row["postID"]."'";
+            $getOP_Result = $db->query($getOP);
+            if ($getOP_Result->rowCount() == 0){
+                echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글 작성에 실패했어요.';</script>";
+                die;
+            }
+            else{
+                while($row2 = $getOP_Result->fetch()){
+                    if ($row2["userID"] != $_SESSION["userID"]){
+                            while($row3 = $getOPData_Result->fetch()){
+                                $getOPSignMethod = $row3["signMethod"];
+                                $getOPUserID = $row3["userID"];
+                                $getOPTitle = "SELECT * FROM `posts` WHERE postID = '".$row["postID"]."'";
+                                $getOPTitle_Result = $db->query($getOPTitle);
+                                if ($getOPTitle_Result->rowCount() == 0){
+                                    echo "<script>window.location.href = '/view.php?id=".$row["postID"]."&error=댓글 작성에 실패했어요.';</script>";
+                                    die;
+                                }
+                                else{
+                                    while($row4 = $getOPTitle_Result->fetch()){
+                                        $getOPTitle = $row4["postTitle"];
+                                    }
+                                }
+
+                                sendNotification($getOPUserID, $getOPSignMethod, "💬 '".$getOPTitle."' 에 올라온 새 댓글", $purifiedPost, "", "", $db);
+                            }
             die;
         }
     }
 }
-else{
-    echo "<script>window.location.href = '/view.php?id=".$_POST["id"]."&error=댓글 작성에 실패했어요.';</script>";
-    die;
+        }
+    }
 }
+
 ?>
 </body>
 </html>

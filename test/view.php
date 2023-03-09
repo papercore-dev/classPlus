@@ -238,6 +238,8 @@ $getWriterSchool = "SELECT * FROM `school_whitelisted` WHERE `schoolSID` = '".$c
 
 echo '</span></p>
 <p class="text-sm text-gray-600 dark:text-gray-400">'.relativeTime(strtotime($commentData["commentCreation"])).'</p>
+<a href="/form/postCommentDelete.php?commentID='.$commentData["commentID"].'"><p class="text-sm text-red-400">삭제하기</p></a>
+
 </div>
 </footer>
 <div class="text-gray-900 dark:text-white">
@@ -252,7 +254,7 @@ echo '</span></p>
             <nav class="rounded-t-xl shadow-lg commentSection max-w-md visible fixed bottom-0 w-full border bg-white">
 
 <form action="/form/postComment.php" method="POST">
-<label for="chat" class="sr-only">Your message</label>
+<label for="chat" class="sr-only">댓글을 작성하세요</label>
 <div class="flex w-full items-center py-2 px-3 bg-gray-50 rounded-lg dark:bg-gray-700">
 
 <input type="hidden" name="postID" value="<?php echo $_GET["id"]; ?>">
@@ -262,8 +264,6 @@ echo '</span></p>
 </button>
 </div>
 </form>
-
-
 
 </nav>
 <?php
