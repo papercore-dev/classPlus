@@ -20,12 +20,12 @@ include '../functions/purifyXSS.php';
 chdir(dirname(__FILE__));
 requireSignin("/onboarding");
 
-if (!isset($data["token"])){
+if (!isset($_POST["token"])){
     echo "{\"error\": \"토큰이 없어요.\"}";
     die;
 }
 
-$purifiedToken = $data["token"];
+$purifiedToken = $_POST["token"];
 $purifiedToken = purifyXSS($purifiedToken);
 //check if purifiedToken is valid firebase FCM token using regex
 $regex = "/^[a-zA-Z0-9_-]{140}$/";
