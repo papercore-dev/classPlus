@@ -55,6 +55,6 @@ include '../ui/menu/menu.dash.html.php';
 </div>
 </div>
 <?php
-include '../ui/common/footer.html.php';
 chdir(dirname(__FILE__));
+include '../ui/common/footer.html.php';
 ?>
