@@ -72,7 +72,7 @@ else{
 <p class="text-gray-500"><?php echo $matrixPass;?></p>
 </div>
 <a href="javascript:openChat()" class="block visible py-4 px-4 mb-4 text-lg leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg w-full text-center font-bold">채팅 열기</a>
-<a href="#" class="w-full block mt-4 text-center text-blue-500">채팅이 잘 안 되나요? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
+<a href="/menu.php" class="w-full block mt-4 text-center text-blue-500">채팅이 잘 안 되나요? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
   <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
 </svg>
 </a>
