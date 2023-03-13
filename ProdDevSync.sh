@@ -18,7 +18,10 @@ cd test
 rm -r .well-known
 rm -r config
 
-mv ../temp/.well-known .
+rm -r .well-known
+rm -r config
+mkdir .well-known
+mv ../temp/assetlinks.json ./.well-known/assetslinks.json
 mv ../temp/config .
 
 cd ..

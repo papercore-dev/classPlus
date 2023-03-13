@@ -49,6 +49,13 @@ include '../ui/menu/menu.dash.html.php';
 </div>
 </a>
 
+<a href="callMeal.php" class="flex-none py-3 px-6">
+<div class="flex flex-col items-center justify-center gap-3">
+<p class="text-4xl tossface">🔔</p>
+<span class="text-slate-900 dark:text-slate-200">급식 진동벨</span>
+</div>
+</a>
+
 </div>
 
 

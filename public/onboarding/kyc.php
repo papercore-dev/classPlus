@@ -51,7 +51,7 @@ if (isset($_SESSION["schoolSID"])){
 학생 인증
 </h2>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-전달 받은 인증번호 6자리를 입력해주세요.<br>
+<span class="text-blue-500 font-bold">회장을 통해 받은</span> 초대 코드 6자리를 입력해주세요.<br>
 학생 인증을 완료하면 인증번호는 만료돼요.
 </p>
 </div>
@@ -90,12 +90,12 @@ if (isset($_SESSION["schoolSID"])){
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
+<button id="continueButton" class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
     toastShow("학생 인증이 필요해요.");
 
-    var btn = document.querySelector("button");
+    var btn = document.getElementById("continueButton");
 
     var cb1 = document.querySelectorAll("input")[0];
     var cb2 = document.querySelectorAll("input")[1];
@@ -152,9 +152,10 @@ if (isset($_SESSION["schoolSID"])){
 
     function continueOnboard() {
         //ask user to confirm applying for class
-        var r = confirm("정말로 학생 인증을 할까요? 학생 인증을 하면 학생 인증을 취소할 수 없어요.");
-        if (r == true) {
-            //if user confirms, send data to server
+        showModal("확인", "정말로 학생 인증을 할까요? 학생 인증을 하면 초대 코드가 만료돼요.", "확인", "javascript:confirmOnboard();", "", "#")
+
+    }
+    function confirmOnboard(){
             var code = cb1.value + cb2.value + cb3.value + cb4.value + cb5.value + cb6.value;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "verifyCode.php", true);
@@ -173,10 +174,9 @@ if (isset($_SESSION["schoolSID"])){
                         Turbo.visit("/app.php");
                     }
                 } else {
-                    alert("오류가 발생했어요. 다시 시도해주세요.");
+                    showToast("오류가 발생했어요. 다시 시도해주세요.");
                 }
             }
-        }
     }
 </script>
 </div>

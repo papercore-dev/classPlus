@@ -47,7 +47,7 @@ chdir(dirname(__FILE__));
 </div>
 </li>
 </a>
-<a href="javascript:Turbo.visit(`/oauth/logout.php`)">
+<a href='javascript:showModal("확인", "정말로 로그아웃 할 건가요?", "로그아웃", "javascript:Turbo.visit(`/oauth/logout.php`);", "", "#");'>
 <li class="rounded-lg hover:bg-gray-200 my-1 py-2">
 <div class="flex items-center space-x-4">
 <div class="flex-shrink-0 text-3xl tossface">🚪</div>

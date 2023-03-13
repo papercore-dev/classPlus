@@ -139,6 +139,8 @@ body {
 a {
     -webkit-tap-highlight-color: transparent;
 }
+
+[x-cloak] { display: none, opacity:0; }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -163,7 +165,12 @@ a {
 
   gtag('config', '<?php echo $API_googleAnalytics;?>');
 </script>
-
+<style>
+  [x-cloak]{
+    display: none;
+    opacity: 0;
+  }
+</style>
 </head>
 <body class="min-h-screen">
 <div id="toast"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 inline-block text-yellow-500">
@@ -183,4 +190,71 @@ function toastShow(text) {
   echo "toastShow('".$_GET["error"]."');";
 }
 ?>
+</script>
+<div id="modal" class="min-h-screen py-6 flex flex-col justify-center sm:py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);"
+x-data="{ open: false }" x-show="open" x-cloak   
+        x-transition:enter-start="opacity-0 scale-90" 
+        x-transition:enter="transition duration-200 transform ease"
+        x-transition:leave="transition duration-200 transform ease"
+        x-transition:leave-end="opacity-0 scale-90">
+            <!-- Modal content -->
+            <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white" id="modalTitle">
+                        
+                    </h3>
+                    <button @click="open = false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="default-modal">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                    <p class="text-gray-500 text-base leading-relaxed dark:text-gray-400" id="modalContent">
+                        
+                    </p>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <a href="#" id="modalPrimaryLink">    
+                <button @click="open = false" id="modalPrimaryButton" data-modal-toggle="default-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"></button>
+</a>
+                <a href="#" id="modalSecondaryLink">
+                <button @click="open = false" id="modalSecondaryButton" data-modal-toggle="default-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"></button>
+</a>  
+              </div>
+            </div>
+</div>
+<script>
+  function showModal(modalTitle, modalContent, modalPrimaryName, modalPrimaryLink, modalSecondaryName, modalSecondaryLink){
+    var x = document.getElementById("modal");
+    x.setAttribute("x-data", "{ open: true }");
+
+    var y = document.getElementById("modalTitle");
+    y.innerHTML = modalTitle;
+
+    var z = document.getElementById("modalContent");
+    z.innerHTML = modalContent;
+
+    var a = document.getElementById("modalPrimaryButton");
+    a.innerHTML = modalPrimaryName;
+
+    var b = document.getElementById("modalPrimaryLink");
+    b.setAttribute("href", modalPrimaryLink);
+
+    if (modalSecondaryName !== ""){
+    var c = document.getElementById("modalSecondaryButton");
+    c.innerHTML = modalSecondaryName;
+
+    var d = document.getElementById("modalSecondaryLink");
+    d.setAttribute("href", modalSecondaryLink);
+    } else {
+    //hide secondary button
+    var c = document.getElementById("modalSecondaryButton");
+    c.style.display = "none";
+
+    var d = document.getElementById("modalSecondaryLink");
+    d.style.display = "none";
+    }
+  }
 </script>
