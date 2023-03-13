@@ -132,7 +132,7 @@ x-data="{ open: false }" x-show="open"
   $getQuickLinkData_Result = $db->query($getQuickLinkData);
   if ($getQuickLinkData_Result->rowCount() > 0){
   while($row = $getQuickLinkData_Result->fetch()){
-  $getQuickLinkName = "SELECT * FROM `services` WHERE serviceName = '".$row['serviceName']."' AND `servicePublic`= 1";
+  $getQuickLinkName = "SELECT * FROM `services` WHERE serviceName = '".$row['serviceName']."'";
   $getQuickLinkName_Result = $db->query($getQuickLinkName);
   if ($getQuickLinkName_Result->rowCount() > 0){
   while($row2 = $getQuickLinkName_Result->fetch()){
