@@ -28,19 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
     echo "<script>window.location.href = '/dashboard?error=옳지 않은 데이터';</script>";
     die;
 }
-//ID 검증
-if (!isset($_POST["schoolNo"])){
-    echo "<script>window.location.href = '/dashboard?error=옳지 않은 데이터';</script>";
-    die;
-}
-if (!isset($_POST["schoolNo"])){
-    echo "<script>window.location.href = '/dashboard?error=옳지 않은 데이터';</script>";
-    die;
-} 
-if (!isset($_POST["userName"])){
-    echo "<script>window.location.href = '/dashboard?error=옳지 않은 데이터';</script>";
-    die;
-}
 
 if ($_SESSION["accessLevel"] == "5"){
     if (!isset($_POST["schoolSID"])){
@@ -70,6 +57,11 @@ else{
 $getTargetStudents = "SELECT * FROM `account_users` WHERE schoolSID = '".$inviteSchoolSID."' AND schoolGrade = '".$inviteSchoolGrade."' AND schoolClass = '".$inviteSchoolClass."' AND accType = 'student'";
 $getTargetStudents_Result = $db->query($getTargetStudents);
 
+//if there is no user with the given schoolSID, schoolGrade, schoolClass, show invalid data error
+if ($getTargetStudents_Result->rowCount() == 0){
+    echo "<script>window.location.href = '/dashboard?error=옳지 않은 데이터';</script>";
+    die;
+}
 while ($getTargetStudents_Row = $getTargetStudents_Result->fetch(PDO::FETCH_ASSOC)){
     //send notification to target via sendNotification()
     sendNotification($getTargetStudents_Row["userID"], $getTargetStudents_Row["signMethod"], $inviteSchoolGrade."-".$inviteSchoolClass." 학생들의 급식 순서! 😋", "급식 차례가 되었어요. 어서 먹으러 가 볼까요? 🏃‍♂️🏃‍♀️", "https://classplus.pcor.me/resources/images/bell.png", "https://classplus.pcor.me/dashboard/meal", $db);
