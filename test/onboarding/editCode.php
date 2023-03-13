@@ -83,12 +83,12 @@ else{
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
+<button id="continueButton" class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
     toastShow("새 인증 번호를 입력해주세요.");
 
-    var btn = document.querySelector("button");
+    var btn = document.getElementById("continueButton");
 
     var cb1 = document.querySelectorAll("input")[0];
     var cb2 = document.querySelectorAll("input")[1];

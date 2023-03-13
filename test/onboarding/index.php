@@ -158,11 +158,11 @@ _INTERVAL_VAL = setInterval(Type, 100);
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<button class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
+<button id="continueButton" class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
 
 <script>
     var cb1 = document.getElementById("cb1");
-    var btn = document.querySelector("button");
+    var btn = document.getElementById("continueButton");
     cb1.addEventListener("change", function() {
         if (cb1.checked) {
             btn.classList.remove("bg-gray-400");
