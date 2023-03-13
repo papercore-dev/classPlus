@@ -56,12 +56,11 @@ class="inline-block"></lottie-player>
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<a href="/oauth/provider/kakao.php?action=login">
-<button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl">카카오톡으로 시작하기</button>
+<a href="/oauth/provider/google.php?action=login">
+<button class="w-full bg-white hover:bg-gray-100 text-gray-600 border hover:shadow font-bold  px-4 rounded-xl py-3 my-1"><img src="https://img.icons8.com/color/512/google-logo.png" class="inline-block mr-2 h-6 rounded p-1" alt="Google"><span class="py-3">Google로 로그인</span></button>
 </a>
-<a href="/oauth/provider/google.php?action=login" class="w-full block mt-4 text-center text-blue-500">Google로 시작할래요 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
-  <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
-</svg>
+<a href="/oauth/provider/google.php?action=login">
+<button class="w-full hover:bg-yellow-500 font-bold  px-4 rounded-xl py-3 my-1 hover:shadow" style="background-color: #FEE500; color: rgba(0,0,0,.85);"><img src="https://media.discordapp.net/attachments/924239126377685015/1084850365549248612/kakao_login_large_narrow.png?width=72&amp;height=68" class="inline-block mr-2 h-6 rounded p-1" alt="Kakao"><span class="py-3">카카오 로그인</span></button>
 </a>
 </div>
 
