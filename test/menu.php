@@ -14,6 +14,25 @@ chdir(dirname(__FILE__));
 include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
+<script>
+  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+
+  ChannelIO('boot', {
+    "pluginKey": "0ab7b3e0-d4a0-4c9f-8888-058bc4ea9eef",
+    "memberId": "<?php echo getData("signMethod")?>-<?php echo getData("userID")?>", // fill user's member id
+    "profile": { // fill user's profile
+      "name": "<?php echo getData("userName")?>", // fill user's name
+      "schoolSID": "<?php echo getData("schoolSID")?>",
+        "schoolName": "<?php echo getData("schoolName")?>",
+        "schoolGrade": "<?php echo getData("schoolGrade")?>",
+        "schoolClass": "<?php echo getData("schoolClass")?>",
+        "schoolNo": "<?php echo getData("schoolNo")?>",
+        "signMethod": "<?php echo getData("signMethod")?>",
+        "userID": "<?php echo getData("userID")?>",
+        "accessLevel": "<?php echo getData("accessLevel")?>",
+    }
+  });
+</script>
 <section class="p-5">
 <div class="mb-5 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500">전체</h4>

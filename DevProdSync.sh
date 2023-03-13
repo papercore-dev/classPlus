@@ -3,17 +3,17 @@ if [ ! -d "../temp" ]; then
     echo "임시 폴더가 없어서 생성했어요."
     fi
 
-cd test
+cd public
 
 mv .well-known ../temp
 mv config ../temp
 
 cd ..
 
-rm -r test
-cp -r public test
+rm -r public
+cp -r test public
 
-cd test
+cd public
 
 rm -r .well-known
 rm -r config
