@@ -143,7 +143,7 @@ if ($_SESSION["accessLevel"] == 5 || $_SESSION["userID"] == $postData["userID"])
                 </span>
             </button>
             </a>
-            <a href="/form/postDelete.php?postID='.$_GET["id"].'">
+            <a href="javascript:deleteConfirmPost('.$_GET["id"].')">
             <button class="text-slate-800 hover:text-red-600 text-sm bg-white hover:bg-red-100 border border-slate-200 rounded-r-lg font-medium px-4 py-2 inline-flex space-x-1 items-center">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -240,10 +240,10 @@ echo '</span></p>
 <p class="text-sm text-gray-600 dark:text-gray-400">'.relativeTime(strtotime($commentData["commentCreation"])).'</p>
 ';
 if ($commentUserData["userID"] == $_SESSION["userID"] && $commentUserData["signMethod"] == $_SESSION["signMethod"]){
-echo '<a href="/form/postCommentDelete.php?commentID='.$commentData["commentID"].'"><p class="text-sm text-red-400 ml-2">삭제하기</p></a>';
+echo '<a href="javascript:deleteConfirmComment('.$commentData["commentID"].')"><p class="text-sm text-red-400 ml-2">삭제하기</p></a>';
 }
-if ($_SESSION["accessLevel"] >= 4){
-    echo '<a href="/form/postCommentDelete.php?commentID='.$commentData["commentID"].'"><p class="text-sm text-red-400 ml-2">삭제하기</p></a>';
+else if ($_SESSION["accessLevel"] >= 4){
+    echo '<a href="javascript:deleteConfirmComment('.$commentData["commentID"].')"><p class="text-sm text-red-400 ml-2">삭제하기</p></a>';
 }
 echo '
 </div>
@@ -257,6 +257,14 @@ echo '
             ?>
 
             </div>
+    <script>
+        function deleteConfirmComment(id){
+            showModal("댓글 삭제", "정말로 이 댓글을 삭제할까요?", "삭제", "/form/postCommentDelete.php?commentID="+id, "취소", "#");
+        }
+        function deleteConfirmPost(id){
+            showModal("게시글 삭제", "정말로 이 게시글을 삭제할까요?", "삭제", "/form/postDelete.php?postID="+id, "취소", "#");
+        }
+        </script>
             <nav class="rounded-t-xl shadow-lg commentSection max-w-md visible fixed bottom-0 w-full border bg-white">
 
 <form action="/form/postComment.php" method="POST">
