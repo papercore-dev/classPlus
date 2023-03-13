@@ -56,7 +56,7 @@ class="inline-block"></lottie-player>
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<a href="/oauth/provider/kakao.php?action=login">
+<a href="/oauth/provider/google.php?action=login">
 <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl">Google으로 시작하기</button>
 </a>
 <a href="/oauth/provider/google.php?action=login" class="w-full block mt-4 text-center text-blue-500">카카오톡으로 시작할래요 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
