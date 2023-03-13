@@ -152,9 +152,10 @@ if (isset($_SESSION["schoolSID"])){
 
     function continueOnboard() {
         //ask user to confirm applying for class
-        var r = confirm("정말로 학생 인증을 할까요? 학생 인증을 하면 학생 인증을 취소할 수 없어요.");
-        if (r == true) {
-            //if user confirms, send data to server
+        showModal("확인", "정말로 학생 인증을 할까요? 학생 인증을 하면 초대 코드가 만료돼요.", "확인", "javascript:confirmOnboard();", "", "#")
+
+    }
+    function confirmOnboard(){
             var code = cb1.value + cb2.value + cb3.value + cb4.value + cb5.value + cb6.value;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "verifyCode.php", true);
@@ -173,10 +174,9 @@ if (isset($_SESSION["schoolSID"])){
                         Turbo.visit("/app.php");
                     }
                 } else {
-                    alert("오류가 발생했어요. 다시 시도해주세요.");
+                    showToast("오류가 발생했어요. 다시 시도해주세요.");
                 }
             }
-        }
     }
 </script>
 </div>

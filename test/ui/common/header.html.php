@@ -165,7 +165,12 @@ a {
 
   gtag('config', '<?php echo $API_googleAnalytics;?>');
 </script>
-
+<style>
+  [x-cloak]{
+    display: none;
+    opacity: 0;
+  }
+</style>
 </head>
 <body class="min-h-screen">
 <div id="toast"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 inline-block text-yellow-500">
