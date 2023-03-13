@@ -16,7 +16,7 @@ chdir(dirname(__FILE__));
 if ($_SESSION["accType"] == "teacher" or getData('accessLevel') >= 4) {
 }
 else{
-    echo "<script>alert('접근 권한이 없습니다.');</script>";
+    echo "<script>alert('접근 권한이 없어요.');</script>";
     echo "<script>location.href='/app.php';</script>";
     exit;
 }

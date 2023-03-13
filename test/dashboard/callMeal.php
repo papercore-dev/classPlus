@@ -16,7 +16,7 @@ chdir(dirname(__FILE__));
 if ($_SESSION["accType"] == "teacher" or getData('accessLevel') >= 4) {
 }
 else{
-    echo "<script>alert('접근 권한이 없습니다.');</script>";
+    echo "<script>alert('접근 권한이 없어요.');</script>";
     echo "<script>location.href='/app.php';</script>";
     exit;
 }
@@ -89,7 +89,7 @@ else {
     <?php
     if ($_SESSION["accessLevel"] == 5){
 echo '<label for="schoolSID">나이스 학교코드</label>
-<input type="text" name="schoolSID" id="schoolSID" class="border rounded-md px-2 py-1" />';
+<input type="text" name="schoolSID" id="schoolSID" class="border rounded-md px-2 py-1" value="'.$_SESSION["schoolSID"].'" />';
     }
     ?>
 <label for="schoolGrade">학년</label>
