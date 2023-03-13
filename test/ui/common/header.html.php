@@ -187,7 +187,7 @@ function toastShow(text) {
 ?>
 </script>
 <div id="modal" class="min-h-screen py-6 flex flex-col justify-center sm:py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);"
-x-data="{ open: false }" x-show="open"     
+x-data="{ open: false }" x-show="open" x-cloak   
         x-transition:enter-start="opacity-0 scale-90" 
         x-transition:enter="transition duration-200 transform ease"
         x-transition:leave="transition duration-200 transform ease"
