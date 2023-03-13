@@ -9,11 +9,27 @@ chdir(dirname(__FILE__));
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
+    <?php
+    //if today is weekday and time is after 10pm or today is weekend
+    if ((date('N') < 6 && date('H') >= 22) || date('N') >= 6) {
+        echo '
 <a href="tel:07079188885">
 <button class="w-full bg-white hover:bg-gray-100 text-gray-600 border hover:shadow  px-4 rounded-xl shadow-lg py-1 my-1"><span class="">전화로 도입을 문의할 수 있어요</span><br class="md:block">
-    <span class="font-bold text-2xl text-blue-500">070-7918-8885</span>
+    <span class="font-bold text-2xl text-blue-500">070-7918-8885</span><br class="md:block">
+    <span class="text-xs text-gray-200">평일 22시 이후로 상담 가능, 주말 24시간 가능</span>
 </button>
-</a>
+</a>';
+    }
+    else{
+        echo '
+<a href="https://instagram.com/classplus.official">
+<button class="w-full bg-white hover:bg-gray-100 text-gray-600 border hover:shadow  px-4 rounded-xl shadow-lg py-1 my-1"><span class="">인스타 DM으로 도입을 문의할 수 있어요</span><br class="md:block">
+    <span class="font-bold text-2xl text-blue-500">classplus.official</span><br class="md:block">
+    <span class="text-xs text-gray-200">24시간 가능</span>
+</button>
+</a>';
+    }
+    ?>
 
 </div>
 
