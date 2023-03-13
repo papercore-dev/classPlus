@@ -51,7 +51,7 @@ if (isset($_SESSION["schoolSID"])){
 학생 인증
 </h2>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-전달 받은 인증번호 6자리를 입력해주세요.<br>
+<span class="text-blue-500 font-bold">회장을 통해 받은</span> 초대 코드 6자리를 입력해주세요.<br>
 학생 인증을 완료하면 인증번호는 만료돼요.
 </p>
 </div>

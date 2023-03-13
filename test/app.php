@@ -36,9 +36,6 @@ chdir(dirname(__FILE__));
 include 'ui/menu/menu.nt.html.php';
 chdir(dirname(__FILE__));
 ?>
-<style>
-  [x-cloak] { display: none, opacity:0; }
-</style>
 <div id="notificationModal" x-cloak class="min-h-screen py-6 flex flex-col justify-center py-12 fixed z-50 inset-0 overflow-y-auto h-full w-full px-4" style="background-color:rgba(0,0,0,0.5);display:none;"
 x-data="{ open: false }" x-show="open"    
         x-transition:enter-start="opacity-0 scale-90" 
