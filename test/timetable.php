@@ -81,10 +81,9 @@ chdir(dirname(__FILE__));
         $timetableParsed = array();
         foreach ($timetable as $key => $value) {
           $timetableParsed[$value["ITRT_CNTNT"]] = array(
-            "day" => $value["DDDEP_NM"],
+            "day" => $value["ALL_TI_YMD"],
             "time" => $value["PERIO"],
-            "subject" => $value["ITRT_CNTNT"],
-            "teacher" => $value["ATDN_SC_NM"]
+            "subject" => $value["ITRT_CNTNT"]
           );
         }
         //show timetableparsed in form of table
@@ -97,7 +96,7 @@ chdir(dirname(__FILE__));
             echo "<td>";
             foreach ($timetableParsed as $key => $value) {
               if ($value["day"] == $j and $value["time"] == $i) {
-                echo $value["subject"]."(".$value["teacher"].")";
+                echo $value["subject"];
               }
             }
             echo "</td>";
