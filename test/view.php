@@ -155,7 +155,38 @@ if ($_SESSION["accessLevel"] == 5 || $_SESSION["userID"] == $postData["userID"])
 }
 ?>
             </div>
-            
+        <?php
+            echo '<div class="px-5 w-full mx-auto">
+            <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row space-x-2 items-center">
+            <a href="/form/postLike.php?postID='.$_GET["id"].'">
+            <button class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-blue-100 border border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v10l4-4m0 0l4 4m-4-4V7" />
+    </svg>
+                    </span>
+                    <span class="text-xs">Like</span>
+                </button>
+                </a>
+                <a href="/form/postDislike.php?postID='.$_GET["id"].'">
+                <button class="text-slate-800 hover:text-red-600 text-sm bg-white hover:bg-red-100 border border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                    <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+    </svg>
+                        </span>
+                        <span class="text-xs">Dislike</span>
+                    </button>
+                    </a>
+                    </div>
+                    <div class="flex flex-row space-x-2 items-center">
+                    <span class="text-xs text-slate-800 font-medium">Likes: '.$postData["postLike"].'</span>
+                    <span class="text-xs text-slate-800 font-medium">Dislikes: '.$postData["postDislike"].'</span>
+                    </div>
+                    </div>
+                    </div>';
+        ?>
             <div class="px-5 w-full mx-auto">
             <article class="prose my-5 overflow-x-hidden lg:prose-xl">
                 <?php

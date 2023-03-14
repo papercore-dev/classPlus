@@ -99,7 +99,7 @@ chdir(dirname(__FILE__));
             echo "<td>";
             foreach ($timetableParsed as $key => $value) {
               if ($value["day"] == $thisDay and $value["time"] == $i) {
-                echo $value["subject"];
+                echo str_replace("-", " ", $value["subject"]);
               }
             }
             echo "</td>";
@@ -110,7 +110,7 @@ chdir(dirname(__FILE__));
         
       }
       else{
-        echo "나이스 api 오류로 현재 지원하지 않습니다.";
+        echo "미지원 학교에요.";
       }
 
       ?>
