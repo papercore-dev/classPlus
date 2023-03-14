@@ -77,7 +77,35 @@ chdir(dirname(__FILE__));
         $timetable = checkNEIS("hub/misTimetable?Type=json&ATPT_OFCDC_SC_CODE=".$schoolSCD."&SD_SCHUL_CODE=".getData("schoolSID")."&GRADE=".$schoolGrade."&CLASS_NM=".$schoolClass."&TI_FROM_YMD=".$firstMonday."&TI_TO_YMD=".$lastFriday);
         $timetable = $timetable["misTimetable"][1]["row"];
         
-        print_r($timetable);
+        //parse timetable
+        $timetableParsed = array();
+        foreach ($timetable as $key => $value) {
+          $timetableParsed[$value["ITRT_CNTNT"]] = array(
+            "day" => $value["DDDEP_NM"],
+            "time" => $value["PERIO"],
+            "subject" => $value["ITRT_CNTNT"],
+            "teacher" => $value["ATDN_SC_NM"]
+          );
+        }
+        //show timetableparsed in form of table
+        echo "<table class='w-full border border-gray-100 bg-gray-50 p-1'>";
+        echo "<tr><th>시간</th><th>월요일</th><th>화요일</th><th>수요일</th><th>목요일</th><th>금요일</th></tr>";
+        for ($i=1; $i <= 6; $i++) { 
+          echo "<tr>";
+          echo "<td>".$i."교시</td>";
+          for ($j=1; $j <= 5; $j++) { 
+            echo "<td>";
+            foreach ($timetableParsed as $key => $value) {
+              if ($value["day"] == $j and $value["time"] == $i) {
+                echo $value["subject"]."(".$value["teacher"].")";
+              }
+            }
+            echo "</td>";
+          }
+          echo "</tr>";
+        }
+        echo "</table>";
+        
       }
       else{
         echo "나이스 api 오류로 현재 지원하지 않습니다.";
