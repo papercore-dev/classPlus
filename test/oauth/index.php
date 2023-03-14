@@ -59,7 +59,7 @@ class="inline-block"></lottie-player>
 <a href="/oauth/provider/google.php?action=login">
 <button class="w-full bg-white hover:bg-gray-100 text-gray-600 border hover:shadow font-bold  px-4 rounded-xl py-3 my-1"><img src="https://img.icons8.com/color/512/google-logo.png" class="inline-block mr-2 h-6 rounded p-1" alt="Google"><span class="py-3">Google로 로그인</span></button>
 </a>
-<a href="/oauth/provider/google.php?action=login">
+<a href="/oauth/provider/kakao.php?action=login">
 <button class="w-full hover:bg-yellow-500 font-bold  px-4 rounded-xl py-3 my-1 hover:shadow" style="background-color: #FEE500; color: rgba(0,0,0,.85);"><img src="https://media.discordapp.net/attachments/924239126377685015/1084850365549248612/kakao_login_large_narrow.png?width=72&amp;height=68" class="inline-block mr-2 h-6 rounded p-1" alt="Kakao"><span class="py-3">카카오 로그인</span></button>
 </a>
 </div>
