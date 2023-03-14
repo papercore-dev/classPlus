@@ -104,7 +104,7 @@ chdir(dirname(__FILE__));
         <h4 class="text-2xl text-slate-500"><span class="font-bold">'.$beautifiedDate.' '.$dayOfWeek.'</span> '.$mealType.'</h4><p class="text-gray-500">'.$day["CAL_INFO"].'</p>
         </div>';
         //if DDISH_NM includes word in array, make it bold
-        $tastyFood = array("스테이크", "고기", "빵", "요거트", "요구르트", "돈가스", "돈까스", "튀김", "볶음", "짜장", "짬뽕", "우동", "주스", "쥬스", "스무디", "라떼", "아이스크림", "떡볶이", "김밥", "케이크", "오므라이스", "뿌링클", "피자", "유한선", "젤리");
+        $tastyFood = array("스테이크", "고기", "빵", "요거트", "요구르트", "돈가스", "돈까스", "튀김", "볶음", "짜장", "짬뽕", "우동", "주스", "쥬스", "스무디", "라떼", "아이스크림", "떡볶이", "김밥", "케이크");
         $dishToday = $day["DDISH_NM"];
         foreach($tastyFood as $food){
           if(strpos($day["DDISH_NM"], $food) !== false){

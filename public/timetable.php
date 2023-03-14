@@ -62,60 +62,55 @@ chdir(dirname(__FILE__));
         echo "<img src='https://media.discordapp.net/attachments/936620635889729558/1083032104453013564/image.png?width=576&height=814' class='w-full'>";
         
       }
-      else if ($schoolType == "대학교") {
-       $schoolRegion = checkNEIS("hub/schoolInfo?SD_SCHUL_CODE=".getData("schoolSID")."&Type=json")["schoolInfo"][1]["row"][0]["LCTN_SC_NM"];
-       //schoolRegion에서 앞 2글자만 utf 8로 가져오기 (eg: 서울특별시 -> 서울)
-        $schoolRegion = mb_substr($schoolRegion, 0, 2, "UTF-8");
-        //get timetable from API running on port 8271 (http://localhost:8271/timetable/{schoolRegion}/{schoolName}/{grade}/{class})
-        //url encode school name
-        $schoolName = urlencode(getData("schoolName"));
-        $schoolGrade = urlencode(getData("schoolGrade"));
-        $schoolClass = urlencode(getData("schoolClass"));
-        $schoolRegion = urlencode($schoolRegion);
+      else if ($schoolType == "중학교") {
+       //get schoolSCD from school_whitelisted
+       $getSchoolSCD = "SELECT schoolSCD FROM school_whitelisted WHERE schoolSID = '".getData("schoolSID")."'";
+       //get data via PDO
+        $getSchoolSCD = $db->query($getSchoolSCD)->fetch();
+        //get schoolSCD
+        $schoolSCD = $getSchoolSCD["schoolSCD"];
+       $schoolGrade = getData("schoolGrade");
+        $schoolClass = getData("schoolClass");
 
-        $timetable = file_get_contents("http://localhost:8271/timetable/".$schoolRegion."/".$schoolName."/".$schoolGrade."/".$schoolClass);
-        $studytime = file_get_contents("http://localhost:8271/classtime/".$schoolRegion."/".$schoolName."/".$schoolGrade."/".$schoolClass);
-        //if timetable or studytime connection is failed, show error message
-        if ($timetable == false or $studytime == false) {
-          echo "시간표를 불러오는데 실패했어요";
-          exit;
+        $firstMonday = date("Ymd", strtotime("monday this week"));
+        $lastFriday = date("Ymd", strtotime("friday this week"));
+        $timetable = checkNEIS("hub/misTimetable?Type=json&ATPT_OFCDC_SC_CODE=".$schoolSCD."&SD_SCHUL_CODE=".getData("schoolSID")."&GRADE=".$schoolGrade."&CLASS_NM=".$schoolClass."&TI_FROM_YMD=".$firstMonday."&TI_TO_YMD=".$lastFriday);
+        $timetable = $timetable["misTimetable"][1]["row"];
+        
+        //parse timetable
+        $timetableParsed = array();
+        foreach ($timetable as $key => $value) {
+          $timetableParsed[$value["ITRT_CNTNT"]] = array(
+            "day" => $value["ALL_TI_YMD"],
+            "time" => $value["PERIO"],
+            "subject" => $value["ITRT_CNTNT"]
+          );
         }
-        //if timetable or studytime returns "Server Error" or connection is failed, show error message
-        if ($timetable == "Server Error" or $studytime == "Server Error") {
-          echo "시간표를 불러오는데 실패했어요";
-          exit;
-        }
-        $timetable = json_decode($timetable, true);
-        $studytime = json_decode($studytime, true);
-        //create table to show timetable (get row from number of array in $timetable and get column from largest number of array in $timetable[n])
-        echo "<table class='w-full table-auto border border-gray-100 bg-gray-50 p-1'>";
-        echo "<tr>";
-        echo "<th class='border border-blue-100 bg-gray-50 p-1'>교시</th>";
-        for ($i=0; $i < count($timetable); $i++) {
-          //show week of day
-          $weekofday = array("월", "화", "수", "목", "금", "토", "일");
-          echo "<th class='border border-blue-100 bg-gray-50 p-1'>".$weekofday[$i]."</th>";
-        }
-        echo "</tr>";
-        for ($i=0; $i < count($timetable[0]); $i++) {
-          $beautifiedTime = $studytime[$i];
-          //replace ( to <br>( to beautify time
-          $beautifiedTime = str_replace("(", "교시<br><span class='text-xs'>(", $beautifiedTime);
-          $beautifiedTime = str_replace(")", ")</span>", $beautifiedTime);
+        //show timetableparsed in form of table
+        echo "<table class='w-full border border-gray-100 bg-gray-50 p-1'>";
+        echo "<tr><th>시간</th><th>월요일</th><th>화요일</th><th>수요일</th><th>목요일</th><th>금요일</th></tr>";
+        for ($i=1; $i <= 6; $i++) { 
           echo "<tr>";
-          echo "<td class='border border-blue-100 bg-gray-50 p-1 text-center'>".$beautifiedTime."</td>";
-          for ($j=0; $j < count($timetable); $j++) {
-            echo "<td class='border border-gray-100 bg-gray-50 p-1 text-center'>".$timetable[$j][$i]["subject"]."<br>".$timetable[$j][$i]["teacher"]."</td>";
+          echo "<td>".$i."교시</td>";
+          for ($j=1; $j <= 5; $j++) { 
+            //get this weeks $j th day in YYYYMMDD format
+            $thisDay = date("Ymd", strtotime("monday this week +".($j-1)." days"));
+
+            echo "<td>";
+            foreach ($timetableParsed as $key => $value) {
+              if ($value["day"] == $thisDay and $value["time"] == $i) {
+                echo str_replace("-", " ", $value["subject"]);
+              }
+            }
+            echo "</td>";
           }
           echo "</tr>";
         }
         echo "</table>";
-        echo "<br>";
         
-
       }
       else{
-        echo "나이스 api 오류로 현재 지원하지 않습니다.";
+        echo "미지원 학교에요.";
       }
 
       ?>

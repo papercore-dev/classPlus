@@ -54,6 +54,7 @@ if ($currentInviteUsageResult->rowCount() > 0) {
     echo "<th class='px-4 py-2'>이름</th>";
     echo "<th class='px-4 py-2'>초대 코드</th>";
     echo "<th class='px-4 py-2'>초대 사용 여부</th>";
+    echo "<th class='px-4 py-2'>수정</th>";
     echo "</tr>";
     echo "</thead>";
     echo "<tbody>";
@@ -73,6 +74,16 @@ if ($currentInviteUsageResult->rowCount() > 0) {
         else {
             echo "<td class='border px-4 py-2'>미사용</td>";
         }
+        echo "<td class='border px-4 py-2'>
+        <form action='inviteDelete.php' method='post'>
+        <input type='hidden' name='inviteCode' value='".$row["inviteCode"].$row["used"]."' />
+        <input type='hidden' name='schoolSID' value='".$row["schoolSID"]."' />
+        <input type='hidden' name='schoolGrade' value='".$row["schoolGrade"]."' />
+        <input type='hidden' name='schoolClass' value='".$row["schoolClass"]."' />
+        <input type='hidden' name='schoolNo' value='".$row["schoolNo"]."' />
+        <button type='submit' class='bg-red-500 text-white rounded-md px-2 py-1'>삭제</button>
+        </form>
+        </td>";
         echo "</tr>";
     }
     echo "</tbody>";
