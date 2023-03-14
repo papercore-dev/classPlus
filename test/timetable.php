@@ -77,7 +77,7 @@ chdir(dirname(__FILE__));
         $timetable = checkNEIS("hub/misTimetable?Type=json&ATPT_OFCDC_SC_CODE=".$schoolSCD."&SD_SCHUL_CODE=".getData("schoolSID")."&GRADE=".$schoolGrade."&CLASS_NM=".$schoolClass."&TI_FROM_YMD=".$firstMonday."&TI_TO_YMD=".$lastFriday);
         $timetable = $timetable["misTimetable"][1]["row"];
         
-        echo $timetable;
+        print_r($timetable);
       }
       else{
         echo "나이스 api 오류로 현재 지원하지 않습니다.";
