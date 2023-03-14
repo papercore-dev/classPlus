@@ -41,7 +41,35 @@ if (strlen($_POST["inviteCode"]) != 7 or !is_numeric($_POST["inviteCode"])){
 $inviteCode = substr($_POST["inviteCode"], 0, 6);
 $used = substr($_POST["inviteCode"], 6, 1);
 
-$deleteInviteCode = "DELETE FROM `account_invite` WHERE inviteCode = '".$inviteCode."' AND used = '".$used."'";
+if ($_SESSION["accessLevel"] == "5"){
+    if (!isset($_POST["schoolSID"])){
+        $inviteSchoolSID = $_SESSION["schoolSID"];
+    }
+    else{
+        $inviteSchoolSID = $_POST["schoolSID"];
+    }
+
+    if (!isset($_POST["schoolGrade"])){
+        $inviteSchoolGrade = $_SESSION["schoolGrade"];
+    }
+    else{
+        $inviteSchoolGrade = $_POST["schoolGrade"];
+    }
+
+    if (!isset($_POST["schoolClass"])){
+        $inviteSchoolClass = $_SESSION["schoolClass"];
+    }
+    else{
+        $inviteSchoolClass = $_POST["schoolClass"];
+    }
+}
+else{
+    $inviteSchoolSID = $_SESSION["schoolSID"];
+    $inviteSchoolGrade = $_SESSION["schoolGrade"];
+    $inviteSchoolClass = $_SESSION["schoolClass"];
+}
+
+$deleteInviteCode = "DELETE FROM `account_invite` WHERE inviteCode = '".$inviteCode."' AND used = '".$used."' AND schoolSID = '".$inviteSchoolSID."' AND schoolGrade = '".$inviteSchoolGrade."' AND schoolClass = '".$inviteSchoolClass."'";
     $deleteInviteCode_Result = $db->query($deleteInviteCode);
     if ($deleteInviteCode_Result){
         echo "<script>window.location.href = '/dashboard/inviteGenerate.php?error=삭제했어요.';</script>";

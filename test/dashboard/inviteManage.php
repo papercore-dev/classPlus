@@ -77,6 +77,10 @@ if ($currentInviteUsageResult->rowCount() > 0) {
         echo "<td class='border px-4 py-2'>
         <form action='inviteDelete.php' method='post'>
         <input type='hidden' name='inviteCode' value='".$row["inviteCode"].$row["used"]."' />
+        <input type='hidden' name='schoolSID' value='".$row["schoolSID"]."' />
+        <input type='hidden' name='schoolGrade' value='".$row["schoolGrade"]."' />
+        <input type='hidden' name='schoolClass' value='".$row["schoolClass"]."' />
+        <input type='hidden' name='schoolNo' value='".$row["schoolNo"]."' />
         <button type='submit' class='bg-red-500 text-white rounded-md px-2 py-1'>삭제</button>
         </form>
         </td>";
