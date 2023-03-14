@@ -93,9 +93,12 @@ chdir(dirname(__FILE__));
           echo "<tr>";
           echo "<td>".$i."교시</td>";
           for ($j=1; $j <= 5; $j++) { 
+            //get this weeks $j th day in YYYYMMDD format
+            $thisDay = date("Ymd", strtotime("monday this week +".($j-1)." days"));
+
             echo "<td>";
             foreach ($timetableParsed as $key => $value) {
-              if ($value["day"] == $j and $value["time"] == $i) {
+              if ($value["day"] == $thisDay and $value["time"] == $i) {
                 echo $value["subject"];
               }
             }
