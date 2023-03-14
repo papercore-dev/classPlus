@@ -155,38 +155,7 @@ if ($_SESSION["accessLevel"] == 5 || $_SESSION["userID"] == $postData["userID"])
 }
 ?>
             </div>
-        <?php
-            echo '<div class="px-5 w-full mx-auto">
-            <div class="flex flex-row justify-between items-center">
-            <div class="flex flex-row space-x-2 items-center">
-            <a href="/form/postLike.php?postID='.$_GET["id"].'">
-            <button class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-blue-100 border border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center">
-                <span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v10l4-4m0 0l4 4m-4-4V7" />
-    </svg>
-                    </span>
-                    <span class="text-xs">Like</span>
-                </button>
-                </a>
-                <a href="/form/postDislike.php?postID='.$_GET["id"].'">
-                <button class="text-slate-800 hover:text-red-600 text-sm bg-white hover:bg-red-100 border border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center">
-                    <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
-    </svg>
-                        </span>
-                        <span class="text-xs">Dislike</span>
-                    </button>
-                    </a>
-                    </div>
-                    <div class="flex flex-row space-x-2 items-center">
-                    <span class="text-xs text-slate-800 font-medium">Likes: '.$postData["postLike"].'</span>
-                    <span class="text-xs text-slate-800 font-medium">Dislikes: '.$postData["postDislike"].'</span>
-                    </div>
-                    </div>
-                    </div>';
-        ?>
+
             <div class="px-5 w-full mx-auto">
             <article class="prose my-5 overflow-x-hidden lg:prose-xl">
                 <?php
@@ -220,6 +189,34 @@ echo $postData["postAttachment"];
 
 
         </div>
+        <?php
+        //get row count of posts_like using PDO
+        $getLikeCount = $db->prepare("SELECT COUNT(*) FROM posts_like WHERE postID = :postID");
+        $getLikeCount->bindParam(":postID", $_GET["id"]);
+        $getLikeCount->execute();
+        $likeCount = $getLikeCount->fetchColumn();
+
+            echo '<div class="px-5 w-full mx-auto">
+            <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row space-x-2 items-center">
+            <a href="/form/postLike.php?postID='.$_GET["id"].'">
+            <button class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-blue-100 border border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center">
+                <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+</svg>
+
+                    </span>
+                    <span class="text-xs">좋아요</span>
+                </button>
+                </a>
+                    </div>
+                    <div class="flex flex-row space-x-2 items-center">
+                    <span class="text-xs text-slate-800 font-medium">'.$likeCount.'개</span>
+                    </div>
+                    </div>
+                    </div>';
+        ?>
         <section class="bg-white dark:bg-gray-900 py-8 lg:py-16">
 
 
