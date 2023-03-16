@@ -101,7 +101,7 @@ $searchUserData_Result = $db->query($searchUserData);
 if ($searchUserData_Result->rowCount() > 0){
     //update user data to invite
     $searchUserData_Data = $searchUserData_Result->fetch();
-    $updateUserData = "UPDATE `account_users` SET `schoolNo` = '".$inviteSchoolNo."', `schoolSID` = '".$inviteSchoolSID."', `schoolGrade` = '".$inviteSchoolGrade."', `schoolClass` = '".$inviteSchoolClass."', `userName` = '".$inviteUserName."', `accessLevel` = '0' WHERE `account_users`.`userID` = '".$_POST["userID"]."' AND `account_users`.`signMethod` = '".$_POST["signMethod"]."'";
+    $updateUserData = "UPDATE `account_users` SET `schoolNo` = '".$inviteSchoolNo."', `schoolSID` = '".$inviteSchoolSID."', `schoolGrade` = '".$inviteSchoolGrade."', `schoolClass` = '".$inviteSchoolClass."', `userName` = '".$inviteUserName."' WHERE `account_users`.`userID` = '".$_POST["userID"]."' AND `account_users`.`signMethod` = '".$_POST["signMethod"]."'";
 $updateUserData_Result = $db->query($updateUserData);
 
 if ($updateUserData_Result){

@@ -83,6 +83,7 @@ echo "</td>";
         <input type='hidden' name='userID' value='".$row["userID"]."' />
         <button type='submit' class='bg-red-500 text-white rounded-md px-2 py-1'>비활성화</button>
         </form>
+        <button onclick='editData(`".$row["userID"]."`, `".$row["signMethod"]."`);' class='bg-blue-500 text-white rounded-md px-2 py-1'>수정</button>
         </td>";
         echo "</tr>";
     }
@@ -94,8 +95,8 @@ else {
 }
 ?>
 
-<div class="mb-2 flex items-center justify-between">
-<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">✨</span>신규 사용자 활성화</h4>
+<div class="mb-2 flex items-center justify-between" id="editData">
+<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">✨</span>정보 수정</h4>
 </div>
 <form action="userActivate.php" method="post">
 <div class="flex flex-col gap-2">
@@ -120,6 +121,13 @@ echo '<label for="schoolClass">반</label>
 </div>
 <button type="submit" class="bg-blue-500 text-white rounded-md px-2 py-1">생성</button>
 </form>
+<script>
+    function editData(userID, signMethod){
+        document.getElementById("signMethod").value = signMethod;
+        document.getElementById("userID").value = userID;\
+        document.getElementById("editData").scrollIntoView();
+    }
+</script>
 <p>
     가입 과정에서 "회장에게 이 코드를 보여주세요"라고 나오면, 다음과 같이 적용해주세요.<br>
     첫번째 줄(google, kakao 등) - 로그인 방식<br>
