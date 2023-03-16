@@ -97,7 +97,7 @@ else {
 <div class="mb-2 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500"><span class="tossface">✨</span>신규 사용자 활성화</h4>
 </div>
-<form action="inviteGenerate.php" method="post">
+<form action="userActivate.php" method="post">
 <div class="flex flex-col gap-2">
     <?php
     if ($_SESSION["accessLevel"] == 5){
@@ -121,8 +121,8 @@ echo '<label for="schoolClass">반</label>
 <button type="submit" class="bg-blue-500 text-white rounded-md px-2 py-1">생성</button>
 </form>
 <p>
-    가입 과정에서 "회장에게 이 코드를 보여주세요"라고 나오면, 다음과 같이 적용해주세요.
-    첫번째 줄(google, kakao 등) - 로그인 방식
+    가입 과정에서 "회장에게 이 코드를 보여주세요"라고 나오면, 다음과 같이 적용해주세요.<br>
+    첫번째 줄(google, kakao 등) - 로그인 방식<br>
     두번째 줄(숫자 및 메일 주소) - 사용자 ID
 </p>
 
