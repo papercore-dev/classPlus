@@ -77,12 +77,24 @@ echo $_SESSION["userID"];
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
+<a href="sessionRenew.php">
+<button class="w-full bg-blue-600 hover:bg-blue-600 text-white border hover:shadow font-bold  px-4 rounded-xl py-3 my-1">
+    새로고침
+</button>
+</a>
+<a href="/oauth/logout.php" class="w-full block mt-4 text-center text-blue-500">로그아웃 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
+<path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+
+</div>
+</div>
+<!--fixed bottom button to sign out or refresh-->
 <script>
     toastShow("인증을 기다리고 있어요.");
 </script>
-</div>
-</div>
-</div>
+
 
 </div>
 </body>
