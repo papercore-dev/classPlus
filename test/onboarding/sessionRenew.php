@@ -46,6 +46,6 @@ else{
 }
 
 //go back to the previous page
-header("Location: ".$_SERVER['HTTP_REFERER']);
+header("Location: /onboarding/kyc.php");
 exit;
 ?>
