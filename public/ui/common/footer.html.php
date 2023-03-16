@@ -61,6 +61,11 @@ chdir(dirname(__FILE__));?>
   <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging-compat.js"></script>
   <script>
+    //ask for notification permission if not already granted
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission();
+    }
+    
     var firebaseConfig = {
     apiKey: "AIzaSyDAl4MUKtOrC056SrxcAB_Ju42u30OPSYo",
     authDomain: "classplus-6299c.firebaseapp.com",
