@@ -55,15 +55,19 @@ if (isset($_SESSION["schoolSID"])){
 </p>
 </div>
 
-<!-- show user id -->
-<div class="mb-12">
-<h2 class="mb-4 text-3xl font-bold text-left lg:text-5xl">
-<?php echo $_SESSION['userID']; ?>
+<div class="rounded-lg text-center bg-gray-200">
+<h2 class="pt-4 text-xl">
+<?php
+echo $_SESSION['signMethod'];
+echo '<br>';
+echo $_SESSION["userID"];
+?>
 </h2>
-<p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
+<p class="visible mx-0 mt-1 pb-4 text-sm leading-relaxed text-center text-gray-400">
 이 코드를 회장에게 보여주세요
 </p>
 </div>
+
 </div>
 </section>
 <div class="pb-32"></div>
