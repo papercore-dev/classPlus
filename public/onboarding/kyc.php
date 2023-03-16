@@ -48,39 +48,26 @@ if (isset($_SESSION["schoolSID"])){
 <div class="mb-12">
     <div class="mb-12">
 <h2 class="mb-4 text-3xl font-bold text-left lg:text-5xl">
-학생 인증
+인증 대기 중
 </h2>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-<span class="text-blue-500 font-bold">회장을 통해 받은</span> 초대 코드 6자리를 입력해주세요.<br>
-학생 인증을 완료하면 인증번호는 만료돼요.
+<span class="text-blue-500 font-bold">회장에게 승인받을 때 까지</span>&nbsp;기다려 주세요.
 </p>
 </div>
-            <div class="inviteContainer flex flex-row items-center justify-between mx-auto w-full max-w-xs">
-              <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" type="number" id="" required maxlength="1">
-              </div>
-                            <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" type="number" id="" required maxlength="1">
-              </div>
-                                          <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" type="number" id="" required maxlength="1">
-              </div>
-                                          <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" type="number" id="" required maxlength="1">
-              </div>
-                                          <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" type="number" id="" required maxlength="1">
-              </div>
-                                          <div class="w-12 h-16">
-                <input class="bg-gray-200 font-mono text-2xl w-full h-full flex flex-col items-center justify-center text-center px-2 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text"
-                name="" type="number" id="" required maxlength="1">
-              </div>
-            </div>
+
+<div class="rounded-lg text-center bg-gray-200">
+<h2 class="pt-4 text-xl">
+<?php
+echo $_SESSION['signMethod'];
+echo '<br>';
+echo $_SESSION["userID"];
+?>
+</h2>
+<p class="visible mx-0 mt-1 pb-4 text-sm leading-relaxed text-center text-gray-400">
+이 코드를 회장에게 보여주세요
+</p>
+</div>
+
 </div>
 </section>
 <div class="pb-32"></div>
@@ -90,98 +77,24 @@ if (isset($_SESSION["schoolSID"])){
 <div class="m-4">
 
 <div class=" justify-center items-center gap-4">
-<button id="continueButton" class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-xl">계속하기</button>
+<a href="sessionRenew.php">
+<button class="w-full bg-blue-600 hover:bg-blue-600 text-white border hover:shadow font-bold  px-4 rounded-xl py-3 my-1">
+    새로고침
+</button>
+</a>
+<a href="/oauth/logout.php" class="w-full block mt-4 text-center text-blue-500">로그아웃 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 inline-block">
+<path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
+</svg>
+</a>
+</div>
 
+</div>
+</div>
+<!--fixed bottom button to sign out or refresh-->
 <script>
-    toastShow("학생 인증이 필요해요.");
-
-    var btn = document.getElementById("continueButton");
-
-    var cb1 = document.querySelectorAll("input")[0];
-    var cb2 = document.querySelectorAll("input")[1];
-    var cb3 = document.querySelectorAll("input")[2];
-    var cb4 = document.querySelectorAll("input")[3];
-    var cb5 = document.querySelectorAll("input")[4];
-    var cb6 = document.querySelectorAll("input")[5];
-
-    function check() {
-        if (cb1.value.length == 1 && cb2.value.length == 1 && cb3.value.length == 1 && cb4.value.length == 1 && cb5.value.length == 1 && cb6.value.length == 1) {
-            btn.classList.remove("bg-gray-400");
-            btn.classList.remove("hover:bg-gray-400");
-            btn.classList.add("bg-blue-500");
-            btn.classList.add("hover:bg-blue-700");
-            btn.setAttribute( "onClick", "continueOnboard();");
-        } else {
-            btn.classList.remove("bg-blue-500");
-            btn.classList.remove("hover:bg-blue-700");
-            btn.classList.add("bg-gray-400");
-            btn.classList.add("hover:bg-gray-400");
-            btn.setAttribute("onClick", "console.log('Not checked');");
-        }
-    }
-
-    function handOffFocus(cb){
-        if(cb.value.length == 1){
-            cb.nextElementSibling.focus();
-        }
-    }
-
-    //on key down, check if all inputs are filled
-    cb1.addEventListener("keydown", check);
-    cb2.addEventListener("keydown", check);
-    cb3.addEventListener("keydown", check);
-    cb4.addEventListener("keydown", check);
-    cb5.addEventListener("keydown", check);
-    cb6.addEventListener("keydown", check);
-
-    //on key up, check if all inputs are filled
-    cb1.addEventListener("keyup", check);
-    cb2.addEventListener("keyup", check);
-    cb3.addEventListener("keyup", check);
-    cb4.addEventListener("keyup", check);
-    cb5.addEventListener("keyup", check);
-    cb6.addEventListener("keyup", check);
-
-    //on key down, run handOffFocus
-    cb1.addEventListener("keydown", function(){handOffFocus(cb1)});
-    cb2.addEventListener("keydown", function(){handOffFocus(cb2)});
-    cb3.addEventListener("keydown", function(){handOffFocus(cb3)});
-    cb4.addEventListener("keydown", function(){handOffFocus(cb4)});
-    cb5.addEventListener("keydown", function(){handOffFocus(cb5)});
-    cb6.addEventListener("keydown", function(){handOffFocus(cb6)});
-
-    function continueOnboard() {
-        //ask user to confirm applying for class
-        showModal("확인", "정말로 학생 인증을 할까요? 학생 인증을 하면 초대 코드가 만료돼요.", "확인", "javascript:confirmOnboard();", "", "#")
-
-    }
-    function confirmOnboard(){
-            var code = cb1.value + cb2.value + cb3.value + cb4.value + cb5.value + cb6.value;
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "verifyCode.php", true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({
-                "code": code
-            }));
-            xhr.onload = function() {
-                if (xhr.status == 200) {
-                    //show alert when response is in form of {"error": "오류"}, when {"success": "성공"}, redirect to /app.php
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.error) {
-                        toastShow(response.error);
-                    } else if (response.success) {
-                        toastShow(response.success);
-                        Turbo.visit("/app.php");
-                    }
-                } else {
-                    showToast("오류가 발생했어요. 다시 시도해주세요.");
-                }
-            }
-    }
+    toastShow("인증을 기다리고 있어요.");
 </script>
-</div>
-</div>
-</div>
+
 
 </div>
 </body>
