@@ -124,7 +124,7 @@ echo '<label for="schoolClass">반</label>
 <script>
     function editData(userID, signMethod){
         document.getElementById("signMethod").value = signMethod;
-        document.getElementById("userID").value = userID;\
+        document.getElementById("userID").value = userID;
         document.getElementById("editData").scrollIntoView();
     }
 </script>

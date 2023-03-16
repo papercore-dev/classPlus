@@ -48,7 +48,7 @@ if ($searchUserData_Result->rowCount() > 0){
     //update user data to invite
     $searchUserData_Data = $searchUserData_Result->fetch();
     //delete any schoolSID, schoolNo, schoolName, schoolGrade, schoolClass
-    $updateUserData = "UPDATE `account_users` SET `schoolSID` = NULL, `schoolNo` = NULL, `schoolName` = NULL, `schoolGrade` = NULL, `schoolClass` = NULL WHERE `signMethod` = '".$_POST["signMethod"]."' AND `userID` = '".$_POST["userID"]."'";
+    $updateUserData = "UPDATE `account_users` SET `schoolSID` = NULL, `schoolNo` = NULL, `userName` = NULL, `schoolGrade` = NULL, `schoolClass` = NULL WHERE `signMethod` = '".$_POST["signMethod"]."' AND `userID` = '".$_POST["userID"]."'";
 $updateUserData_Result = $db->query($updateUserData);
 
 if ($updateUserData_Result){
