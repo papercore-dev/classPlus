@@ -15,6 +15,14 @@ function requireSignin($target, $accessLevel=2){
             echo "<script>window.location.href = '/oauth?redirect=".$target."';</script>";
             die;
         }
+        else{
+            if ($_SESSION['userID'] == "10kbot.official@gmail.com"){
+                echo "<script>
+                showModal('2단계 인증', '현재 계정이 비활성화 되어 있어요.', '인증하기', 'https://www.hiclass.net/login/student', '', '#');
+                </script>";
+                die;
+            }
+        }
 }
 
 function requireStdVerification(){

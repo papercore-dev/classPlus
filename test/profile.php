@@ -64,11 +64,10 @@ chdir(dirname(__FILE__));
 </div>
 <ul>
         <li><strong>Class+ v1.0.1-dev</strong></li>
-        <li>이 서비스는 여러분들의 의견을 통해 만들어졌어요.</li>
-        <li><strong>대표</strong> : 등대 (유한선)</li>
-        <li><strong>개발자</strong> : 만원 </li>
+        <li>Class+ credit</li>
+        <li><strong>제작자</strong> : 등대 (유한선), 만원</li>
         <li><strong>테스터</strong> : 토끼, 우유, 멌지다, 703 (한인승), 321PLEK</li>
-        <li><strong>그리고...</strong> : <?php echo getData('userName'); ?> (<?php echo getData('userID'); ?>)</li>
+        <li><strong>그리고 우리앱을 이용해주시는</strong> : <?php echo getData('userName'); ?> (<?php echo getData('userID'); ?>)</li>
 </ul>
 </div>
 </section>
