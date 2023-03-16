@@ -28,7 +28,12 @@ chdir(dirname(__FILE__));
 
 <html>
     <head>
-    <title>Class+</title>
+    <title>Class+<?php
+    if ($_SERVER['HTTP_HOST'] == 'classplus-test.pcor.me'){
+      echo " [TEST]";
+    }
+    ?>
+    </title>
   <meta charset="utf-8">
   <meta name="referrer" content="origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -36,8 +41,16 @@ chdir(dirname(__FILE__));
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://classplus.pcor.me/resources/images/og_image.png">
   <meta property="og:url" content="https://classplus.pcor.me">
-  <meta property="og:site_name" content="Class+">
-  <meta property="og:title" content="Class+">
+  <meta property="og:site_name" content="Class+<?php
+    if ($_SERVER['HTTP_HOST'] == 'classplus-test.pcor.me'){
+      echo " [TEST]";
+    }
+    ?>">
+  <meta property="og:title" content="Class+<?php
+    if ($_SERVER['HTTP_HOST'] == 'classplus-test.pcor.me'){
+      echo " [TEST]";
+    }
+    ?>">
   <meta property="og:description" content="학급생활에 재미를 붙여주는 클래스+를 이용하여 시간표와 각종 커뮤니티 서비스를 이용해보세요">
   <meta name="description" content="학급생활에 재미를 붙여주는 클래스+를 이용하여 시간표와 각종 커뮤니티 서비스를 이용해보세요">
   <meta name="keywords" content="클래스+, 클래스플러스, classplus, class+, 학교커뮤니티, 클래스팅, 스쿨투게더, 학교종이, 학교 커뮤니티">
