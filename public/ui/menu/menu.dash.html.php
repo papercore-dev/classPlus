@@ -18,7 +18,7 @@ chdir(dirname(__FILE__));?>
                   </svg>
                </button>
                <a href="#" class="text-xl font-bold flex items-center lg:ml-2.5">
-               <img src="/resources/images/classplus_logo_site_landing.png" class="h-6 mr-2" alt="Class+ Logo">
+               <img src="/resources/images/classplus_logo_site_landing.png" class="h-6 mr-2" alt="Calendar+ Logo">
                <span class="self-center whitespace-nowrap">
                 <?php echo $headName;?>
                </span>
@@ -85,7 +85,7 @@ chdir(dirname(__FILE__));?>
   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
 </svg>
 
-                        <span class="ml-4">클래스+로 돌아가기</span>
+                        <span class="ml-4">캘린더+로 돌아가기</span>
                      </a>
                      <a href="/" target="_blank" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

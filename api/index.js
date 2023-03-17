@@ -5,7 +5,7 @@ const app = express()
 const port = 8271
 
 app.get('/', (req, res) => {
-  res.send('Class+ API')
+  res.send('Calendar+ API')
 })
 
 
@@ -65,7 +65,7 @@ catch(err){
 })
 
 app.listen(port, () => {
-  console.log(`Class+ API started on port ${port}`)
+  console.log(`Calendar+ API started on port ${port}`)
 })
 
 //don't crash when error occurs

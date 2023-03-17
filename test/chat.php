@@ -58,7 +58,7 @@ else{
 <div class="mb-5">
 <h4 class="text-2xl font-bold text-slate-500">아래의 정보로<br>채팅에서 로그인하세요</h4>
 <p class="text-sm text-gray-500">채팅은 <span class="text-blue-500">종단간 암호화</span> 되어 있기 때문에, 다중 로그인이나 암호 키를 활성화하지 않았다면 복구할 수 없어요.<br>
-채팅 내의 대화에 대해서 저희 클래스+는 책임지지 않지만, 법적 수사 과정에서 사용자 정보 요청 시 학생 정보를 <span class="text-blue-500">제출 가능</span>해요.</p>
+채팅 내의 대화에 대해서 저희 캘린더+는 책임지지 않지만, 법적 수사 과정에서 사용자 정보 요청 시 학생 정보를 <span class="text-blue-500">제출 가능</span>해요.</p>
 </div>
 <div class="mt-4 relative flex flex-col min-w-0 break-words w-full">
 <div class="rounded-t mb-0 px-0 border-0">

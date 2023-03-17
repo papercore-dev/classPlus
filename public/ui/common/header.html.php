@@ -28,7 +28,7 @@ chdir(dirname(__FILE__));
 
 <html>
     <head>
-    <title>Class+<?php
+    <title>Calendar+<?php
     if ($_SERVER['HTTP_HOST'] == 'classplus-test.pcor.me'){
       echo " [TEST]";
     }
@@ -41,19 +41,19 @@ chdir(dirname(__FILE__));
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://classplus.pcor.me/resources/images/og_image.png">
   <meta property="og:url" content="https://classplus.pcor.me">
-  <meta property="og:site_name" content="Class+<?php
+  <meta property="og:site_name" content="Calendar+<?php
     if ($_SERVER['HTTP_HOST'] == 'classplus-test.pcor.me'){
       echo " [TEST]";
     }
     ?>">
-  <meta property="og:title" content="Class+<?php
+  <meta property="og:title" content="Calendar+<?php
     if ($_SERVER['HTTP_HOST'] == 'classplus-test.pcor.me'){
       echo " [TEST]";
     }
     ?>">
-  <meta property="og:description" content="학급생활에 재미를 붙여주는 클래스+를 이용하여 시간표와 각종 커뮤니티 서비스를 이용해보세요">
-  <meta name="description" content="학급생활에 재미를 붙여주는 클래스+를 이용하여 시간표와 각종 커뮤니티 서비스를 이용해보세요">
-  <meta name="keywords" content="클래스+, 클래스플러스, classplus, class+, 학교커뮤니티, 클래스팅, 스쿨투게더, 학교종이, 학교 커뮤니티">
+  <meta property="og:description" content="달력에 재미를 붙여주는 캘린더+를 이용하여 시간표와 각종 커뮤니티 서비스를 이용해보세요">
+  <meta name="description" content="달력에 재미를 붙여주는 캘린더+를 이용하여 시간표와 각종 커뮤니티 서비스를 이용해보세요">
+  <meta name="keywords" content="캘린더+, 클래스플러스, classplus, Calendar+, 학교커뮤니티, 클래스팅, 스쿨투게더, 학교종이, 학교 커뮤니티">
   <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png">

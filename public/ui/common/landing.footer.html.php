@@ -46,7 +46,7 @@ chdir(dirname(__FILE__));?>
     <div class="pt-2">
         <div
             class="flex pb-5 px-3 m-auto pt-5 border-t border-gray-500 text-gray-400 text-sm flex-col md:flex-row max-w-6xl">
-            <div class="mt-2">© 클래스+</div>
+            <div class="mt-2">© 캘린더+</div>
         </div>
     </div>
 </footer>

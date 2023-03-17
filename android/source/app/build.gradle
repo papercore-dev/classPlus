@@ -24,8 +24,8 @@ def twaManifest = [
     applicationId: 'com.cplus.app',
     hostName: 'classplus.pcor.me', // The domain being opened in the TWA.
     launchUrl: '/?mode=standalone', // The start path for the TWA. Must be relative to the domain.
-    name: '클래스+', // The application name.
-    launcherName: '클래스+', // The name shown on the Android Launcher.
+    name: '캘린더+', // The application name.
+    launcherName: '캘린더+', // The name shown on the Android Launcher.
     themeColor: '#FFFFFF', // The color used for the status bar.
     navigationColor: '#EBEBEB', // The color used for the navigation bar.
     navigationColorDark: '#EBEBEB', // The color used for the dark navbar.

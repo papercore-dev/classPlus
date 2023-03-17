@@ -129,7 +129,7 @@ function Delete() {
 _INTERVAL_VAL = setInterval(Type, 100);
 </script>
 <p class="visible mx-0 mt-3 mb-0 text-sm leading-relaxed text-left text-gray-400">
-학교와 학급회장이 함께 운영하는 커뮤니티를 넘어,<br>학교생활에 유용한 정보를 제공하는 여기는 클래스+에요.
+학교와 학급회장이 함께 운영하는 커뮤니티를 넘어,<br>학교생활에 유용한 정보를 제공하는 여기는 캘린더+에요.
 </p>
 </div>
 	<div class='flex flex-row my-2'>

@@ -68,7 +68,7 @@ if(get('code')) {
             break;
         }
 
-      echo "<script>alert('Class+ 이용이 제한되었어요.\\n제재 기한: ".$row['banRelease']."\\n제재 사유: ".$row['banReason']."');location.href = '/';</script>";
+      echo "<script>alert('Calendar+ 이용이 제한되었어요.\\n제재 기한: ".$row['banRelease']."\\n제재 사유: ".$row['banReason']."');location.href = '/';</script>";
       session_destroy();
       die;
     }

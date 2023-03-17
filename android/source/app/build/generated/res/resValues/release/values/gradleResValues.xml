@@ -4,7 +4,7 @@
     <!-- Automatically generated file. DO NOT MODIFY -->
 
     <!-- Value from default config. -->
-    <string name="appName" translatable="false">클래스+</string>
+    <string name="appName" translatable="false">캘린더+</string>
     <!-- Value from default config. -->
     <color name="backgroundColor">#FFFFFF</color>
     <!-- Value from default config. -->
@@ -24,7 +24,7 @@
     <!-- Value from default config. -->
     <string name="launchUrl" translatable="false">https://classplus.pcor.me/?mode=standalone</string>
     <!-- Value from default config. -->
-    <string name="launcherName" translatable="false">클래스+</string>
+    <string name="launcherName" translatable="false">캘린더+</string>
     <!-- Value from default config. -->
     <color name="navigationColor">#EBEBEB</color>
     <!-- Value from default config. -->
