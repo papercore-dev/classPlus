@@ -13,43 +13,7 @@ chdir(dirname(__FILE__));
 include 'functions/timeToRelative.php';
 chdir(dirname(__FILE__));
 
-//ID 검증
-if (!isset($_GET["id"])){
-    echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
-    die;
-}
-if (!is_numeric($_GET["id"])){
-    echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
-    die;
-} 
-
-$serviceName = $_GET["id"];
-
-$getServiceData = "SELECT * FROM `posts_board` WHERE boardID = '".$serviceName."' AND boardHidden = '0' AND write_accessLevel <= '".$_SESSION['accessLevel']."'";
-$getServiceData_Result = $db->query($getServiceData);
-if ($getServiceData_Result->rowCount() == 0){
-    echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
-    die;
-}
-else{
-    while($row = $getServiceData_Result->fetch()){
-        include 'functions/specificFunction.php';
-        if ($isBannerHidden){
-            echo "<script>window.location.href = '/explore.php?error=게시판이 존재하지 않거나 삭제됐어요.';</script>";
-            die;
-        }
-    }
-}
-
-//게시판 이름 구하기
-$getServiceName = "SELECT * FROM `posts_board` WHERE boardID = '".$serviceName."'";
-$getServiceName_Result = $db->query($getServiceName);
-$boardName = "";
-while($row = $getServiceName_Result->fetch()){
-    $boardName = $row["boardName"];
-}
-
-$headName = $boardName." 게시판에 글 쓰기";
+$headName = "일정 만들기";
 include 'ui/menu/menu.custom.html.php';
 chdir(dirname(__FILE__));
 ?>
@@ -86,7 +50,7 @@ chdir(dirname(__FILE__));
             />
             </div>
         </div>
-        
+
       <div>
         <button
           class="hover:shadow-lg rounded-lg bg-blue-500 py-3 px-8 text-base font-semibold text-white outline-none"
