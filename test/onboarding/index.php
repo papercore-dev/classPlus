@@ -148,6 +148,21 @@ _INTERVAL_VAL = setInterval(Type, 100);
         <a href="https://metroplus.notion.site/024e9b4918384709b242ad7807e1bc51" class="font-semibold text-gray-500 hover:underline">보기</a>
         </label>
 	</div>
+    <div class='flex flex-row my-2'>
+		<input type="checkbox" id="cb2" value="cb2"
+        class='
+            appearance-none h-6 w-6 bg-gray-400 rounded-md 
+            checked:bg-blue-500 checked:scale-75
+            transition-all duration-200 peer
+        '
+    />
+		<div class='h-6 w-6 absolute rounded-md pointer-events-none
+        peer-checked:border-blue-500 peer-checked:border-2
+        '>
+		</div>
+		<label for='cb2' class='flex flex-col justify-center px-2 peer-checked:text-blue-400  select-none'>알림 수신 동의 (필수)
+        </label>
+	</div>
 </div>
 <div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;"><iframe src="https://streamable.com/e/opc1mp?autoplay=1&amp;nocontrols=1" frameborder="0" width="100%" height="100%" allowfullscreen="" allow="autoplay" style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;" class="rounded-xl"></iframe></div>
 </section>
@@ -162,9 +177,26 @@ _INTERVAL_VAL = setInterval(Type, 100);
 
 <script>
     var cb1 = document.getElementById("cb1");
+    var cb2 = document.getElementById("cb2");
     var btn = document.getElementById("continueButton");
     cb1.addEventListener("change", function() {
-        if (cb1.checked) {
+        if (cb1.checked && cb2.checked) {
+            btn.classList.remove("bg-gray-400");
+            btn.classList.remove("hover:bg-gray-400");
+            btn.classList.add("bg-blue-500");
+            btn.classList.add("hover:bg-blue-700");
+            btn.setAttribute( "onClick", "continueOnboard();");
+        } else {
+            btn.classList.remove("bg-blue-500");
+            btn.classList.remove("hover:bg-blue-700");
+            btn.classList.add("bg-gray-400");
+            btn.classList.add("hover:bg-gray-400");
+            btn.setAttribute("onClick", "console.log('Not checked');");
+        }
+    });
+
+    cb2.addEventListener("change", function() {
+        if (cb1.checked && cb2.checked) {
             btn.classList.remove("bg-gray-400");
             btn.classList.remove("hover:bg-gray-400");
             btn.classList.add("bg-blue-500");

@@ -27,12 +27,9 @@ include '../ui/menu/menu.dash.html.php';
 <h4 class="text-2xl text-slate-500"><span class="font-bold"><?php echo $_SESSION["userName"];?></span>님</h4>
 <p class="text-gray-500"><?php echo $_SESSION["schoolName"];?></p>
 </div>
-<div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3" role="alert">
-        <p class="font-bold">초대코드 대신 사용자를 사용하세요<i>!</i></p>
-        <p class="text-sm">초대코드는 진급, 전학 시에만 사용할 수 있고, 새로 등록하는 사용자부터는 초대코드 사용이 불가능해요.</p>
-    </div>
+
 <div class="mb-2 flex items-center justify-between">
-<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">💌</span>(구) 초대 코드 현황</h4>
+<h4 class="text-2xl font-bold text-slate-500"><span class="tossface">💌</span>초대 코드 현황</h4>
 </div>
 
 <?php

@@ -29,19 +29,16 @@ include '../ui/menu/menu.dash.html.php';
 <h4 class="text-2xl text-slate-500"><span class="font-bold"><?php echo $_SESSION["userName"];?></span>님</h4>
 <p class="text-gray-500"><?php echo $_SESSION["schoolName"];?></p>
 </div>
-<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-        <p class="font-bold">PC로 접속하세요</p>
-        <p class="text-sm">보다 안정적이고 편리한 경험은 PC에서 제공해요.</p>
-    </div>
+
 <div class="mb-2 flex items-center justify-between">
 <h4 class="text-2xl font-bold text-slate-500"><span class="tossface">📂</span>교사/학생위원용 메뉴</h4>
 </div>
 <div class="overflow-x-scroll flex mb-5">
 
-<a href="userManage.php" class="flex-none py-3 px-6">
+<a href="inviteManage.php" class="flex-none py-3 px-6">
 <div class="flex flex-col items-center justify-center gap-3">
 <p class="text-4xl tossface">💌</p>
-<span class="text-slate-900 dark:text-slate-200">사용자 관리</span>
+<span class="text-slate-900 dark:text-slate-200">초대 관리</span>
 </div>
 </a>
 
@@ -56,13 +53,6 @@ include '../ui/menu/menu.dash.html.php';
 <div class="flex flex-col items-center justify-center gap-3">
 <p class="text-4xl tossface">🔔</p>
 <span class="text-slate-900 dark:text-slate-200">급식 진동벨</span>
-</div>
-</a>
-
-<a href="inviteManage.php" class="flex-none py-3 px-6">
-<div class="flex flex-col items-center justify-center gap-3">
-<p class="text-4xl tossface">💌</p>
-<span class="text-slate-900 dark:text-slate-200">(구)초대 관리</span>
 </div>
 </a>
 
