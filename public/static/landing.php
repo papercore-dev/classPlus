@@ -41,7 +41,7 @@ chdir(dirname(__FILE__));
         <div class="mr-auto place-self-center lg:col-span-7">
             <h1 class="max-w-2xl mb-4 text-4xl font-bold leading-none md:text-5xl xl:text-6xl dark:text-white">진보된 학급 경험</h1>
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                교사 중심의 커뮤니티에서, 학생 중심의 커뮤니티로, 우리가 운영해서 더욱 자유로운 캘린더+
+                교사 중심의 커뮤니티에서, 학생 중심의 커뮤니티로, 우리가 운영해서 더욱 자유로운 클래스+
             </p>
             <a href="/app.php" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-full bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 웹으로 시작하기
@@ -61,7 +61,7 @@ chdir(dirname(__FILE__));
         <div class="max-w-screen-md mb-8 lg:mb-16">
             <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">학생 주도, 학급 커뮤니티의 새로운 지평</h2>
             <p class="text-gray-500 sm:text-xl dark:text-gray-400">
-            캘린더+는 학생들이 주도하는 학급 커뮤니티와 교내 정보를 모바일에서 쉽게 접근할 수 있는 어플리케이션이에요. 학급 회장이나 학생회원들은 수업 일정, 과제, 행사 정보 등을 빠르게 전달하고, 학급 내 소외되는 학생 없이 모두가 적극적으로 참여할 수 있는 환경을 조성해요. 또한, 학생들끼리의 교류와 공유도 가능하여 학생들이 자유롭게 의견을 나누고 소통할 수 있어요. 캘린더+와 함께 학생 주도의 새로운 학급 커뮤니티를 만들어 보아요!</p>
+            클래스+는 학생들이 주도하는 학급 커뮤니티와 교내 정보를 모바일에서 쉽게 접근할 수 있는 어플리케이션이에요. 학급 회장이나 학생회원들은 수업 일정, 과제, 행사 정보 등을 빠르게 전달하고, 학급 내 소외되는 학생 없이 모두가 적극적으로 참여할 수 있는 환경을 조성해요. 또한, 학생들끼리의 교류와 공유도 가능하여 학생들이 자유롭게 의견을 나누고 소통할 수 있어요. 클래스+와 함께 학생 주도의 새로운 학급 커뮤니티를 만들어 보아요!</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
             <div>
@@ -71,7 +71,7 @@ chdir(dirname(__FILE__));
 </svg>
                 </div>
                 <h3 class="mb-2 text-xl font-bold dark:text-white">강력한 채팅 기능</h3>
-                <p class="text-gray-500 dark:text-gray-400">캘린더+는 암호화된 채팅 기능을 제공하고, 기존 메신저와 유사한 경험으로 빠르게 적응할 수 있어요.</p>
+                <p class="text-gray-500 dark:text-gray-400">클래스+는 암호화된 채팅 기능을 제공하고, 기존 메신저와 유사한 경험으로 빠르게 적응할 수 있어요.</p>
             </div>
             <div>
                 <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">

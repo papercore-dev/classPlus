@@ -36,7 +36,7 @@ class="inline-block"></lottie-player>
 <div class="pt-12">
 <div class="mx-auto max-w-7xl">
 <div class="text-center">
-<h2 class="text-lg font-semibold text-blue-500">Calendar+에 로그인하시고</h2>
+<h2 class="text-lg font-semibold text-blue-500">Class+에 로그인하시고</h2>
 <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-800 sm:text-4xl">
 친구들과 대화를 시작해봐요!</p>
 <h2 class="mt-2 text-gray-500">아이폰이라면 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block">

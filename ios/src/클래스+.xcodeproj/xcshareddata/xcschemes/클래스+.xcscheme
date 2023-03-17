@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CD89F888237E9D9200C436A1"
                BuildableName = "클래스_.app"
-               BlueprintName = "캘린더+"
-               ReferencedContainer = "container:캘린더+.xcodeproj">
+               BlueprintName = "클래스+"
+               ReferencedContainer = "container:클래스+.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD89F888237E9D9200C436A1"
             BuildableName = "클래스_.app"
-            BlueprintName = "캘린더+"
-            ReferencedContainer = "container:캘린더+.xcodeproj">
+            BlueprintName = "클래스+"
+            ReferencedContainer = "container:클래스+.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD89F888237E9D9200C436A1"
             BuildableName = "클래스_.app"
-            BlueprintName = "캘린더+"
-            ReferencedContainer = "container:캘린더+.xcodeproj">
+            BlueprintName = "클래스+"
+            ReferencedContainer = "container:클래스+.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

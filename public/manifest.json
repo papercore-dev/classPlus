@@ -1,9 +1,9 @@
 {
-  "name": "캘린더+",
-  "short_name": "캘린더+",
+  "name": "클래스+",
+  "short_name": "클래스+",
   "start_url": "https://classplus.pcor.me/?mode=standalone",
   "display": "standalone",
-  "description": "달력에 클래스를 플러스",
+  "description": "학급생활에 클래스를 플러스",
   "lang": "ko_KR",
   "theme_color": "#60a5fa",
   "background_color": "#ffffff",

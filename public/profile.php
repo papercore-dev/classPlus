@@ -63,8 +63,8 @@ chdir(dirname(__FILE__));
 <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white"><span class="tossface">☺️</span>&nbsp;여러분 덕분입니다</h3>
 </div>
 <ul>
-        <li><strong>Calendar+ v1.0.1-dev</strong></li>
-        <li>Calendar+ credit</li>
+        <li><strong>Class+ v1.0.1-dev</strong></li>
+        <li>Class+ credit</li>
         <li><strong>제작자</strong> : 등대 (유한선), 만원</li>
         <li><strong>테스터</strong> : 토끼, 우유, 멌지다, 703 (한인승), 321PLEK</li>
         <li><strong>그리고 우리앱을 이용해주시는</strong> : <?php echo getData('userName'); ?> (<?php echo getData('userID'); ?>)</li>

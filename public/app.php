@@ -102,7 +102,7 @@ x-data="{ open: false }" x-show="open"
           <h2 class="font-bold text-2xl">아직 등록된 배너가 없어요</h2>
           <p class="text-gray-700"></p>
           <a href="/landing.php" class="block visible py-2 px-4 mb-4 leading-none text-white mt-8 bg-blue-500 rounded-xl cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block duration-300 hover:border-blue-400 hover:shadow-lg">
-            캘린더+ 알아보기
+            클래스+ 알아보기
           </a>
       </div>
       </div>';
