@@ -62,6 +62,32 @@ x-data="{ open: false }" x-show="open"
 <div class="swiper">
   <div class="swiper-wrapper">
     <?php
+        //use twitch api to check if amo0905 turned on stream
+        $twitchClientID = "yclvjst75omwkgw5nvzqya8ijalpgl";
+        //use curl to get data from twitch api
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.twitch.tv/helix/streams?user_login=tenkwon");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        $headers = array();
+        $headers[] = "Client-ID: ".$twitchClientID;
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        curl_close ($ch);
+        $twitchData = json_decode($result, true);
+        if ($twitchData['data'][0]['type'] == "live"){
+            echo '<div class="swiper-slide">
+            <a href="https://twitch.tv/amo0905">
+            <div class="h-48 m-4 p-4 bg-cover border rounded-xl" style=" background-image: url(https://static-cdn.jtvnw.net/previews-ttv/live_user_amo0905-1280x720.jpg); ">
+        </div>
+        </a>
+            </div>';
+        }
+    ?>
+    <?php
     $getBannerData = "SELECT * FROM `banner` ORDER BY `banner`.`eventStart` DESC";
     $getBannerData_Result = $db->query($getBannerData);
     if ($getBannerData_Result->rowCount() > 0){
