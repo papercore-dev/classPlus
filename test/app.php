@@ -62,14 +62,6 @@ x-data="{ open: false }" x-show="open"
 <div class="swiper">
   <div class="swiper-wrapper">
     <?php
-            echo '<div class="swiper-slide">
-            <a href="https://twitch.tv/amo0905">
-            <div class="h-48 m-4 p-4 bg-cover border rounded-xl" style=" background-image: url(https://static-cdn.jtvnw.net/previews-ttv/live_user_amo0905-1920x1080.jpg); ">
-        </div>
-        </a>
-            </div>';
-    ?>
-    <?php
     $getBannerData = "SELECT * FROM `banner` ORDER BY `banner`.`eventStart` DESC";
     $getBannerData_Result = $db->query($getBannerData);
     if ($getBannerData_Result->rowCount() > 0){
