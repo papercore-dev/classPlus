@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: 인증서 추출
+        run: echo ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: 인증서 추가
         uses: shimataro/ssh-key-action@v2
         with:
