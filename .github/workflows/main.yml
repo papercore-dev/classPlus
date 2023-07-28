@@ -1,11 +1,6 @@
 name: 서버 동기화
-on:
-  push:
-    branches:
-      - main
-      - master
-  schedule:
-    - cron: '0 0 * * *' # Everyday at 12am
+on: workflow_dispatch
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
