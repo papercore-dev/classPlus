@@ -84,25 +84,17 @@ chdir(dirname(__FILE__));
   .tossface {
   font-family: Tossface;
 }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
-@font-face {
-    font-family: 'LINESeedKR-Rg';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Rg.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+*{
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-body {
-    font-family: 'LINESeedKR-Rg'!important;
+.font-bold{
+  font-weight:700;
 }
-.font-bold, .font-semibold, strong, .font-heavy, .font-black, em{
-    font-family: 'LINESeedKR-Bd'!important;
+.font-semibold{
+  font-weight:500;
 }
 </style>
 <style>
