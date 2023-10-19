@@ -1,5 +1,5 @@
 name: 서버 동기화
-on: workflow_dispatch
+on: push
 
 jobs:
   build-and-deploy:
@@ -7,10 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: 'echo "$SSH_KEY" | base64'
-        shell: bash
-        env:
-          SSH_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+#      - run: 'echo "$SSH_KEY" | base64'
+#        shell: bash
+#        env:
+#          SSH_KEY: ${{secrets.SSH_PRIVATE_KEY}}
 
       - name: 인증서 추가
         uses: shimataro/ssh-key-action@v2
